@@ -292,6 +292,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &761709288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761709290}
+  - component: {fileID: 761709289}
+  m_Layer: 0
+  m_Name: CutSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &761709289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761709288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d480b8367e048064ea9b479f5ee8bccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName:
+  - Thunder
+  - AmbulanceSiren
+  soundName:
+  - LightRain
+  delays:
+  - 4
+  - 3
+--- !u!4 &761709290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761709288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 548.8986, y: 331.536, z: 658.0126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982892054
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,12 +390,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53104ae5f710731489da09a615be8c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds: []
+  musicSounds:
+  - name: LightRain
+    clip: {fileID: 8300000, guid: bf0ccfbc9ca06dd4093d16e555d90139, type: 3}
   sfxSounds:
   - name: AmbulanceSiren
     clip: {fileID: 8300000, guid: cf02603fe3c65784291d491b2c124dde, type: 3}
-  - name: LightRain
-    clip: {fileID: 8300000, guid: bf0ccfbc9ca06dd4093d16e555d90139, type: 3}
   - name: Thunder
     clip: {fileID: 8300000, guid: 580a98ed91be2ba45ba3df7eb56a8b7a, type: 3}
   musicSource: {fileID: 1424208346}
@@ -806,3 +858,4 @@ SceneRoots:
   - {fileID: 693603368}
   - {fileID: 1581294280}
   - {fileID: 982892055}
+  - {fileID: 761709290}
