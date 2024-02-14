@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutSceneSoundManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CutSceneSoundManager : MonoBehaviour
     private string[] soundName;
     [SerializeField]
     private float[] delays;
+    [SerializeField]
+    private float timeForScene = 23;
 
     void Start() 
     {
@@ -24,5 +27,14 @@ public class CutSceneSoundManager : MonoBehaviour
             yield return new WaitForSeconds(delays[i]);
             AudioManager.Instance.PlaySFX(sfxName[i]);
         }
+
+        StartCoroutine(NextLevel());
+    }
+
+    IEnumerator NextLevel()
+    {
+        Debug.Log("Start next level co routine");
+        yield return new WaitForSeconds(timeForScene);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
