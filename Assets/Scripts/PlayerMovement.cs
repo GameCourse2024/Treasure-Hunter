@@ -20,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private bool isSprinting = false;
 
+    private bool canAttack = true;
+    private bool isJumpingFromStanding = false;
+
+
     private void OnEnable()
     {
         moveAction.Enable();
@@ -93,19 +97,24 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void Update()
-{
-   // Move forward only when the forward key is pressed
-float moveInput = moveAction.ReadValue<Vector2>().y;
-Vector3 moveDirection = transform.forward * moveInput;
+    {
+    // Move forward only when the forward key is pressed
+    float moveInput = moveAction.ReadValue<Vector2>().y;
+    Vector3 moveDirection = transform.forward * moveInput;
 
-// Move backward only when the backward key is pressed
-float moveBackwardInput = moveAction.ReadValue<Vector2>().y; // Use positive value here
-moveDirection += transform.forward * moveBackwardInput;
+    // Move backward only when the backward key is pressed
+    float moveBackwardInput = moveAction.ReadValue<Vector2>().y; // Use positive value here
+    moveDirection += transform.forward * moveBackwardInput;
 
     // Sprinting
-    if (sprintAction.triggered)
+    if (sprintAction.triggered && characterController.isGrounded)
     {
         isSprinting = true;
+    }
+    
+    if (moveInput == 0 && moveBackwardInput == 0)
+    {
+        isSprinting = false;
     }
 
     // Apply sprint speed multiplier if sprinting
@@ -123,15 +132,21 @@ moveDirection += transform.forward * moveBackwardInput;
         transform.Rotate(Vector3.up * -rotationSpeed * Time.deltaTime);
     }
 
-    // Jump when the jump key is pressed
-    if (jumpAction.triggered && characterController.isGrounded)
+    // Jump when the jump key is pressed and not sprinting
+    if (jumpAction.triggered && characterController.isGrounded && !isSprinting)
     {
         velocity.y = Mathf.Sqrt(2 * jumpForce * gravity);
-        animator.SetBool("isJumping", true);
+        animator.SetBool("isJumping", !characterController.isGrounded);
+
+        isJumpingFromStanding = Mathf.Abs(moveInput + moveBackwardInput) < 0.1f;
+        if (isJumpingFromStanding)
+            moveAction.Disable();
+        StartCoroutine(EnableMoveActionAfterDelay(1.0f));
+
     }
 
     // Attack when the attack key is pressed
-    if (attackAction.triggered)
+    if (attackAction.triggered && canAttack)
         StartCoroutine(AttackAnimation());
 
     // Apply gravity
@@ -141,7 +156,7 @@ moveDirection += transform.forward * moveBackwardInput;
     characterController.Move((moveDirection.normalized * currentSpeed + velocity) * Time.deltaTime);
 
     // Set isRunning and isJumping animation parameters
-    bool isRunning = Mathf.Abs(moveInput + moveBackwardInput) > 0.1f;
+    bool isRunning = Mathf.Abs(moveInput + moveBackwardInput) > 0.1f && characterController.isGrounded;
     animator.SetBool("isRunning", isRunning);
     animator.SetBool("isJumping", !characterController.isGrounded);
     animator.SetBool("isSprinting", isSprinting);
@@ -155,9 +170,27 @@ moveDirection += transform.forward * moveBackwardInput;
 
     IEnumerator AttackAnimation()
     {
+        canAttack = false;
         animator.SetBool("isAttacking", true);
-        yield return new WaitForSeconds(1.5f);
+        moveAction.Disable();
+        animator.speed = 1.0f / 0.2f;
+
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("isAttacking", false);
+        animator.speed = 1.0f;
+        moveAction.Enable();
+        yield return new WaitForSeconds(0.2f);
+
+        canAttack = true;
+
+    }
+    IEnumerator EnableMoveActionAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Re-enable moveAction after the specified delay
+        if (!moveAction.enabled)
+            moveAction.Enable();
     }
 }
 
