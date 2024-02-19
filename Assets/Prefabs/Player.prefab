@@ -5036,6 +5036,7 @@ GameObject:
   - component: {fileID: 7524664592281178096}
   - component: {fileID: 8651883090908954708}
   - component: {fileID: 5828143215101583875}
+  - component: {fileID: 4708521768490066640}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5226,6 +5227,27 @@ MonoBehaviour:
       m_Action: Attack
       m_Flags: 0
     m_Flags: 0
+--- !u!65 &4708521768490066640
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719220633055560104}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.73, y: 6.19, z: 4.98}
+  m_Center: {x: 0, y: 1.42, z: 1.56}
 --- !u!1 &7788336702427976125
 GameObject:
   m_ObjectHideFlags: 0
