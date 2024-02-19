@@ -1,91 +1,64 @@
-using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    public float windForce = 10f;
-    public float maxWindAngleChange = 70f;
-    public float rotationSpeed = 80f; // Increased value for faster rotation
-    public float windChangeInterval = 5f; // Time interval for changing wind direction
+    [SerializeField]
+    private float windForce;
 
-    private Rigidbody shipRigidbody;
-    private Vector3 targetWindDirection;
+    [Tooltip("How often the wind hits, maximum")]
+    [SerializeField]
+    private float maxInterval = 5f;
 
-    public Vector3 windDirection { get; private set; }
-    public float windAngle { get; private set; }
+    [SerializeField]
+    private float maxAngleChangePerSecond = 5f; // The maximum angle change per second
+    private float targetAngle; // The target wind angle
+    private float currentAngle; // The current wind angle
+
+   private Rigidbody rb;
+
+    public Vector3 windForceVector { get; private set; }
+
 
     void Start()
     {
-        shipRigidbody = GetComponent<Rigidbody>();
-
-        if (shipRigidbody == null)
+        rb = GetComponent<Rigidbody>();
+        if(rb == null)
         {
-            Debug.LogError("Rigidbody component not found on the GameObject with Wind script.");
+            Debug.Log("Error, no rigidbody on ship found");
         }
-
-        // Initialize the target wind direction
-        CalculateTargetWindDirection();
-
-        // Start coroutine to periodically change wind direction
-        StartCoroutine(ChangeWindDirection());
+        targetAngle = Random.Range(-90f, 90f);
+        currentAngle = targetAngle;
     }
 
     void Update()
     {
+        UpdateWindDirection();
         ApplyWind();
     }
 
-    void CalculateTargetWindDirection()
+    void UpdateWindDirection()
     {
-        targetWindDirection = Random.onUnitSphere;
-        targetWindDirection.y = 0f;
-        targetWindDirection.Normalize();
-    }
+        // Gradually change the target angle
+        targetAngle += Random.Range(-maxAngleChangePerSecond, maxAngleChangePerSecond) * Time.deltaTime;
 
-    IEnumerator ChangeWindDirection()
-    {
-        while (true)
-        {
-            // Wait for the specified interval
-            yield return new WaitForSeconds(windChangeInterval);
+        // Clamp the target angle to the range of -90 to 90 degrees
+        targetAngle = Mathf.Clamp(targetAngle, -90f, 90f);
 
-            // Calculate a new random wind direction
-            CalculateTargetWindDirection();
-        }
+        // Smoothly lerp the current angle towards the target angle
+        currentAngle = Mathf.Lerp(currentAngle, targetAngle, Time.deltaTime);
+
+        Debug.Log("Current Angle: " + currentAngle);
+
+        windForceVector = Quaternion.Euler(0f, currentAngle, 0f) * Vector3.forward * windForce;
     }
 
     void ApplyWind()
-{
-    if (shipRigidbody != null)
     {
-        // Get the current wind direction
-        Vector3 currentWindDirection = shipRigidbody.velocity.normalized;
-
-        // Calculate the angle between current and target wind directions
-        float angle = Vector3.Angle(currentWindDirection, targetWindDirection);
-
-        // Gradually rotate towards the target wind direction within the specified angle range
-        float rotationAmount = Mathf.Min(maxWindAngleChange, angle);
-        Vector3 newWindDirection = Vector3.RotateTowards(currentWindDirection, targetWindDirection, rotationAmount * Mathf.Deg2Rad, 0.0f);
-
-        // Ignore changes in the Y-axis
-        newWindDirection.y = 0f;
-
-        // Gradually adjust the wind direction based on the previous direction
-        targetWindDirection = Vector3.Slerp(currentWindDirection, newWindDirection, Time.deltaTime * rotationSpeed);
-        Debug.Log(angle);
-        Debug.Log(targetWindDirection);
-        // Set the wind force directly to the ship's velocity (ignoring Y-axis)
-        shipRigidbody.velocity = new Vector3(targetWindDirection.x, 0f, targetWindDirection.z) * windForce;
-
-        // Set wind angle
-        windAngle = Mathf.Atan2(targetWindDirection.x, targetWindDirection.z) * Mathf.Rad2Deg;
-
-        // Continuously adjust the wind direction to simulate a smooth transition
-        targetWindDirection = Quaternion.Euler(0f, Time.deltaTime * rotationSpeed, 0f) * targetWindDirection;
-        targetWindDirection.Normalize(); // Normalize the direction to ensure constant speed
+        // Calculate the wind force vector based on the current angle
+        Vector3 windForceVector = Quaternion.Euler(0f, currentAngle, 0f) * Vector3.forward * windForce;
+        // Apply the wind force to the boat
+        rb.AddForce(windForceVector, ForceMode.Force);
     }
-}
-
 }
