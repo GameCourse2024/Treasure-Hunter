@@ -24,15 +24,13 @@ public class AudioManagerGamePlay : MonoBehaviour
 
     public void Play(string name)
     {
-       Debug.Log("Searching for song");
+       Debug.Log("Searching for song:" + name);
        SoundForGame s = Array.Find(sounds, sound => sound.name == name);
        if(s!=null)
        {
-            Debug.Log("Found Sound");
+            Debug.Log("Found Sound: " + s.name);
             s.source.Play();
             Debug.Log("Playing sound: " + s.name);
-
-
        }
        else
        {

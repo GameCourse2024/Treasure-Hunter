@@ -11,12 +11,8 @@ public class FirstIslandManager : MonoBehaviour
     {
         // First we play the soundtrack
         Debug.Log("Playing themesong");
-        audioManager.Play("Music");
+        audioManager.Play("ThemeSong");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

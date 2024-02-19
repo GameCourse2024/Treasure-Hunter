@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.673687, g: 0.5192693, b: 0.34707242, a: 1}
+  m_IndirectSpecularColor: {r: 0.673305, g: 0.5181906, b: 0.3458956, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59206163}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: NPCS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1510,12 +1510,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Music
-    clip: {fileID: 8300000, guid: 4328e99f82b1f3241bc91779dd74deba, type: 3}
-    volume: 0.5
+  - name: NPCMad
+    clip: {fileID: 8300000, guid: d830335eee434034e987b0f476a8d3b3, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
-    loop: 1
+    loop: 0
+  - name: NPCVoice1
+    clip: {fileID: 8300000, guid: 6a9b5bf688e7f514f95c9c6c4762946c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: NPCVoice2
+    clip: {fileID: 8300000, guid: 74ac0e42c6e20bd499c5d292deb075a2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ThemeSong
+    clip: {fileID: 8300000, guid: f2d0c521b0b29434a801890c93a1eb7f, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!1001 &282707656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2829,8 +2847,8 @@ Transform:
   m_GameObject: {fileID: 487966570}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -615.8427, y: -43.19835, z: -1112.9083}
-  m_LocalScale: {x: 406.23987, y: 8.075803, z: 155.06505}
+  m_LocalPosition: {x: -615.8427, y: -43.19835, z: 35}
+  m_LocalScale: {x: 3.4875, y: 1, z: 5.4186}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810564089}
@@ -11372,9 +11390,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1294080367}
     m_Modifications:
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: waitTime
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 270721216}
     - target: {fileID: 6129434329696352378, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_Name
       value: NPC1

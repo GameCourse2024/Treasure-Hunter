@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class NPCInteract : MonoBehaviour
 {
+    [SerializeField]
+    private AudioManagerGamePlay audioManager;
+    [Tooltip("Name of sound effect for this character to play in interaction. NOTE list of sounds for npc can be found in the npc folder inside sounds")]
+    [SerializeField]
+    private string soundName;
     [Tooltip("How long for the co-routine to wait")]
     [SerializeField]
     private float waitTime = 10;
@@ -46,10 +51,12 @@ public class NPCInteract : MonoBehaviour
 
     IEnumerator InteractCoroutine()
     {
+        Debug.Log("Playing sound for NPC: " + soundName);
+        audioManager.Play(soundName);
+    // Show the Text bubble on screen with dynamic text
+
         yield return new WaitForSeconds(waitTime);
 
-        // Play As If Talking Sound
-        // Show the Text bubble on screen with dynamic text
         nPCBehaviour.ResumeMovement();
 
         // Stop Talking Sounds, remove text bubble
