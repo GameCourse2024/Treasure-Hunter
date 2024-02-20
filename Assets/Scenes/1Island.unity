@@ -745,6 +745,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1452861398}
+    - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: jumpForce
       value: 2
       objectReference: {fileID: 0}
@@ -8623,6 +8627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452861397}
+  - component: {fileID: 1452861398}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Spawner
@@ -8638,13 +8643,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452861396}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07129751, y: 0.10485206, z: 0.55776143, w: 0.8202591}
-  m_LocalPosition: {x: -0.09, y: 2.1257153, z: 0.754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.090002626, y: 2.1257153, z: 0.7539744}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838004626}
-  m_LocalEulerAnglesHint: {x: 0, y: 14.569, z: 68.43}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452861398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452861396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7258d57bd1d20d46b5adb37017e6e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 7335389834344377185, guid: a4928146a763ff6449edc07507cc1a53, type: 3}
+  throwPoint: {fileID: 1452861397}
+  destroyTime: 1.5
 --- !u!1001 &1469118066
 PrefabInstance:
   m_ObjectHideFlags: 0
