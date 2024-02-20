@@ -749,6 +749,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      propertyPath: throwPoint
+      value: 
+      objectReference: {fileID: 1452861397}
+    - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      propertyPath: fireballPrefab
+      value: 
+      objectReference: {fileID: 7335389834344377185, guid: a4928146a763ff6449edc07507cc1a53, type: 3}
+    - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: sprintSpeedMultiplier
       value: 1.5
       objectReference: {fileID: 0}
@@ -770,7 +778,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1452861397}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
 --- !u!1001 &123241000
@@ -8603,6 +8614,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0297c1d9dc5137043b0bde39f96ff5b2, type: 3}
   m_PrefabInstance: {fileID: 1452096280}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1452861396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1452861397}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1452861397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452861396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.07129751, y: 0.10485206, z: 0.55776143, w: 0.8202591}
+  m_LocalPosition: {x: -0.09, y: 2.1257153, z: 0.754}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1838004626}
+  m_LocalEulerAnglesHint: {x: 0, y: 14.569, z: 68.43}
 --- !u!1001 &1469118066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11503,14 +11545,24 @@ PrefabInstance:
     - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9000000, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
     - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_CullingMode
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'spine'\n\tTransform 'forearm.R'\n\tTransform
+        'thigh.L'\n\tTransform 'toe.L'\n\tTransform 'upper_arm.L'\n\tTransform 'shin.R'\n\tTransform
+        'spine.003'\n\tTransform 'upper_arm.R'\n\tTransform 'foot.L'\n\tTransform
+        'shin.L'\n\tand more ...\n\tFrom animation clip 'metarig|Idle'\n\tFrom animation
+        clip 'metarig|Walk'"
       objectReference: {fileID: 0}
     - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3584465854393006931, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: player

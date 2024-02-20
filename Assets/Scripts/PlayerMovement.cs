@@ -19,9 +19,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Vector3 velocity;
     private bool isSprinting = false;
-
     private bool canAttack = true;
     private bool isJumpingFromStanding = false;
+   
+   
+    public Spawner spawner;
+    //[SerializeField] private GameObject fireballPrefab;
+    //[SerializeField] private Transform throwPoint;
 
 
     private void OnEnable()
@@ -77,23 +81,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Start()
-{
-    characterController = GetComponent<CharacterController>();
-    animator = GetComponent<Animator>();
-
-    if (moveAction == null)
     {
-        moveAction = new InputAction(type: InputActionType.Value);
-        moveAction.AddCompositeBinding("2DVector")
-            .With("Up", "<Keyboard>/w")
-            .With("Down", "<Keyboard>/s")
-            .With("Left", "<Keyboard>/a")
-            .With("Right", "<Keyboard>/d");
+        //throwPoint = transform.Find("Spawner"); 
+        characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+
+        if (moveAction == null)
+        {
+            moveAction = new InputAction(type: InputActionType.Value);
+            moveAction.AddCompositeBinding("2DVector")
+                .With("Up", "<Keyboard>/w")
+                .With("Down", "<Keyboard>/s")
+                .With("Left", "<Keyboard>/a")
+                .With("Right", "<Keyboard>/d");
+        }
+        
+        // Enable the moveAction
+        moveAction.Enable();
     }
-    
-    // Enable the moveAction
-    moveAction.Enable();
-}
 
 
     private void Update()
@@ -147,8 +152,9 @@ public class PlayerMovement : MonoBehaviour
 
     // Attack when the attack key is pressed
     if (attackAction.triggered && canAttack)
+    {
         StartCoroutine(AttackAnimation());
-
+    }
     // Apply gravity
     velocity.y -= gravity * Time.deltaTime;
 
@@ -171,11 +177,15 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator AttackAnimation()
     {
         canAttack = false;
+        Debug.Log("Attacking...");
         animator.SetBool("isAttacking", true);
         moveAction.Disable();
         animator.speed = 1.0f / 0.2f;
+        
+        spawner.SpawnFireball();
 
         yield return new WaitForSeconds(0.5f);
+
         animator.SetBool("isAttacking", false);
         animator.speed = 1.0f;
         moveAction.Enable();
@@ -193,7 +203,6 @@ public class PlayerMovement : MonoBehaviour
             moveAction.Enable();
     }
 }
-
 
     // Method to handle the "canceled" event for sprint action
     private void OnSprintCanceled(InputAction.CallbackContext context)
