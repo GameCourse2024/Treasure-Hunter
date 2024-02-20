@@ -51,8 +51,14 @@ public class Wind : MonoBehaviour
 
         Debug.Log("Current Angle: " + currentAngle);
 
-        windForceVector = Quaternion.Euler(0f, currentAngle, 0f) * Vector3.forward * windForce;
+        // Calculate the wind force vector only with x and z components
+        Vector3 tempWindForce = Quaternion.Euler(0f, currentAngle, 0f) * Vector3.forward * windForce;
+        tempWindForce.y = 0f; // Set y component to 0 to cancel force along the y-axis
+
+        // Assign the modified vector back to the property
+        windForceVector = tempWindForce;
     }
+
 
     void ApplyWind()
     {
