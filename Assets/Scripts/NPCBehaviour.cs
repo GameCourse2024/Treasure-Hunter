@@ -17,10 +17,20 @@ public class NPCBehaviour : MonoBehaviour
     [SerializeField]
     private float maxWanderTimer = 15f;
 
+    [Tooltip("Minimum time before this NPC rotates towards the player")]
+    [SerializeField]
+    private float waitTime = 1f;
+
     [Tooltip("Does this NPC Wander?")]
     [SerializeField]
     private bool wander = true;
-    private Transform target;
+
+    [SerializeField]
+    private Transform player;
+
+    [Tooltip("How fast this NPC rotates to the player")]
+    [SerializeField]
+    private float rotationSpeed = 1000000f;
     private NavMeshAgent agent;
     private float timer;
     private Vector3 startPosition;
@@ -74,7 +84,11 @@ public class NPCBehaviour : MonoBehaviour
         // Stop the NavMeshAgent from moving
         Debug.Log("Movement Stopped: " + name);
         agent.isStopped = true;
+        agent.isStopped = false;
         isInteracting = true;
+
+        // Rotating the NPC to the player
+        StartCoroutine(RotateTowardsPlayer());
 
         // TO DO
         // Stop walking animation and play Interact animation
@@ -89,5 +103,16 @@ public class NPCBehaviour : MonoBehaviour
 
         // TO DO
         // Stop interact animation
+
+    }
+
+    IEnumerator RotateTowardsPlayer()
+    {
+        Debug.Log("Starting Rotation");
+        Vector3 directionToPlayer = player.position - transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        yield return new WaitForSeconds(waitTime);
+
     }
 }

@@ -14,6 +14,8 @@ public class NPCInteract : MonoBehaviour
     private float waitTime = 10;
     private NPCBehaviour nPCBehaviour;
     private bool canInteract;
+    [SerializeField]
+    Canvas canvas;
 
     void Start() 
     {
@@ -24,7 +26,6 @@ public class NPCInteract : MonoBehaviour
     {
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            nPCBehaviour.StopMovement();
             Debug.Log("Start Coroutine");
             StartCoroutine(InteractCoroutine());
         }
@@ -51,13 +52,20 @@ public class NPCInteract : MonoBehaviour
 
     IEnumerator InteractCoroutine()
     {
+        nPCBehaviour.StopMovement();
         Debug.Log("Playing sound for NPC: " + soundName);
         audioManager.Play(soundName);
-    // Show the Text bubble on screen with dynamic text
+
+        // Show the Text bubble on screen with dynamic text
+        Debug.Log("Turning on Canvas");
+        canvas.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(waitTime);
 
+        Debug.Log("Resuming NPC Movement");
         nPCBehaviour.ResumeMovement();
+        Debug.Log("Turning off Canvas");
+        canvas.gameObject.SetActive(false);
 
         // Stop Talking Sounds, remove text bubble
 
