@@ -1,45 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipBuoyancy : MonoBehaviour
+public class ShipBouyancy : MonoBehaviour
 {
+    [Tooltip("How strong the ship bounces")]
+    [SerializeField]
+    private float bounceForce = 10f;
+
+    [Tooltip("Offset from the starting Y position")]
+    [SerializeField]
+    private float offsetY = 1f;
+
+    private float startingY;
+
     private Rigidbody rb;
-    [SerializeField] private float depthBeforeSubmerged = 1f;
 
-
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //originalDrag = rb.drag;
+        startingY = transform.position.y;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        Buoyancy();
-        ApplyWaterResistance();
-    }
-
-    void Buoyancy()
-    {
-        // Raycast downward to find the water surface
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Water")))
+        if (transform.position.y < startingY - offsetY)
         {
-            // Calculate the displacement from the water surface
-            float displacement = Mathf.Max(0, hit.point.y - transform.position.y);
-
-            // Calculate the buoyant force based on the displaced volume
-            Vector3 buoyantForce = Physics.gravity * displacement * rb.mass;
-            rb.AddForce(buoyantForce);
+            BounceShip();
         }
     }
 
-    void ApplyWaterResistance()
+    void BounceShip()
     {
-        // Simulate water resistance or drag
-        Vector3 waterResistance = -rb.velocity * 0.1f; // You may need to adjust this value
-        rb.AddForce(waterResistance);
+        // Reset the ship's velocity to avoid accumulating force
+        rb.velocity = Vector3.zero;
 
-        // Simulate angular damping due to water
-        rb.angularVelocity *= 0.99f; // You may need to adjust this value
+        // Apply an upward force to simulate the bounce
+        Vector3 bounceForceVector = new Vector3(0f, bounceForce, 0f);
+        rb.AddForce(bounceForceVector, ForceMode.Impulse);
     }
+
 }
