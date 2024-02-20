@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.673305, g: 0.5181906, b: 0.3458956, a: 1}
+  m_IndirectSpecularColor: {r: 0.673687, g: 0.51926935, b: 0.3470725, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11500,6 +11500,14 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 270721216}
+    - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3584465854393006931, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: player
       value: 
@@ -11508,10 +11516,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC1
       objectReference: {fileID: 0}
+    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_Speed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_Radius
+      value: 3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_Acceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1838004626}
+    - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: wanderRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: maxWanderTimer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: minWanderTimer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.371338
