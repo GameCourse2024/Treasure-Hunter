@@ -9,7 +9,7 @@ public class ShipBuoyancy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        originalDrag = rb.drag;
+        //originalDrag = rb.drag;
     }
 
     void FixedUpdate()
