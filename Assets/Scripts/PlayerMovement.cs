@@ -22,11 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canAttack = true;
     private bool isJumpingFromStanding = false;
    
-   
     public Spawner spawner;
-    //[SerializeField] private GameObject fireballPrefab;
-    //[SerializeField] private Transform throwPoint;
-
 
     private void OnEnable()
     {
@@ -153,7 +149,9 @@ public class PlayerMovement : MonoBehaviour
     // Attack when the attack key is pressed
     if (attackAction.triggered && canAttack)
     {
-        StartCoroutine(AttackAnimation());
+        if (characterController.isGrounded) StartCoroutine(AttackAnimation());
+        //else StartCoroutine(AttackOnAir());
+
     }
     // Apply gravity
     velocity.y -= gravity * Time.deltaTime;
@@ -177,6 +175,8 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator AttackAnimation()
     {
         canAttack = false;
+        if (characterController.isGrounded && !animator.GetBool("isJumping"))
+        {
         Debug.Log("Attacking...");
         animator.SetBool("isAttacking", true);
         moveAction.Disable();
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
         animator.speed = 1.0f;
         moveAction.Enable();
         yield return new WaitForSeconds(0.2f);
-
+        }
         canAttack = true;
 
     }
@@ -209,4 +209,14 @@ public class PlayerMovement : MonoBehaviour
     {
         isSprinting = false;
     }
+    public bool IsSprinting()
+    {
+    return isSprinting;
+    }
+    
+    public void SetSprinting(bool sprinting)
+    {
+        isSprinting = sprinting;
+    }
+
 }
