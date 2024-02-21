@@ -30,14 +30,12 @@ public class NPCInteract : MonoBehaviour
     [Tooltip("Can this NPC give you a quest?")]
     [SerializeField]
     private bool canGiveQuest;
-#if UNITY_EDITOR
     [Tooltip("What quest does this NPC give?")]
     [SerializeField]
     private NPCQuest npcQuest;
     [Tooltip("What text does this NPC say after completing the quest")]
     [SerializeField]
     private string afterQuestText;
-#endif
 
     void Start() 
     {

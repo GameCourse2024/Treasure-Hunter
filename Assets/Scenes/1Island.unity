@@ -9937,28 +9937,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c8dbbd17831aecb419cf9f688e85e672, type: 3}
   m_PrefabInstance: {fileID: 1512283742}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1516018269 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8715474131015470051, guid: d596df587a80dc34d812954a664f2951, type: 3}
-  m_PrefabInstance: {fileID: 5606084818199700219}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350e5d63d2e36084bac5b33a1b5972c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1516018270 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8330560067822668701, guid: d596df587a80dc34d812954a664f2951, type: 3}
-  m_PrefabInstance: {fileID: 5606084818199700219}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1521794781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11972,24 +11950,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 113d36f51d55c2c4a807a09ac76c1d69, type: 3}
   m_PrefabInstance: {fileID: 1936881209}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1947164757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6129434329696352378, guid: d596df587a80dc34d812954a664f2951, type: 3}
-  m_PrefabInstance: {fileID: 5606084818199700219}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1947164763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947164757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1005e3ae1e44354e8d4c03c42a43a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questData: {fileID: 11400000, guid: 00f3ce6fea4a2da478726f2c8fadf070, type: 2}
 --- !u!1001 &1963939919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12778,49 +12738,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1294080367}
     m_Modifications:
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: text
-      value: help me please the box is so scary
-      objectReference: {fileID: 0}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: npcQuest
-      value: 
-      objectReference: {fileID: 1947164763}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 270721216}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: canGiveQuest
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: afterQuestText
-      value: You saved me oh my god
-      objectReference: {fileID: 0}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: textMeshProText
-      value: 
-      objectReference: {fileID: 1516018270}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: typeWriterEffect
-      value: 
-      objectReference: {fileID: 1516018269}
-    - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
-    - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_CullingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_WarningMessage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3584465854393006931, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: player
       value: 
@@ -12829,42 +12749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC1
       objectReference: {fileID: 0}
-    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_Speed
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_Radius
-      value: 3.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_Acceleration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 6557151451736774622, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1838004626}
-    - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: wanderRadius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: maxWanderTimer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721461711972280911, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: minWanderTimer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.371338
@@ -12905,21 +12793,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8330560067822668701, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: m_text
-      value: test
-      objectReference: {fileID: 0}
-    - target: {fileID: 8715474131015470051, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: fullText
-      value: Itamar is a piece of nothing noob
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6129434329696352378, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1947164763}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d596df587a80dc34d812954a664f2951, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

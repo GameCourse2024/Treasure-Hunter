@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fuck you Nigger
+  m_text: test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -224,7 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.1
-  fullText: fuck itamar
 --- !u!1 &2706002058906322639
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +423,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6792327054025522797, guid: 64db8d48fab1ceb43a8ee5d52643029a, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1532640751255260177}
+    - targetCorrespondingSourceObject: {fileID: 6792327054025522797, guid: 64db8d48fab1ceb43a8ee5d52643029a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3042767098176270993}
   m_SourcePrefab: {fileID: 100100000, guid: 64db8d48fab1ceb43a8ee5d52643029a, type: 3}
 --- !u!1 &6129434329696352378 stripped
 GameObject:
@@ -443,8 +445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 10
-  minWanderTimer: 10
-  maxWanderTimer: 20
+  minWanderTimer: 5
+  maxWanderTimer: 11
   waitTime: 1
   wander: 1
   player: {fileID: 0}
@@ -458,12 +460,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 6129434329696352378}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 100
-  m_Acceleration: 8
+  m_Radius: 3.22
+  m_Speed: 60
+  m_Acceleration: 1
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 70
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -504,10 +506,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951d984a5c2ed454f89c622c33ab43d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeWriterEffect: {fileID: 8715474131015470051}
+  textMeshProText: {fileID: 8330560067822668701}
+  text: help me please the box is so scary
   audioManager: {fileID: 0}
   soundName: NPCVoice1
   waitTime: 10
   canvas: {fileID: 4431555174146282162}
+  canGiveQuest: 1
+  npcQuest: {fileID: 3042767098176270993}
+  afterQuestText: You saved me oh my god
+--- !u!114 &3042767098176270993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129434329696352378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1005e3ae1e44354e8d4c03c42a43a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questData: {fileID: 11400000, guid: 00f3ce6fea4a2da478726f2c8fadf070, type: 2}
 --- !u!4 &6799292635335025344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127395625895404759, guid: 64db8d48fab1ceb43a8ee5d52643029a, type: 3}
