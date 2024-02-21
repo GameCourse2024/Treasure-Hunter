@@ -8673,7 +8673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 7335389834344377185, guid: a4928146a763ff6449edc07507cc1a53, type: 3}
   throwPoint: {fileID: 1452861397}
-  destroyTime: 0
+  destroyTime: 5
 --- !u!1001 &1469118066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9601,6 +9601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726939798}
   - component: {fileID: 1726939797}
+  - component: {fileID: 1726939799}
   m_Layer: 0
   m_Name: TreeManager
   m_TagString: Untagged
@@ -9637,6 +9638,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 814209897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726939799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726939796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd963d6133cbe6b49a982e19ef5fe14d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windForce: 0
+  maxInterval: 5
+  maxAngleChangePerSecond: 5
 --- !u!1001 &1740542614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10789,6 +10805,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 113d36f51d55c2c4a807a09ac76c1d69, type: 3}
   m_PrefabInstance: {fileID: 1936881209}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1947164757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6129434329696352378, guid: d596df587a80dc34d812954a664f2951, type: 3}
+  m_PrefabInstance: {fileID: 5606084818199700219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1947164763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947164757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1005e3ae1e44354e8d4c03c42a43a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questConditions: {fileID: 0}
 --- !u!1001 &1963939919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11590,13 +11624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'spine'\n\tTransform 'forearm.R'\n\tTransform
-        'thigh.L'\n\tTransform 'toe.L'\n\tTransform 'upper_arm.L'\n\tTransform 'shin.R'\n\tTransform
-        'spine.003'\n\tTransform 'upper_arm.R'\n\tTransform 'foot.L'\n\tTransform
-        'shin.L'\n\tand more ...\n\tFrom animation clip 'metarig|Idle'\n\tFrom animation
-        clip 'metarig|Walk'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 629338964401010874, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -11697,7 +11725,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6129434329696352378, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1947164763}
   m_SourcePrefab: {fileID: 100100000, guid: d596df587a80dc34d812954a664f2951, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

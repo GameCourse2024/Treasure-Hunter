@@ -5,36 +5,6 @@ using UnityEngine.AI;
 
 public class NPCBehaviour : MonoBehaviour
 {
-    // [Tooltip("How far this NPC will wander")]
-    // [SerializeField]
-    // private float wanderRadius = 10f;
-
-    // [Tooltip("Minimum time before this NPC moves again")]
-    // [SerializeField]
-    // private float minWanderTimer = 5f;
-
-    // [Tooltip("Maximum time before this NPC moves again")]
-    // [SerializeField]
-    // private float maxWanderTimer = 15f;
-
-    // [Tooltip("Minimum time before this NPC rotates towards the player")]
-    // [SerializeField]
-    // private float waitTime = 1f;
-
-    // [Tooltip("Does this NPC Wander?")]
-    // [SerializeField]
-    // private bool wander = true;
-
-    // [SerializeField]
-    // private Transform player;
-
-    // [Tooltip("How fast this NPC rotates to the player")]
-    // [SerializeField]
-    // private float rotationSpeed = 1000000f;
-    // private NavMeshAgent agent;
-    // private float timer;
-    // private Vector3 startPosition;
-    // private bool isInteracting;
 
     [Tooltip("How far this NPC will wander")]
     [SerializeField] private float wanderRadius = 10f;
@@ -114,7 +84,6 @@ public class NPCBehaviour : MonoBehaviour
         // Stop the NavMeshAgent from moving
         Debug.Log("Movement Stopped: " + name);
         agent.isStopped = true;
-        agent.isStopped = false;
         isInteracting = true;
 
         // Rotating the NPC to the player
@@ -142,6 +111,7 @@ public class NPCBehaviour : MonoBehaviour
         Vector3 directionToPlayer = player.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        agent.isStopped = true;
         yield return new WaitForSeconds(waitTime);
 
     }

@@ -7,12 +7,8 @@ public class TypeWriterEffect : MonoBehaviour
 {
     [Tooltip("Delay between each letter typed")]
     [SerializeField]
-    public float delay = 0.1f;
-    
-    [Tooltip("The text that this NPC says")]
-    [SerializeField]
+    public float delay = 0.05f;
     private string fullText = "Default text";
-
     private string currentText = "";
     private TMP_Text textComponent;
 
@@ -21,6 +17,11 @@ public class TypeWriterEffect : MonoBehaviour
         textComponent = GetComponent<TMP_Text>();
         textComponent.text = "";
         StartCoroutine(ShowText());
+    }
+
+    public void setText(string newText)
+    {
+        fullText = newText;
     }
 
     IEnumerator ShowText()

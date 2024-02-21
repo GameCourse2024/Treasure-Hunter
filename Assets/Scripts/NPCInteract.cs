@@ -1,9 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NPCInteract : MonoBehaviour
-{
+{   
+    [SerializeField]
+    private TypeWriterEffect typeWriterEffect;
+    [Tooltip("Refference to the text field that this npc effects")]
+    [SerializeField]
+    private TextMeshProUGUI textMeshProText;
+
+    [Tooltip("The text that this NPC says")]
+    [SerializeField]
+    private string text;
+
     [SerializeField]
     private AudioManagerGamePlay audioManager;
     [Tooltip("Name of sound effect for this character to play in interaction. NOTE list of sounds for npc can be found in the npc folder inside sounds")]
@@ -16,12 +27,23 @@ public class NPCInteract : MonoBehaviour
     private bool canInteract;
     [SerializeField]
     Canvas canvas;
+    [Tooltip("Can this NPC give you a quest?")]
+    [SerializeField]
+    private bool canGiveQuest;
+#if UNITY_EDITOR
+    [Tooltip("What quest does this NPC give?")]
+    [SerializeField]
+    private NPCQuest npcQuest;
+    [Tooltip("What text does this NPC say after completing the quest")]
+    [SerializeField]
+    private string afterQuestText;
+#endif
 
     void Start() 
     {
         nPCBehaviour = GetComponent<NPCBehaviour>();
+        typeWriterEffect.setText(text);    
     }
-
     private void Update() 
     {
         if (canInteract && Input.GetKeyDown(KeyCode.E))
@@ -52,22 +74,64 @@ public class NPCInteract : MonoBehaviour
 
     IEnumerator InteractCoroutine()
     {
+        //Stop movement
         nPCBehaviour.StopMovement();
-        Debug.Log("Playing sound for NPC: " + soundName);
-        audioManager.Play(soundName);
-
+        //Play Sound
+        PlaySound();
+        // Give Quest
+        QuestHandle();
         // Show the Text bubble on screen with dynamic text
-        Debug.Log("Turning on Canvas");
-        canvas.gameObject.SetActive(true);
-
+        ShowText();
         yield return new WaitForSeconds(waitTime);
 
-        Debug.Log("Resuming NPC Movement");
+        // Resume movement
         nPCBehaviour.ResumeMovement();
+        // Hide Text 
+        HideText();
+
+    }
+
+    private void PlaySound()
+    {
+        Debug.Log("Playing sound for NPC: " + soundName);
+        audioManager.Play(soundName);
+    }
+    private void ShowText()
+    {
+        Debug.Log("Turning on Canvas");
+        canvas.gameObject.SetActive(true);
+    }
+    private void HideText()
+    {
         Debug.Log("Turning off Canvas");
         canvas.gameObject.SetActive(false);
+    }
+    private void QuestHandle()
+    {
+        if(!canGiveQuest)
+        {
+            return;
+        }
+        QuestManager questManager = QuestManager.Instance;
+        if (questManager == null)
+        {
+            return;
+        }
+        if(!npcQuest.questData.hasStarted)
+        {
+            Debug.Log("Giving Quest To Player: " + npcQuest.questData.name);
+            questManager.AddQuest(npcQuest);
+            return;
+        }
+        if(npcQuest.questData.isCompleted == true)
+        {
+            Debug.Log("Giving Reward and changing NPC Text: " + npcQuest.questData.name);
 
-        // Stop Talking Sounds, remove text bubble
+            // TO DO REWARD PLAYER
 
+
+            textMeshProText.SetText(afterQuestText);
+        }
+     
     }
 }
