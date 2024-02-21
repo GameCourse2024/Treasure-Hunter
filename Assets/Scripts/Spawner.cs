@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject fireballPrefab;
     [SerializeField] private Transform throwPoint;
-    [SerializeField] private float destroyTime;
+    [SerializeField] private float destroyTime = 1.5f;
 
     public void SpawnFireball()
     {
