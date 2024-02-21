@@ -10,7 +10,6 @@ public class Staminabar : MonoBehaviour
 
     private PlayerMovement playerMovement;
     private float currentStamina;
-
     private void Start()
     {
         currentStamina = maxStamina;
@@ -21,7 +20,6 @@ public class Staminabar : MonoBehaviour
         Debug.Log("Initial Current Stamina: " + currentStamina);
     }
     
-
     private void Update()
     {
         // Example: Regenerate stamina when not sprinting

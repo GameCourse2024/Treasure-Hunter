@@ -26,7 +26,6 @@ public class PlayerStats : MonoBehaviour
 
         currentStamina = maxStamina;
         staminabar.SetMaxStamina(maxStamina);
-        //staminabar.SetStamina(currentStamina);
         
         playerMovement = GetComponent<PlayerMovement>();
 
@@ -40,7 +39,30 @@ public class PlayerStats : MonoBehaviour
         // NEED TO SET EACH DMG TO SPECIFIC ENEMY 
         // TakeDamage(damage);
 
-        if (playerMovement.IsSprinting()) DealStamina();
+        if (playerMovement.IsSprinting() && currentStamina > 0)
+        {
+            isSprinting = true;
+            currentStamina -= sprintingStaminaUsagePerSecond * Time.deltaTime;
+            staminabar.SetStamina(currentStamina);
+        }
+        else
+        {
+            isSprinting = false;
+            // Example: Stamina regeneration when not sprinting
+            if (currentStamina < maxStamina)
+            {
+                currentStamina += staminaRegenRate * Time.deltaTime; // Regen faster when not sprinting
+                staminabar.SetStamina(currentStamina);
+            }
+            else if (currentStamina <= 0)
+            {
+                // If stamina is zero, wait for it to recharge to more than 10 before allowing sprinting
+                isSprinting = false;
+                //StartCoroutine(WaitForStaminaRecharge());
+            }
+        }
+        
+        playerMovement.SetSprinting(isSprinting);
         
 
     }
@@ -81,7 +103,7 @@ public class PlayerStats : MonoBehaviour
     IEnumerator WaitForStaminaRecharge()
     {
         // Wait until stamina is more than 10 before allowing sprinting again
-        while (currentStamina <= 10)
+        while (currentStamina <= 25)
         {
             yield return null;
         }
