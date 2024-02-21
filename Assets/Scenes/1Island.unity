@@ -9607,11 +9607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 7335389834344377185, guid: a4928146a763ff6449edc07507cc1a53, type: 3}
   throwPoint: {fileID: 1452861397}
-<<<<<<< HEAD
-  destroyTime: 5
-=======
   destroyTime: 1.5
->>>>>>> origin/main
 --- !u!1001 &1469118066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12934,9 +12930,5 @@ SceneRoots:
   - {fileID: 260867086}
   - {fileID: 107010333}
   - {fileID: 814209897}
-<<<<<<< HEAD
-  - {fileID: 711697783}
-=======
   - {fileID: 634985554}
   - {fileID: 23766974}
->>>>>>> origin/main
