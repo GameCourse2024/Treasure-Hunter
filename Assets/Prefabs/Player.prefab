@@ -956,7 +956,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -2623,6 +2623,53 @@ Transform:
   - {fileID: 8242275589389356818}
   m_Father: {fileID: 1230460319949534741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3646039842461734177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197779629377246601}
+  - component: {fileID: 1159926995916152586}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &197779629377246601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646039842461734177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.090002626, y: 2.1257153, z: 0.7539744}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5178703424028718740}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1159926995916152586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646039842461734177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7258d57bd1d20d46b5adb37017e6e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 7335389834344377185, guid: a4928146a763ff6449edc07507cc1a53, type: 3}
+  throwPoint: {fileID: 197779629377246601}
+  destroyTime: 1.5
 --- !u!1 &3657655398821312311
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,9 +5084,10 @@ GameObject:
   - component: {fileID: 8651883090908954708}
   - component: {fileID: 5828143215101583875}
   - component: {fileID: 4708521768490066640}
+  - component: {fileID: 5039856942416601272}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5052,7 +5100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719220633055560104}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.12679364, z: 0, w: 0.9919292}
+  m_LocalRotation: {x: 0, y: -0.12679633, z: 0, w: 0.9919288}
   m_LocalPosition: {x: 599.3673, y: 22.058569, z: 1120.8658}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -5061,8 +5109,9 @@ Transform:
   - {fileID: 1230460319949534741}
   - {fileID: 3887892454621303761}
   - {fileID: 8254676146243998488}
+  - {fileID: 197779629377246601}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -14.569, z: 0}
 --- !u!95 &7524664592281178096
 Animator:
   serializedVersion: 5
@@ -5122,10 +5171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a048ebb60b1a164eaff9c9a227f2a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  sprintSpeedMultiplier: 3
+  speed: 8
+  sprintSpeedMultiplier: 1.5
   rotationSpeed: 180
-  jumpForce: 6
+  jumpForce: 1.7
   gravity: 9.81
   moveAction:
     m_Name: Move
@@ -5227,6 +5276,7 @@ MonoBehaviour:
       m_Action: Attack
       m_Flags: 0
     m_Flags: 0
+  spawner: {fileID: 1159926995916152586}
 --- !u!65 &4708521768490066640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5248,6 +5298,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.73, y: 6.19, z: 4.98}
   m_Center: {x: 0, y: 1.42, z: 1.56}
+--- !u!114 &5039856942416601272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719220633055560104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab4f186dacbfc74b8be511c796c33fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  health: 100
+  staminabar: {fileID: 0}
+  maxStamina: 100
+  staminaRegenRate: 10
+  sprintingStaminaUsagePerSecond: 20
 --- !u!1 &7788336702427976125
 GameObject:
   m_ObjectHideFlags: 0

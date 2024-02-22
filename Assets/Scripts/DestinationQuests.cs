@@ -35,33 +35,27 @@ public class DestinationQuests : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-{
-    Debug.Log("Collision detected");
-    if (other.CompareTag("Player"))
     {
-        Debug.Log(name + " , has collided with player");
-        QuestManager questManager = QuestManager.Instance; // Assuming Instance is your singleton instance property
-        if (questManager != null)
+        Debug.Log("Collision detected");
+        if (other.CompareTag("Player"))
         {
-            if (!questManager.CheckQuestStarted(questName))
+            Debug.Log(name +" , has collided with player");
+            QuestManager questManager = QuestManager.Instance; // Assuming Instance is your singleton instance property
+            if (questManager != null)
             {
-                Debug.Log("Quest has not been started yet");
-                return;
+                if(!hasVisited)
+                {
+                    hasVisited = true;
+                    Debug.Log("Calling quest manager for: " + questName);
+                    questManager.CompleteQuest(questName);
+                    AudioManagerGamePlay.Instance.PlayQuestSound();
+                    // Rolling out the banner
+                    Debug.Log("Calling Display Banner Function");
+                    ScrollController.DisplayBanner("Quest Updated: " + questName + "\nHint: Return to who sent you here", bannerWaitTime);
+                }
+                
             }
-
-            if (!hasVisited)
-            {
-                hasVisited = true;
-                Debug.Log("Calling quest manager for: " + questName);
-                questManager.CompleteQuest(questName);
-                AudioManagerGamePlay.Instance.PlayQuestSound();
-                // Rolling out the banner
-                Debug.Log("Calling Display Banner Function");
-                ScrollController.DisplayBanner("Quest Updated: " + questName + "\nHint: Return to who sent you here", bannerWaitTime);
-            }
-
         }
     }
-}
 
 }

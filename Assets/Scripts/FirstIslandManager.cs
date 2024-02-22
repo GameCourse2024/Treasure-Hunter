@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class FirstIslandManager : MonoBehaviour
 {
+    [Tooltip("Welcome message, delay before it shows")]
+    [SerializeField]
+    private float welcomeMessageDelayTime;
+    [Tooltip("Welcome message")]
+    [SerializeField]
+    private string welcomeMessage;
     [SerializeField]
     private AudioManagerGamePlay audioManager;
-    // Start is called before the first frame update
+
     void Start()
     {
         // First we play the soundtrack
         Debug.Log("Playing themesong");
         audioManager.Play("ThemeSong");
+        ScrollController.DisplayBanner(welcomeMessage, welcomeMessageDelayTime);
     }
 
 
