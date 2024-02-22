@@ -69,4 +69,16 @@ public class QuestManager : MonoBehaviour
             npcQuest.questData.ResetState();
         }
     }
+    public bool CheckQuestStarted(string questName)
+    {
+        foreach (NPCQuest npcQuest in npcQuests)
+        {
+            if (npcQuest.questData.questName == questName)
+            {
+                return npcQuest.questData.hasStarted;
+            }
+        }
+        Debug.Log("No quest like that found");
+        return false;
+    }
 }

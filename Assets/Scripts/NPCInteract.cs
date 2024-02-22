@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class NPCInteract : MonoBehaviour
 {   
@@ -15,8 +16,9 @@ public class NPCInteract : MonoBehaviour
     [SerializeField]
     private string text;
 
+    [Tooltip("Name of sound to play for quests")]
     [SerializeField]
-    private AudioManagerGamePlay audioManager;
+    private string sound;
     [Tooltip("Name of sound effect for this character to play in interaction. NOTE list of sounds for npc can be found in the npc folder inside sounds")]
     [SerializeField]
     private string soundName;
@@ -36,6 +38,13 @@ public class NPCInteract : MonoBehaviour
     [Tooltip("What text does this NPC say after completing the quest")]
     [SerializeField]
     private string afterQuestText;
+    [Tooltip("Hint for the player to complete the Quest")]
+    [SerializeField]
+    private string hint;
+    private bool questCompleted = false;
+    [Tooltip("Time for banner display")]
+    [SerializeField]
+    private float bannerWaitTime;
 
     void Start() 
     {
@@ -92,7 +101,7 @@ public class NPCInteract : MonoBehaviour
     private void PlaySound()
     {
         Debug.Log("Playing sound for NPC: " + soundName);
-        audioManager.Play(soundName);
+        AudioManagerGamePlay.Instance.Play(soundName);
     }
     private void ShowText()
     {
@@ -119,16 +128,24 @@ public class NPCInteract : MonoBehaviour
         {
             Debug.Log("Giving Quest To Player: " + npcQuest.questData.name);
             questManager.AddQuest(npcQuest);
+            // Rolling out the banner
+            Debug.Log("Calling Display Banner Function");
+            ScrollController.DisplayBanner("Starting Quest: " + npcQuest.questData.name + "\nHint: " + hint, bannerWaitTime);
+            
             return;
         }
-        if(npcQuest.questData.isCompleted == true)
+        if(npcQuest.questData.isCompleted == true && !questCompleted)
         {
+            questCompleted = true;
             Debug.Log("Giving Reward and changing NPC Text: " + npcQuest.questData.name);
 
             // TO DO REWARD PLAYER
 
 
             textMeshProText.SetText(afterQuestText);
+             // Rolling out the banner
+            Debug.Log("Calling Display Banner Function");
+            ScrollController.DisplayBanner("Finished Quest: " + npcQuest.questData.name + "\nReward: " + hint, bannerWaitTime);
         }
      
     }
