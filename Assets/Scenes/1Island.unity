@@ -13106,18 +13106,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1294080367}
     m_Modifications:
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: hint
-      value: Go to the box
-      objectReference: {fileID: 0}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 270721216}
-    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
-      propertyPath: bannerWaitTime
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3584465854393006931, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: player
       value: 

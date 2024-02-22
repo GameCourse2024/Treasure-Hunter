@@ -509,13 +509,15 @@ MonoBehaviour:
   typeWriterEffect: {fileID: 8715474131015470051}
   textMeshProText: {fileID: 8330560067822668701}
   text: help me please the box is so scary
-  audioManager: {fileID: 0}
+  sound: 
   soundName: NPCVoice1
   waitTime: 10
   canvas: {fileID: 4431555174146282162}
   canGiveQuest: 1
   npcQuest: {fileID: 3042767098176270993}
   afterQuestText: You saved me oh my god
+  hint: Go to the box
+  bannerWaitTime: 3
 --- !u!114 &3042767098176270993
 MonoBehaviour:
   m_ObjectHideFlags: 0
