@@ -2007,6 +2007,12 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: QuestSound
+    clip: {fileID: 8300000, guid: a25cdb251024c0a4691869786c9c45c2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
   - name: ThemeSong
     clip: {fileID: 8300000, guid: f2d0c521b0b29434a801890c93a1eb7f, type: 3}
     volume: 0.7
@@ -4917,6 +4923,7 @@ MonoBehaviour:
   bannerWaitTime: 0
   questName: GetToTheBox
   triggerSize: 5
+  soundName: 
 --- !u!65 &711697779
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13107,6 +13114,10 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 270721216}
+    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: bannerWaitTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3584465854393006931, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: player
       value: 
