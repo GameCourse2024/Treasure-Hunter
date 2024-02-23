@@ -39,6 +39,10 @@ public class DestinationQuests : MonoBehaviour
         Debug.Log("Collision detected");
         if (other.CompareTag("Player"))
         {
+            if(!QuestManager.Instance.CheckQuestStarted(questName))
+            {
+                return;
+            }
             Debug.Log(name +" , has collided with player");
             QuestManager questManager = QuestManager.Instance; // Assuming Instance is your singleton instance property
             if (questManager != null)
