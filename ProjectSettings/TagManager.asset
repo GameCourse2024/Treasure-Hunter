@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WindArrow
   - Spawner
+  - Fireball
   layers:
   - Default
   - TransparentFX

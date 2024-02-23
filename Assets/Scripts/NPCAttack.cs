@@ -6,6 +6,7 @@ public class NPCAttack : MonoBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float attackCooldown = 1.5f;
+    [SerializeField] private int projectileDamage = 10;
 
     private float timeSinceLastAttack;
 
@@ -59,4 +60,19 @@ public class NPCAttack : MonoBehaviour
             return Vector3.zero;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Deal damage to the player
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            if (playerStats != null)
+            {
+                playerStats.HandleProjectileHit(projectileDamage);
+            }
+            // TODO NEED TO DESTROY FIREBALL
+
+        }
+    }
 }
+

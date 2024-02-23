@@ -21,15 +21,15 @@ public class PlayerStats : MonoBehaviour
         staminabar.SetMaxStamina(currentStamina);
     }
 
-    private void HandlePlayerHit(int damage)
+    public void HandleProjectileHit(int damage)
     {
         TakeDamage(damage);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V)) TakeDamage(20);
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.V)) TakeDamage(20);
+    // }
 
     private void TakeDamage(int damage)
     {

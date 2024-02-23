@@ -3947,15 +3947,15 @@ PrefabInstance:
       objectReference: {fileID: 1838004626}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 576.48
+      value: 632.6
       objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.42
+      value: 6.18
       objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1118.58
+      value: 732
       objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4062,6 +4062,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 2032221103}
   projectileSpeed: 10
   attackCooldown: 1.5
+  projectileDamage: 10
 --- !u!114 &489327715
 MonoBehaviour:
   m_ObjectHideFlags: 0
