@@ -60,10 +60,33 @@ public class NPCBehaviour : MonoBehaviour
         // TO DO
         // Set walking animation and stop it upon reaching destination
         animator.SetBool("isWalking", true);
-        StartCoroutine(StopWalkingAnimationWhenReachedDestination(newPos));
+        //StartCoroutine(StopWalkingAnimationWhenReachedDestination(newPos));
+        StartCoroutine(MoveToDestination(newPos));
 
 
         timer = 0;
+    }
+    IEnumerator MoveToDestination(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+
+        // Play walking animation
+        animator.SetBool("isWalking", true);
+
+        // Wait until the NPC reaches the destination
+        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+        {
+            yield return null;
+        }
+
+        // Stop walking animation
+        animator.SetBool("isWalking", false);
+
+        // Wait for a short time before starting the next movement
+        yield return new WaitForSeconds(waitTime);
+
+        // Reset isInteracting to allow the NPC to move again
+        isInteracting = false;
     }
 
     IEnumerator StopWalkingAnimationWhenReachedDestination(Vector3 destination)
