@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class NPCBehaviour : MonoBehaviour
 {
-
     [Tooltip("How far this NPC will wander")]
     [SerializeField] private float wanderRadius = 10f;
     [SerializeField] private float minWanderTimer = 5f;
@@ -14,13 +13,14 @@ public class NPCBehaviour : MonoBehaviour
     [SerializeField] private bool wander = true;
     [SerializeField] private Transform player;
     [SerializeField] private float rotationSpeed = 1000000f;
+
     private NavMeshAgent agent;
     private float timer;
     private Vector3 startPosition;
     private bool isInteracting;
     private Animator animator;
 
-    void Start()
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         timer = Random.Range(minWanderTimer, maxWanderTimer);
@@ -29,7 +29,7 @@ public class NPCBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         timer += Time.deltaTime;
         if (timer >= Random.Range(minWanderTimer, maxWanderTimer) && wander && !isInteracting)
@@ -39,14 +39,20 @@ public class NPCBehaviour : MonoBehaviour
         }
     }
 
-    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    private void OnDrawGizmosSelected()
+    {
+        // Draw the wander radius as a wire sphere around the NPC
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, wanderRadius);
+    }
+
+    private Vector3 RandomNavSphere(Vector3 origin, float dist)
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
-
         randDirection += origin;
 
         NavMeshHit navHit;
-        NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
+        NavMesh.SamplePosition(randDirection, out navHit, dist, NavMesh.AllAreas);
 
         return navHit.position;
     }
@@ -54,19 +60,17 @@ public class NPCBehaviour : MonoBehaviour
     private void HandleMovement()
     {
         Debug.Log("Handling Movement: " + gameObject.name);
-        Vector3 newPos = RandomNavSphere(startPosition, wanderRadius, -1);
+        Vector3 newPos = RandomNavSphere(startPosition, wanderRadius);
         agent.SetDestination(newPos);
 
-        // TO DO
         // Set walking animation and stop it upon reaching destination
         animator.SetBool("isWalking", true);
-        //StartCoroutine(StopWalkingAnimationWhenReachedDestination(newPos));
         StartCoroutine(MoveToDestination(newPos));
-
 
         timer = 0;
     }
-    IEnumerator MoveToDestination(Vector3 destination)
+
+    private IEnumerator MoveToDestination(Vector3 destination)
     {
         agent.SetDestination(destination);
 
@@ -89,19 +93,6 @@ public class NPCBehaviour : MonoBehaviour
         isInteracting = false;
     }
 
-    IEnumerator StopWalkingAnimationWhenReachedDestination(Vector3 destination)
-    {
-        while (Vector3.Distance(transform.position, destination) > agent.stoppingDistance)
-        {
-            yield return null;
-        }
-
-        // Stop walking animation
-        animator.SetBool("isWalking", false);
-
-        timer = 0;
-    }
-
     public void StopMovement()
     {
         // Stop the NavMeshAgent from moving
@@ -111,9 +102,6 @@ public class NPCBehaviour : MonoBehaviour
 
         // Rotating the NPC to the player
         StartCoroutine(RotateTowardsPlayer());
-
-        // TO DO
-        // Stop walking animation and play Interact animation
     }
 
     public void ResumeMovement()
@@ -122,13 +110,9 @@ public class NPCBehaviour : MonoBehaviour
         Debug.Log("Movement Un-Stopped: " + name);
         agent.isStopped = false;
         isInteracting = false;
-
-        // TO DO
-        // Stop interact animation
-
     }
 
-    IEnumerator RotateTowardsPlayer()
+    private IEnumerator RotateTowardsPlayer()
     {
         Debug.Log("Starting Rotation");
         Vector3 directionToPlayer = player.position - transform.position;
@@ -136,6 +120,5 @@ public class NPCBehaviour : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         agent.isStopped = true;
         yield return new WaitForSeconds(waitTime);
-
     }
 }

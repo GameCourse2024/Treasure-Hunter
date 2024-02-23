@@ -5,8 +5,6 @@ using TMPro;
 
 public class TypeWriterEffect : MonoBehaviour
 {
-    [Tooltip("Delay between each letter typed")]
-    [SerializeField]
     public float delay = 0.05f;
     private string fullText = "Default text";
     private string currentText = "";
@@ -22,6 +20,11 @@ public class TypeWriterEffect : MonoBehaviour
     public void setText(string newText)
     {
         fullText = newText;
+    }
+
+    public void setDelay(float otherDelay)
+    {
+        delay = otherDelay;
     }
 
     IEnumerator ShowText()

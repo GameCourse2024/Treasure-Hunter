@@ -6,6 +6,9 @@ using System;
 
 public class NPCInteract : MonoBehaviour
 {   
+    [Tooltip("Delay between each letter typed for the typewriter effect")]
+    [SerializeField]
+    private float typewriterDelay = 0.05f;
     [SerializeField]
     private TypeWriterEffect typeWriterEffect;
     [Tooltip("Refference to the text field that this npc effects")]
@@ -15,10 +18,6 @@ public class NPCInteract : MonoBehaviour
     [Tooltip("The text that this NPC says")]
     [SerializeField]
     private string text;
-
-    [Tooltip("Name of sound to play for quests")]
-    [SerializeField]
-    private string sound;
     [Tooltip("Name of sound effect for this character to play in interaction. NOTE list of sounds for npc can be found in the npc folder inside sounds")]
     [SerializeField]
     private string soundName;
@@ -48,8 +47,11 @@ public class NPCInteract : MonoBehaviour
 
     void Start() 
     {
+        Debug.Log("This is the text: " + text);
         nPCBehaviour = GetComponent<NPCBehaviour>();
-        typeWriterEffect.setText(text);    
+        typeWriterEffect.setText(text);  
+        typeWriterEffect.setDelay(typewriterDelay);
+  
     }
     private void Update() 
     {
