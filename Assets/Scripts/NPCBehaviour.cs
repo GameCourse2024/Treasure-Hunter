@@ -34,7 +34,7 @@ public class NPCBehaviour : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= Random.Range(minWanderTimer, maxWanderTimer) && wander && !isInteracting)
         {
-            Debug.Log("Finding new position: " + name);
+            //Debug.Log("Finding new position: " + name);
             HandleMovement();
         }
     }
@@ -59,7 +59,7 @@ public class NPCBehaviour : MonoBehaviour
 
     private void HandleMovement()
     {
-        Debug.Log("Handling Movement: " + gameObject.name);
+        //Debug.Log("Handling Movement: " + gameObject.name);
         Vector3 newPos = RandomNavSphere(startPosition, wanderRadius);
         agent.SetDestination(newPos);
 
@@ -96,7 +96,7 @@ public class NPCBehaviour : MonoBehaviour
     public void StopMovement()
     {
         // Stop the NavMeshAgent from moving
-        Debug.Log("Movement Stopped: " + name);
+        //Debug.Log("Movement Stopped: " + name);
         agent.isStopped = true;
         isInteracting = true;
 
@@ -107,14 +107,14 @@ public class NPCBehaviour : MonoBehaviour
     public void ResumeMovement()
     {
         // Resume the NavMeshAgent's movement
-        Debug.Log("Movement Un-Stopped: " + name);
+        //Debug.Log("Movement Un-Stopped: " + name);
         agent.isStopped = false;
         isInteracting = false;
     }
 
     private IEnumerator RotateTowardsPlayer()
     {
-        Debug.Log("Starting Rotation");
+        //Debug.Log("Starting Rotation");
         Vector3 directionToPlayer = player.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);

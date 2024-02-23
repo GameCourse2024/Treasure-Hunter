@@ -47,7 +47,7 @@ public class NPCInteract : MonoBehaviour
 
     void Start() 
     {
-        Debug.Log("This is the text: " + text);
+       // Debug.Log("This is the text: " + text);
         nPCBehaviour = GetComponent<NPCBehaviour>();
         typeWriterEffect.setText(text);  
         typeWriterEffect.setDelay(typewriterDelay);
@@ -57,7 +57,7 @@ public class NPCInteract : MonoBehaviour
     {
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Start Coroutine");
+            //Debug.Log("Start Coroutine");
             StartCoroutine(InteractCoroutine());
         }
     }
@@ -67,7 +67,7 @@ public class NPCInteract : MonoBehaviour
         {
             // Set can interact flag to true
             canInteract = true;
-            Debug.Log("Collided with: " + other.name);
+           // Debug.Log("Collided with: " + other.name);
         }
     }
     void OnTriggerExit(Collider other)
@@ -76,7 +76,7 @@ public class NPCInteract : MonoBehaviour
         {
             // Set can't interact
             canInteract = false;
-            Debug.Log("Un-Collided with: " + other.name);
+           // Debug.Log("Un-Collided with: " + other.name);
 
         }
     }
@@ -102,17 +102,17 @@ public class NPCInteract : MonoBehaviour
 
     private void PlaySound()
     {
-        Debug.Log("Playing sound for NPC: " + soundName);
+        //Debug.Log("Playing sound for NPC: " + soundName);
         AudioManagerGamePlay.Instance.Play(soundName);
     }
     private void ShowText()
     {
-        Debug.Log("Turning on Canvas");
+        //Debug.Log("Turning on Canvas");
         canvas.gameObject.SetActive(true);
     }
     private void HideText()
     {
-        Debug.Log("Turning off Canvas");
+        //Debug.Log("Turning off Canvas");
         canvas.gameObject.SetActive(false);
     }
     private void QuestHandle()
@@ -131,7 +131,7 @@ public class NPCInteract : MonoBehaviour
             Debug.Log("Giving Quest To Player: " + npcQuest.questData.name);
             questManager.AddQuest(npcQuest);
             // Rolling out the banner
-            Debug.Log("Calling Display Banner Function");
+           // Debug.Log("Calling Display Banner Function");
             ScrollController.DisplayBanner("Starting Quest: " + npcQuest.questData.name + "\nHint: " + hint, bannerWaitTime);
             
             return;
@@ -139,14 +139,14 @@ public class NPCInteract : MonoBehaviour
         if(npcQuest.questData.isCompleted == true && !questCompleted)
         {
             questCompleted = true;
-            Debug.Log("Giving Reward and changing NPC Text: " + npcQuest.questData.name);
+            //Debug.Log("Giving Reward and changing NPC Text: " + npcQuest.questData.name);
 
             // TO DO REWARD PLAYER
 
 
             textMeshProText.SetText(afterQuestText);
              // Rolling out the banner
-            Debug.Log("Calling Display Banner Function");
+            //Debug.Log("Calling Display Banner Function");
             ScrollController.DisplayBanner("Finished Quest: " + npcQuest.questData.name + "\nReward: " + hint, bannerWaitTime);
         }
      
