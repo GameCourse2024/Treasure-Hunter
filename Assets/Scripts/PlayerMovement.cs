@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting = false;
     private bool canAttack = true;
     private bool isJumpingFromStanding = false;
-   
+    [SerializeField] private Staminabar staminabar; // Reference to Staminabar script
     public Spawner spawner;
 
     private void OnEnable()
@@ -81,6 +81,17 @@ public class PlayerMovement : MonoBehaviour
         //throwPoint = transform.Find("Spawner"); 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        staminabar = GetComponent<Staminabar>();
+        if (staminabar == null)
+        {
+            staminabar = FindObjectOfType<Staminabar>();
+
+            if (staminabar == null)
+            {
+                Debug.LogError("Staminabar not found in the scene.");
+            }
+        }
+
 
         if (moveAction == null)
         {
@@ -108,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
     moveDirection += transform.forward * moveBackwardInput;
 
     // Sprinting
-    if (sprintAction.triggered && characterController.isGrounded)
+    if (sprintAction.triggered && characterController.isGrounded && staminabar.GetCurrentStamina() >= 20f)
     {
         isSprinting = true;
     }
@@ -203,6 +214,15 @@ public class PlayerMovement : MonoBehaviour
             moveAction.Enable();
     }
 }
+    private void LateUpdate()
+        {
+
+            // Check if stamina is below a certain threshold and stop sprinting
+            if (staminabar.GetCurrentStamina() < 1f)
+            {
+                StopSprinting();
+            }
+        }
 
     // Method to handle the "canceled" event for sprint action
     private void OnSprintCanceled(InputAction.CallbackContext context)
@@ -217,6 +237,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetSprinting(bool sprinting)
     {
         isSprinting = sprinting;
+    }
+    private void StopSprinting()
+    {
+        // Stop sprinting logic goes here
+        isSprinting = false;
     }
 
 }

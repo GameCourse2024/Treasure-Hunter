@@ -7,63 +7,77 @@ public class Staminabar : MonoBehaviour
     [SerializeField] private float maxStamina = 100f;
     [SerializeField] private float sprintingStaminaUsagePerSecond = 10f;
     [SerializeField] private float staminaRegenerationRate = 5f;
+    [SerializeField] private float sprintCooldownTime = 5f; // Time to wait before starting stamina recharge after reaching 0
 
-    private PlayerMovement playerMovement;
     private float currentStamina;
-    private void Start()
-    {
-        currentStamina = maxStamina;
-        UpdateStaminaUI();
+    private bool isSprinting = false;
+    private float sprintCooldownTimer;
 
-        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        Debug.Log("Initial Max Stamina: " + maxStamina);
-        Debug.Log("Initial Current Stamina: " + currentStamina);
+    public PlayerMovement movement;
+
+
+    // New method to set max stamina externally
+    public void SetMaxStamina(float stamina)
+    {
+        maxStamina = Mathf.Max(0f, stamina);
+        slider.maxValue = maxStamina;
+        SetStamina(maxStamina);  // Ensure currentStamina remains within the new maxStamina
     }
-    
+
+    public void SetStamina(float stamina)
+    {
+        currentStamina = Mathf.Clamp(stamina, 0f, maxStamina);
+        slider.value = currentStamina;
+    }
+
     private void Update()
     {
-        // Example: Regenerate stamina when not sprinting
-        if (!playerMovement.IsSprinting() && currentStamina < maxStamina)
+        if (movement.IsSprinting() && currentStamina > 0)
         {
-            RegenerateStamina();
+            // Decrease stamina when sprinting
+            DecreaseStamina(sprintingStaminaUsagePerSecond * Time.deltaTime);
+        }
+        else
+        {
+             // Start cooldown timer if stamina is at 0
+            if (currentStamina <= 0)
+            {
+                StartSprintCooldown();
+            }
+            
+            // Recharge stamina during cooldown
+            if (sprintCooldownTimer > 0)
+            {
+                sprintCooldownTimer -= Time.deltaTime;
+            }
+            else
+            {
+                IncreaseStamina(staminaRegenerationRate * Time.deltaTime);
+            }
         }
     }
 
-    public void DecreaseStamina(float amount)
+    private void StartSprintCooldown()
     {
-        currentStamina -= amount;
-        currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
-        UpdateStaminaUI();
+        // Start the cooldown timer when stamina reaches 0
+        sprintCooldownTimer = sprintCooldownTime;
+        isSprinting = false;
     }
 
-    private void RegenerateStamina()
+    private void DecreaseStamina(float amount)
     {
-        currentStamina += staminaRegenerationRate * Time.deltaTime;
-        currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
-        UpdateStaminaUI();
+        currentStamina = Mathf.Clamp(currentStamina - amount, 0f, maxStamina);
+        SetStamina(currentStamina);
     }
 
-    private void UpdateStaminaUI()
+    private void IncreaseStamina(float amount)
     {
-        float fillPercentage = currentStamina / maxStamina;
-        slider.value = fillPercentage;
-        Debug.Log("Current Stamina: " + currentStamina);
-        Debug.Log("Max Stamina: " + maxStamina);
-        Debug.Log("Fill Percentage: " + fillPercentage);
+        currentStamina = Mathf.Clamp(currentStamina + amount, 0f, maxStamina);
+        SetStamina(currentStamina);
     }
 
-
-    // New method to set stamina externally
-    public void SetStamina(float value)
+    public float GetCurrentStamina()
     {
-        slider.value = value;
-        currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
-    }
-
-    // New method to set max stamina externally
-    public void SetMaxStamina(float value)
-    {
-        slider.maxValue = maxStamina;
-        slider.value = currentStamina;
+        return currentStamina;
     }
 }
