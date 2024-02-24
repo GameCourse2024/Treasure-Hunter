@@ -79,7 +79,7 @@ public class NPCAttack : MonoBehaviour
 
     private IEnumerator RotateArrow(Transform arrowTransform)
     {
-        while (true)
+        while (arrowTransform != null)
         {
             // Rotate around the Y-axis gradually
             arrowTransform.Rotate(Vector3.forward, 90f * Time.deltaTime);
