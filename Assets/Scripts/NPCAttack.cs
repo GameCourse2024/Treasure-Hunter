@@ -10,11 +10,12 @@ public class NPCAttack : MonoBehaviour
     [SerializeField] private int projectileDamage = 10;
     [SerializeField] private float destroyTime = 1.5f;
     private Animator animator;  // Reference to the Animator component
-
+    private DestroyOnTrigger destroyCode;
     private float timeSinceLastAttack;
 
     private void Start()
     {
+        destroyCode = GetComponent<DestroyOnTrigger>();
         timeSinceLastAttack = attackCooldown;  // To allow the first attack immediately if desired
         animator = GetComponent<Animator>();
     }
@@ -23,7 +24,7 @@ public class NPCAttack : MonoBehaviour
     {
         timeSinceLastAttack += Time.deltaTime;
 
-        if (timeSinceLastAttack >= attackCooldown)
+        if (!destroyCode.IsDead() && timeSinceLastAttack >= attackCooldown)
         {
             Attack();
             timeSinceLastAttack = 0f;

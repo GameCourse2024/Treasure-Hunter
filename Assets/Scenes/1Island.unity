@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.673305, g: 0.5181906, b: 0.3458956, a: 1}
+  m_IndirectSpecularColor: {r: 0.673687, g: 0.51926935, b: 0.3470725, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1311,15 +1311,15 @@ PrefabInstance:
       objectReference: {fileID: 954044042}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 279.47827
+      value: 497.4
       objectReference: {fileID: 0}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.36
+      value: 18.8
       objectReference: {fileID: 0}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 579.7011
+      value: 808.5
       objectReference: {fileID: 0}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4893,10 +4893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7897c9be74f24c94437f171df7a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolRadius: 10
-  minWaitAtTarget: 7
-  maxWaitAtTarget: 15
-  player: {fileID: 0}
+  range: 0
+  rotationSpeed: 5
+  stuckThreshold: 0.1
 --- !u!1001 &496633266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14856,15 +14855,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 531.2
+      value: 522.3
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 769.1
+      value: 811
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15005,9 +15004,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac13233fa3d3e54484c51e3212a5b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   triggeringTag: Fireball
-  hitsRequired: 3
+  hitsRequired: 1
   deathTimer: 7
+  navMeshAgent: {fileID: 1707969125}
 --- !u!114 &1707969128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15020,10 +15021,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7897c9be74f24c94437f171df7a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolRadius: 50
-  minWaitAtTarget: 1
-  maxWaitAtTarget: 15
-  player: {fileID: 1707969122}
+  range: 30
+  rotationSpeed: 3
+  stuckThreshold: 0.5
 --- !u!114 &1707969129
 MonoBehaviour:
   m_ObjectHideFlags: 0

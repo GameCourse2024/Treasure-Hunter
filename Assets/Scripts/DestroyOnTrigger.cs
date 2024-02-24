@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
+
 
 public class DestroyOnTrigger : MonoBehaviour
 {
+    public bool isDead = false;
     private Animator animator;
     [Tooltip("Tag of the triggering object that will destroy this object")]
     [SerializeField] private string triggeringTag;
@@ -10,6 +13,7 @@ public class DestroyOnTrigger : MonoBehaviour
     [Tooltip("Number of hits required to destroy the NPC")]
     [SerializeField] private int hitsRequired = 5;
     [SerializeField] private float deathTimer = 7f;
+    [SerializeField] private NavMeshAgent navMeshAgent; 
 
 
     private int count = 0;
@@ -19,6 +23,8 @@ public class DestroyOnTrigger : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>(); // Assign NavMeshAgent component
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,11 +43,19 @@ public class DestroyOnTrigger : MonoBehaviour
 
             // Check if the hit count reaches the hitsRequired
             if (count >= hitsRequired)
-            {
+            {   
                 // Set the "isDead" parameter in the animator
                 animator.SetBool("isDead", true);
                 Destroy(other.gameObject);
+                // Disable the NavMeshAgent to stop the NPC from moving
+                if (navMeshAgent != null)
+                    {
+                        navMeshAgent.isStopped = true;
+                        navMeshAgent.velocity = Vector3.zero;
+                    }
+                isDead = true;
 
+                CancelInvoke("DestroyNPC");
                 // Delay the destruction of the NPC
                 Invoke("DestroyNPC", deathTimer);
             }
@@ -70,5 +84,10 @@ public class DestroyOnTrigger : MonoBehaviour
     {
         // Destroy this object (NPC)
         Destroy(gameObject);
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 }

@@ -2,115 +2,81 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Animator))]
 public class Patroller : MonoBehaviour
 {
-    [SerializeField] private float patrolRadius = 10f;
-    [SerializeField] private float minWaitAtTarget = 7f;
-    [SerializeField] private float maxWaitAtTarget = 15f;
-    [SerializeField] private GameObject player; // Player object reference
+    GameObject player;
+    NavMeshAgent agent;
+    Animator animator;
 
-    private NavMeshAgent navMeshAgent;
-    private Animator animator;
-    private float rotationSpeed = 5f;
-    private float timeToWaitAtTarget = 0;
-    private Vector3 startPosition;
+    Vector3 destPoint;
+    bool walkpointSet;
+    [SerializeField] private float range;
+    [SerializeField] private float rotationSpeed = 5f; // Adjust the rotation speed as needed
+    [SerializeField] private float stuckThreshold = 0.1f; // Adjust the threshold for considering the agent stuck
 
-    private bool playerWasMoving = false;
-
-    private void Start()
+    void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        startPosition = transform.position;
-
-        // Set the initial patrol target
-        SelectRandomPatrolTarget();
+        player = GameObject.Find("Player");
     }
 
-    private void SelectRandomPatrolTarget()
+    void Update()
     {
-        // Randomly select a point within the patrol radius
-        Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
-        randomDirection += startPosition;
-
-        // Ensure the point is on the NavMesh
-        NavMeshHit navHit;
-        NavMesh.SamplePosition(randomDirection, out navHit, patrolRadius, NavMesh.AllAreas);
-
-        // Set the destination to the random patrol target
-        navMeshAgent.SetDestination(navHit.position);
-
-        // Set a random wait time at the target
-        timeToWaitAtTarget = Random.Range(minWaitAtTarget, maxWaitAtTarget);
+        Patrol();
+        UpdateAnimations();
+        FaceDestination(); // Call the method to make the character face the destination
     }
 
-    private void Update()
+    void Patrol()
     {
-        if (navMeshAgent.hasPath)
+        if (!walkpointSet) SearchForDest();
+        if (walkpointSet) agent.SetDestination(destPoint);
+        if (Vector3.Distance(transform.position, destPoint) < 10) walkpointSet = false;
+
+        // Check if the agent is stuck
+        if (agent.velocity.magnitude < stuckThreshold)
         {
-            FaceDestination();
-            animator.SetBool("isWalking", true); // NPC is walking
+            walkpointSet = false;
+            animator.SetBool("isWalking", false);
+        }
+    }
 
-            // Check if the player is moving
-            bool playerIsMoving = CheckPlayerMovement();
+    void SearchForDest()
+    {
+        float z = Random.Range(-range, range);
+        float x = Random.Range(-range, range);
 
-            // Set isWalking based on player movement
-            if (playerIsMoving)
-            {
-                playerWasMoving = true;
-            }
-            else if (playerWasMoving)
-            {
-                animator.SetBool("isWalking", false);
-                playerWasMoving = false;
-            }
+        destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
+
+        if (Physics.Raycast(destPoint, Vector3.down))
+        {
+            walkpointSet = true;
+        }
+    }
+
+    void UpdateAnimations()
+    {
+        if (agent.velocity.magnitude > 0.1f)
+        {
+            // Agent is moving, play "Walk" animation
+            animator.SetBool("isWalking", true);
         }
         else
         {
-            animator.SetBool("isWalking", false); // NPC is not walking
-
-            timeToWaitAtTarget -= Time.deltaTime;
-
-            // If the waiting time is over, or the NPC reached the patrol target, select a new patrol target
-            if (timeToWaitAtTarget <= 0 || Vector3.Distance(transform.position, navMeshAgent.destination) < 1f)
-            {
-                SelectRandomPatrolTarget();
-            }
-
-            // Check if the player is within the patrol radius
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-            if (player != null && Vector3.Distance(player.transform.position, transform.position) <= patrolRadius)
-            {
-                // Player is within the patrol radius, so set the destination to the player
-                navMeshAgent.SetDestination(player.transform.position);
-            }
+            // Agent is not moving, play "Idle" animation
+            animator.SetBool("isWalking", false);
         }
     }
 
     private void FaceDestination()
     {
-        Vector3 directionToDestination = (navMeshAgent.destination - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToDestination.x, 0, directionToDestination.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-    }
-
-    private bool CheckPlayerMovement()
-    {
-        // You may need to replace this with your actual method of checking player movement
-        // For simplicity, assuming the player is moving if their position changes significantly
-        Vector3 playerPreviousPosition = player.transform.position;
-        // Assuming a small threshold for movement detection
-        float movementThreshold = 0.1f;
-
-        // Move the player to trigger NavMeshAgent updates
-        player.transform.Translate(Vector3.forward * Time.deltaTime);
-
-        bool playerIsMoving = Vector3.Distance(playerPreviousPosition, player.transform.position) > movementThreshold;
-
-        // Reset the player's position
-        player.transform.position = playerPreviousPosition;
-
-        return playerIsMoving;
+        if (agent.velocity.magnitude > 0.01f)
+        {
+            Vector3 directionToDestination = (agent.destination - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToDestination.x, 0, directionToDestination.z), Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+        }
     }
 }
