@@ -16,6 +16,7 @@ public class DestroyOnTrigger : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent; 
 
 
+
     private int count = 0;
     private bool isCooldown = false;
     private float cooldownDuration = 0.5f; // Adjust this value as needed
@@ -46,6 +47,8 @@ public class DestroyOnTrigger : MonoBehaviour
             {   
                 // Set the "isDead" parameter in the animator
                 animator.SetBool("isDead", true);
+                Debug.Log("isDead set to true");
+
                 Destroy(other.gameObject);
                 // Disable the NavMeshAgent to stop the NPC from moving
                 if (navMeshAgent != null)
@@ -56,6 +59,7 @@ public class DestroyOnTrigger : MonoBehaviour
                 isDead = true;
 
                 CancelInvoke("DestroyNPC");
+
                 // Delay the destruction of the NPC
                 Invoke("DestroyNPC", deathTimer);
             }

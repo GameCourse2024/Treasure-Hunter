@@ -38,6 +38,14 @@ public class StateMachine : MonoBehaviour
         return this;
     }
 
+    public void StopAllStates()
+    {
+        foreach (State state in states)
+        {
+            state.enabled = false;
+        }
+    }
+
     private void Start() {
         foreach (State state in states) {
             state.enabled = false;

@@ -1311,15 +1311,15 @@ PrefabInstance:
       objectReference: {fileID: 954044042}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 249.1
+      value: 499
       objectReference: {fileID: 0}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 19.4
       objectReference: {fileID: 0}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 579.53
+      value: 815.7
       objectReference: {fileID: 0}
     - target: {fileID: 5178703424028718740, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15039,8 +15039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusToWatch: 30.19
-  attackRange: 20.3
-  stoppingDistance: 21.09
+  attackRange: 17.6
+  stoppingDistance: 13.7
   probabilityToRotate: 0.2
   probabilityToStopRotating: 0.2
 --- !u!114 &1707969130
@@ -15057,8 +15057,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5014621495667378518, guid: cccd44153b11283489827e65b3d51c5c, type: 3}
   projectileSpawnPoint: {fileID: 1230615503}
-  projectileSpeed: 40
-  attackCooldown: 1.5
+  projectileSpeed: 29.2
+  attackCooldown: 2
   projectileDamage: 10
   destroyTime: 1.5
 --- !u!114 &1707969131
@@ -15068,7 +15068,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707969122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0073b3b453c428e43b0a77aa188e0bae, type: 3}
   m_Name: 
