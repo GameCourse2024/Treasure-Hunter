@@ -9,10 +9,12 @@ public class DestroyOnTrigger : MonoBehaviour
 
     [Tooltip("Number of hits required to destroy the NPC")]
     [SerializeField] private int hitsRequired = 5;
+    [SerializeField] private float deathTimer = 7f;
+
 
     private int count = 0;
     private bool isCooldown = false;
-    private float cooldownDuration = 1f; // Adjust this value as needed
+    private float cooldownDuration = 0.5f; // Adjust this value as needed
 
     private void Start()
     {
@@ -38,9 +40,10 @@ public class DestroyOnTrigger : MonoBehaviour
             {
                 // Set the "isDead" parameter in the animator
                 animator.SetBool("isDead", true);
+                Destroy(other.gameObject);
 
                 // Delay the destruction of the NPC
-                Invoke("DestroyNPC", 4f);
+                Invoke("DestroyNPC", deathTimer);
             }
         }
     }
