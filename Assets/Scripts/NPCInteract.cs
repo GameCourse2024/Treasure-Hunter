@@ -44,7 +44,28 @@ public class NPCInteract : MonoBehaviour
     [Tooltip("Time for banner display")]
     [SerializeField]
     private float bannerWaitTime;
+    [Tooltip("How much gold does this NPC give after quest completion")]
+    [SerializeField]
+    private int gold;
+    [Tooltip("Does this NPC Sell anything")]
+    [SerializeField]
+    private bool sells;
+    [Tooltip("Has player spoken to this person, in other words ready to buy")]
+    [SerializeField]
+    private bool spoken;
+    [Tooltip("NPC says when selling")]
+    [SerializeField]
+    private string textAfterSell;
+    [Tooltip("Sell Price")]
+    [SerializeField]
+    private int sellPrice;
+    [Tooltip("Did this NPC sell the ship")]
+    [SerializeField]
+    private bool ship;
 
+    [Tooltip("If the NPC sells something that leads to the next level , warn the player")]
+    [SerializeField]
+    private string warning;
     void Start() 
     {
        // Debug.Log("This is the text: " + text);
@@ -107,8 +128,31 @@ public class NPCInteract : MonoBehaviour
     }
     private void ShowText()
     {
-        //Debug.Log("Turning on Canvas");
-        canvas.gameObject.SetActive(true);
+        if(!sells)
+        {
+            canvas.gameObject.SetActive(true);
+            return;
+        }
+        if(sells && !spoken)
+        {
+            spoken = true;
+            canvas.gameObject.SetActive(true);
+
+            if(ship)
+            {
+                ScrollController.DisplayBanner(warning,0);
+            }
+            return;
+        }
+        else
+        {
+            textMeshProText.SetText(textAfterSell);
+            canvas.gameObject.SetActive(true);
+            if(ship)
+            {
+                GoldManager.Instance.ShipBought(sellPrice);
+            }
+        }
     }
     private void HideText()
     {
@@ -141,13 +185,13 @@ public class NPCInteract : MonoBehaviour
             questCompleted = true;
             //Debug.Log("Giving Reward and changing NPC Text: " + npcQuest.questData.name);
 
-            // TO DO REWARD PLAYER
-
+            // REWARD PLAYER
+            GoldManager.Instance.AddGold(gold);
 
             textMeshProText.SetText(afterQuestText);
              // Rolling out the banner
             //Debug.Log("Calling Display Banner Function");
-            ScrollController.DisplayBanner("Finished Quest: " + npcQuest.questData.name + "\nReward: " + hint, bannerWaitTime);
+            ScrollController.DisplayBanner("Finished Quest: " + npcQuest.questData.name + "\nReward: " + gold.ToString() + " Gold", bannerWaitTime);
         }
      
     }
