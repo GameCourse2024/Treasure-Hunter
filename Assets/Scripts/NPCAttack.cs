@@ -38,7 +38,6 @@ public class NPCAttack : MonoBehaviour
             Debug.LogError("Projectile prefab or spawn point is not assigned!");
             return;
         }
-
         // Get the direction to the player
         Vector3 directionToPlayer = (GetPlayerPosition() - transform.position).normalized;
 
@@ -72,7 +71,6 @@ public class NPCAttack : MonoBehaviour
 
             // Destroy the projectile after a certain time
             Destroy(projectile, destroyTime);
-
             // Set the isAttacking parameter back to false after the attack animation
             StartCoroutine(ResetIsAttacking());
         }

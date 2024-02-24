@@ -4824,7 +4824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1023282479}
-  playerPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &489327706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14856,7 +14855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 522.3
+      value: 535.7
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14944,7 +14943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1023282479}
-  playerPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1707969124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14980,7 +14978,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 0
-  m_StoppingDistance: 3
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -15039,8 +15037,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusToWatch: 30.19
-  attackRange: 17.6
-  stoppingDistance: 13.7
+  attackRange: 18.2
+  stoppingDistance: 11
   probabilityToRotate: 0.2
   probabilityToStopRotating: 0.2
 --- !u!114 &1707969130
