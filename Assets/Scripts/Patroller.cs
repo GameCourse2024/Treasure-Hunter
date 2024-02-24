@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
 public class Patroller : MonoBehaviour
 {
-    GameObject player;
-    NavMeshAgent agent;
-    Animator animator;
+    private GameObject player;
+    private NavMeshAgent agent;
+    private Animator animator;
 
-    Vector3 destPoint;
-    bool walkpointSet;
+    private Vector3 destPoint;
+    private bool walkpointSet;
     [SerializeField] private float range;
     [SerializeField] private float rotationSpeed = 5f; // Adjust the rotation speed as needed
     [SerializeField] private float stuckThreshold = 0.1f; // Adjust the threshold for considering the agent stuck
+    [SerializeField] private float stuckTimeThreshold = 3f; // Adjust the time threshold for considering the agent stuck
+    private float timeStuck;
 
     void Start()
     {
@@ -38,9 +41,15 @@ public class Patroller : MonoBehaviour
         // Check if the agent is stuck
         if (agent.velocity.magnitude < stuckThreshold)
         {
-            walkpointSet = false;
-            animator.SetBool("isWalking", false);
+            timeStuck += Time.deltaTime;
+            Debug.Log(timeStuck);
+            if (timeStuck >= stuckTimeThreshold)
+            {
+                walkpointSet = false;
+                animator.SetBool("isWalking", false);
+            }
         }
+        else timeStuck = 0f;
     }
 
     void SearchForDest()
@@ -58,7 +67,7 @@ public class Patroller : MonoBehaviour
 
     void UpdateAnimations()
     {
-        if (agent.velocity.magnitude > 0.1f)
+        if (agent.velocity.magnitude > 1f)
         {
             // Agent is moving, play "Walk" animation
             animator.SetBool("isWalking", true);
@@ -72,7 +81,7 @@ public class Patroller : MonoBehaviour
 
     private void FaceDestination()
     {
-        if (agent.velocity.magnitude > 0.01f)
+        if (agent.velocity.magnitude > 0.1f)
         {
             Vector3 directionToDestination = (agent.destination - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToDestination.x, 0, directionToDestination.z), Vector3.up);
