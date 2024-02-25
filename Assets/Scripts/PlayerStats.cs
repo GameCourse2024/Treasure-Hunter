@@ -5,8 +5,8 @@ public class PlayerStats : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     public Healthbar healthbar;
-    [SerializeField] private int health = 100;
-    private int currentHealth;
+    [SerializeField] private float maxHealth = 100f;
+    private float currentHealth;
 
     public Staminabar staminabar;
     [SerializeField] private float maxStamina = 100f;
@@ -14,8 +14,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = health;
-        healthbar.SetMaxHealth(health);
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(currentHealth);
 
         currentStamina = maxStamina;
         staminabar.SetMaxStamina(currentStamina);
@@ -25,11 +25,6 @@ public class PlayerStats : MonoBehaviour
     {
         TakeDamage(damage);
     }
-
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.V)) TakeDamage(20);
-    // }
 
     private void TakeDamage(int damage)
     {

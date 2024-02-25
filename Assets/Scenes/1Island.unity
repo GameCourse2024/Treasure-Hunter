@@ -1354,6 +1354,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      propertyPath: jumpForce
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: staminabar
       value: 
       objectReference: {fileID: 954044042}
@@ -1371,6 +1375,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7719220633055560104, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1838004637}
+    - targetCorrespondingSourceObject: {fileID: 7719220633055560104, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1838004643}
+    - targetCorrespondingSourceObject: {fileID: 7719220633055560104, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1838004642}
   m_SourcePrefab: {fileID: 100100000, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
 --- !u!1 &113566102 stripped
 GameObject:
@@ -1435,6 +1445,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 114009512}
+  maxHealth: 100
+  regenerationRate: 1
+  regenerationInterval: 3
 --- !u!114 &114009512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16435,6 +16448,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggeringTag: Arrow
   damageAmount: 8
+--- !u!114 &1838004642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023282479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c0c1fe4ecd12d44a9cce01f9233d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleCursorAction:
+    m_Name: Toggle Cursor
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 70740c6a-61d1-491f-8cf0-6bada8291f9e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ed3900e4-2a57-4243-8447-119da90da779
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Cursor
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &1838004643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023282479}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028913408d7b70d4ca9aef664c15f79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0.1
 --- !u!1 &1854082332
 GameObject:
   m_ObjectHideFlags: 0
