@@ -13,6 +13,7 @@ public class Chaser : MonoBehaviour
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private DestroyOnTrigger destroyCode;
+    [SerializeField] private float stoppingDistance = 10f;
 
 
     private void Start()
@@ -46,18 +47,26 @@ public class Chaser : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distanceToPlayer <= navMeshAgent.stoppingDistance)
+        if (distanceToPlayer <= stoppingDistance)
         {
             // Stop chasing when within stopping distance
             navMeshAgent.isStopped = true;
+            animator.SetBool("isWalking", false);  // Optional: Set walking animation to false
+            animator.SetBool("isInDistance", true);  // Optional: Set walking animation to false
+            
         }
         else
         {
             // Resume chasing
             navMeshAgent.isStopped = false;
+            animator.SetBool("isWalking", true);  // Optional: Set walking animation to true
+
             FacePlayer();
+            Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+            Vector3 targetPosition = player.transform.position - directionToPlayer * 10f;
+            navMeshAgent.SetDestination(targetPosition);
             // Set the destination to the player position
-            navMeshAgent.SetDestination(player.transform.position);
+            //navMeshAgent.SetDestination(player.transform.position);
         }
     }
 

@@ -42,7 +42,7 @@ public class Patroller : MonoBehaviour
         if (agent.velocity.magnitude < stuckThreshold)
         {
             timeStuck += Time.deltaTime;
-            Debug.Log(timeStuck);
+            Debug.Log("NPC STANDING IN PLACE" + timeStuck);
             if (timeStuck >= stuckTimeThreshold)
             {
                 walkpointSet = false;

@@ -9,9 +9,12 @@ public class NPCAttack : MonoBehaviour
     [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private int projectileDamage = 10;
     [SerializeField] private float destroyTime = 1.5f;
-    private Animator animator;  // Reference to the Animator component
+    [SerializeField] private float stoppingDistance = 10f;
+    private Animator animator;  
     private DestroyOnTrigger destroyCode;
     private float timeSinceLastAttack;
+    private Vector3 playerPosition;
+    private Vector3 directionToPlayer;
 
     private void Start()
     {
@@ -22,8 +25,9 @@ public class NPCAttack : MonoBehaviour
 
     private void Update()
     {
+        //transform.rotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0f, directionToPlayer.z));
         timeSinceLastAttack += Time.deltaTime;
-
+    
         if (!destroyCode.IsDead() && timeSinceLastAttack >= attackCooldown)
         {
             Attack();
@@ -38,42 +42,44 @@ public class NPCAttack : MonoBehaviour
             Debug.LogError("Projectile prefab or spawn point is not assigned!");
             return;
         }
+        playerPosition = GetPlayerPosition();
+        float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+
         // Get the direction to the player
-        Vector3 directionToPlayer = (GetPlayerPosition() - transform.position).normalized;
+        directionToPlayer = (GetPlayerPosition() - transform.position).normalized;
+        transform.rotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0f, directionToPlayer.z));
 
-        // Check if the NPC is facing the player within a specified angle
-        if (Vector3.Angle(transform.forward, directionToPlayer) <= 45f)
+    
+        animator.SetBool("isAttacking", true);
+
+        // Instantiate the projectile
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+        Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
+
+        if (projectileRigidbody != null)
         {
-            animator.SetBool("isAttacking", true);
+            //Vector3 directionToPlayer = (GetPlayerPosition() - projectileSpawnPoint.position).normalized;
+            projectileRigidbody.velocity = directionToPlayer * projectileSpeed;
+            // Set the velocity to move straight towards the player with increased speed
+            // projectileRigidbody.velocity = projectile.transform.forward * projectileSpeed;
 
-            // Instantiate the projectile
-            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-            Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
+            // // Disable gravity for the projectile
+            // projectileRigidbody.useGravity = false;
 
-            if (projectileRigidbody != null)
-            {
-                //Vector3 directionToPlayer = (GetPlayerPosition() - projectileSpawnPoint.position).normalized;
-                projectileRigidbody.velocity = directionToPlayer * projectileSpeed;
-                // Set the velocity to move straight towards the player with increased speed
-                // projectileRigidbody.velocity = projectile.transform.forward * projectileSpeed;
-
-                // // Disable gravity for the projectile
-                // projectileRigidbody.useGravity = false;
-
-                // Add rotation around the Y-axis gradually as it moves
-                StartCoroutine(RotateArrow(projectile.transform));
-            }
-            else
-            {
-                Debug.LogError("Projectile prefab does not have a Rigidbody component!");
-                Destroy(projectile); // Destroy the instantiated object if it doesn't have Rigidbody
-            }
-
-            // Destroy the projectile after a certain time
-            Destroy(projectile, destroyTime);
-            // Set the isAttacking parameter back to false after the attack animation
-            StartCoroutine(ResetIsAttacking());
+            // Add rotation around the Y-axis gradually as it moves
+            StartCoroutine(RotateArrow(projectile.transform));
         }
+        else
+        {
+            Debug.LogError("Projectile prefab does not have a Rigidbody component!");
+            Destroy(projectile); // Destroy the instantiated object if it doesn't have Rigidbody
+        }
+
+        // Destroy the projectile after a certain time
+        Destroy(projectile, destroyTime);
+        // Set the isAttacking parameter back to false after the attack animation
+        StartCoroutine(ResetIsAttacking());
+        
     }
 
     private IEnumerator RotateArrow(Transform arrowTransform)

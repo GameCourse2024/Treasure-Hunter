@@ -7,10 +7,6 @@ public class EnemyControllerStateMachine : StateMachine
 {
     [SerializeField] float radiusToWatch = 5f;
     [SerializeField] public float attackRange = 15f; 
-    [SerializeField] float stoppingDistance = 10f; 
-    [SerializeField] float probabilityToRotate = 0.2f;
-    [SerializeField] float probabilityToStopRotating = 0.2f;
-
     private Chaser chaser;
     private Patroller patroller;
     private NPCAttack attacking;
