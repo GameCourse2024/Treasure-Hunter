@@ -30,10 +30,14 @@ public class Patroller : MonoBehaviour
         Patrol();
         UpdateAnimations();
         FaceDestination(); // Call the method to make the character face the destination
+        animator.SetFloat("WalkingSpeed", agent.velocity.magnitude);
+
     }
 
     void Patrol()
     {
+        animator.SetBool("isWalking", true);
+
         if (!walkpointSet) SearchForDest();
         if (walkpointSet) agent.SetDestination(destPoint);
         if (Vector3.Distance(transform.position, destPoint) < 10) walkpointSet = false;
@@ -50,6 +54,7 @@ public class Patroller : MonoBehaviour
             }
         }
         else timeStuck = 0f;
+        animator.SetBool("isWalking", true);
     }
 
     void SearchForDest()

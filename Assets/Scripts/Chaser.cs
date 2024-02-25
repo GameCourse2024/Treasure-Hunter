@@ -14,19 +14,22 @@ public class Chaser : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private DestroyOnTrigger destroyCode;
     [SerializeField] private float stoppingDistance = 10f;
-
+    private Vector3 previousPosition;
 
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        navMeshAgent.stoppingDistance = 10f;
         destroyCode = GetComponent<DestroyOnTrigger>();
+        navMeshAgent.stoppingDistance = stoppingDistance;
 
+        previousPosition = transform.position;    
     }
 
     private void Update()
     {
+        animator.SetFloat("WalkingSpeed", navMeshAgent.velocity.magnitude);
+
         // playerPosition = player.transform.position;
         // float distanceToPlayer = Vector3.Distance(playerPosition, transform.position);
         // FacePlayer();
@@ -46,13 +49,18 @@ public class Chaser : MonoBehaviour
 
     private void ChasePlayer()
     {
+        animator.SetBool("isWalking", true);
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
         if (distanceToPlayer <= stoppingDistance)
         {
+            Debug.Log("NPC SHOULD STOP WALKING");
             // Stop chasing when within stopping distance
             navMeshAgent.isStopped = true;
-            animator.SetBool("isWalking", false);   
+            animator.SetFloat("WalkingSpeed", navMeshAgent.velocity.magnitude);
+
+            //animator.SetBool("isWalking", false);
+            //animator.SetBool("isInDistance", true);   
             FacePlayer();           
         }
         else
@@ -60,6 +68,7 @@ public class Chaser : MonoBehaviour
             // Resume chasing
             navMeshAgent.isStopped = false;
             animator.SetBool("isWalking", true);  // Optional: Set walking animation to true
+            animator.SetFloat("WalkingSpeed", navMeshAgent.velocity.magnitude);
 
             FacePlayer();
             Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
@@ -68,6 +77,8 @@ public class Chaser : MonoBehaviour
             // Set the destination to the player position
             //navMeshAgent.SetDestination(player.transform.position);
         }
+        animator.SetFloat("WalkingSpeed", navMeshAgent.velocity.magnitude);
+
     }
 
     private void FacePlayer()
