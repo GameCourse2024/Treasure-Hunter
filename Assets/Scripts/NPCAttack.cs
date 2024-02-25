@@ -48,18 +48,19 @@ public class NPCAttack : MonoBehaviour
         // Get the direction to the player
         directionToPlayer = (GetPlayerPosition() - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0f, directionToPlayer.z));
-
+        //if (distanceToPlayer <= stoppingDistance) animator.SetBool("isWalking", false);
     
         animator.SetBool("isAttacking", true);
 
         // Instantiate the projectile
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.LookRotation(directionToPlayer));
         Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
 
         if (projectileRigidbody != null)
         {
             //Vector3 directionToPlayer = (GetPlayerPosition() - projectileSpawnPoint.position).normalized;
             projectileRigidbody.velocity = directionToPlayer * projectileSpeed;
+            //projectileRigidbody.velocity = transform.forward * projectileSpeed;
             // Set the velocity to move straight towards the player with increased speed
             // projectileRigidbody.velocity = projectile.transform.forward * projectileSpeed;
 
@@ -87,7 +88,7 @@ public class NPCAttack : MonoBehaviour
         while (arrowTransform != null)
         {
             // Rotate around the Y-axis gradually
-            arrowTransform.Rotate(Vector3.forward, 90f * Time.deltaTime);
+            arrowTransform.Rotate(Vector3.up, 90f * Time.deltaTime);
 
             yield return null;
         }
@@ -96,7 +97,7 @@ public class NPCAttack : MonoBehaviour
     private IEnumerator ResetIsAttacking()
     {
         // Wait for the attack animation duration (adjust this value based on your animation)
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
 
         // Reset the isAttacking parameter
         animator.SetBool("isAttacking", false);

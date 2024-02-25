@@ -39,6 +39,7 @@ public class Chaser : MonoBehaviour
         {
             // Stop chasing when the NPC is dead
             navMeshAgent.isStopped = true;
+            animator.SetBool("isWalking", false);
         }
         
     }
@@ -51,9 +52,8 @@ public class Chaser : MonoBehaviour
         {
             // Stop chasing when within stopping distance
             navMeshAgent.isStopped = true;
-            animator.SetBool("isWalking", false);  // Optional: Set walking animation to false
-            animator.SetBool("isInDistance", true);  // Optional: Set walking animation to false
-            
+            animator.SetBool("isWalking", false);   
+            FacePlayer();           
         }
         else
         {

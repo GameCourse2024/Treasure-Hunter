@@ -17670,7 +17670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1023282479}
-  stoppingDistance: 15
+  stoppingDistance: 20
 --- !u!65 &1932694381
 BoxCollider:
   m_ObjectHideFlags: 0

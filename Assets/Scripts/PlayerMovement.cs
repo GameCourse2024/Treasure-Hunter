@@ -53,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
         if (moveAction.bindings.Count == 0)
             moveAction.AddCompositeBinding("2DVector")
                 .With("Up", "<Keyboard>/w")
-                .With("Down", "<Keyboard>/s")
-                .With("Left", "<Keyboard>/a")
-                .With("Right", "<Keyboard>/d");
+                .With("Down", "<Keyboard>/s");
+                //.With("Left", "<Keyboard>/a")
+                //.With("Right", "<Keyboard>/d");
 
         if (jumpAction == null)
         {
@@ -98,9 +98,9 @@ public class PlayerMovement : MonoBehaviour
             moveAction = new InputAction(type: InputActionType.Value);
             moveAction.AddCompositeBinding("2DVector")
                 .With("Up", "<Keyboard>/w")
-                .With("Down", "<Keyboard>/s")
-                .With("Left", "<Keyboard>/a")
-                .With("Right", "<Keyboard>/d");
+                .With("Down", "<Keyboard>/s");
+                //.With("Left", "<Keyboard>/a")
+               // .With("Right", "<Keyboard>/d");
         }
         
         // Enable the moveAction
@@ -132,17 +132,17 @@ public class PlayerMovement : MonoBehaviour
     // Apply sprint speed multiplier if sprinting
     float currentSpeed = isSprinting ? speed * sprintSpeedMultiplier : speed;
 
-    // Rotate right continuously when the right key is held down
-    if (moveAction.ReadValue<Vector2>().x > 0.1f)
-    {
-        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
-    }
+    // // Rotate right continuously when the right key is held down
+    // if (moveAction.ReadValue<Vector2>().x > 0.1f)
+    // {
+    //     transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+    // }
 
-    // Rotate left continuously when the left key is held down
-    if (moveAction.ReadValue<Vector2>().x < -0.1f)
-    {
-        transform.Rotate(Vector3.up * -rotationSpeed * Time.deltaTime);
-    }
+    // // Rotate left continuously when the left key is held down
+    // if (moveAction.ReadValue<Vector2>().x < -0.1f)
+    // {
+    //     transform.Rotate(Vector3.up * -rotationSpeed * Time.deltaTime);
+    // }
 
     // Jump when the jump key is pressed and not sprinting
     if (jumpAction.triggered && characterController.isGrounded && !isSprinting)
