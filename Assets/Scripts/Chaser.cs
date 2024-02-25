@@ -12,12 +12,16 @@ public class Chaser : MonoBehaviour
     [SerializeField] GameObject player = null;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private DestroyOnTrigger destroyCode;
+
 
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         navMeshAgent.stoppingDistance = 10f;
+        destroyCode = GetComponent<DestroyOnTrigger>();
+
     }
 
     private void Update()
@@ -26,7 +30,15 @@ public class Chaser : MonoBehaviour
         // float distanceToPlayer = Vector3.Distance(playerPosition, transform.position);
         // FacePlayer();
         // navMeshAgent.SetDestination(playerPosition);
-        ChasePlayer();
+        if (!destroyCode.IsDead())
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            // Stop chasing when the NPC is dead
+            navMeshAgent.isStopped = true;
+        }
         
     }
 
