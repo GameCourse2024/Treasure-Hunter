@@ -12,10 +12,10 @@ public class DestroyOnTrigger : MonoBehaviour
 
     [Tooltip("Number of hits required to destroy the NPC")]
     [SerializeField] private int hitsRequired = 5;
+    [Tooltip("Timer to display death animation")]
     [SerializeField] private float deathTimer = 7f;
+    [Tooltip("Referrence to the animator prefab")]
     [SerializeField] private NavMeshAgent navMeshAgent; 
-
-
 
     private int count = 0;
     private bool isCooldown = false;

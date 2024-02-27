@@ -1,94 +1,78 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Animator))]
 public class Patroller : MonoBehaviour
 {
-    private GameObject player;
-    private NavMeshAgent agent;
+    [Tooltip("Minimum time to wait at target between running to the next target")]
+    [SerializeField] private float minWaitAtTarget = 7f;
+
+    [Tooltip("Maximum time to wait at target between running to the next target")]
+    [SerializeField] private float maxWaitAtTarget = 15f;
+
+    [Tooltip("The distance the NPC moves left and right from the starting point")]
+    [SerializeField] private float moveDistance = 10f;
+
+    private NavMeshAgent navMeshAgent;
     private Animator animator;
+    private float rotationSpeed = 5f;
 
-    private Vector3 destPoint;
-    private bool walkpointSet;
-    [SerializeField] private float range;
-    [SerializeField] private float rotationSpeed = 5f; // Adjust the rotation speed as needed
-    [SerializeField] private float stuckThreshold = 0.1f; // Adjust the threshold for considering the agent stuck
-    [SerializeField] private float stuckTimeThreshold = 3f; // Adjust the time threshold for considering the agent stuck
-    private float timeStuck;
+    private Vector3 startPoint;
+    private Vector3 endPoint;
+    private bool movingRight = true;
 
-    void Start()
+    private float timeToWaitAtTarget;
+
+    private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        player = GameObject.Find("Player");
+
+        startPoint = transform.position;
+        endPoint = startPoint + new Vector3(moveDistance, 0f, 0f);
+
+        // Set the initial destination
+        navMeshAgent.SetDestination(endPoint);
     }
 
-    void Update()
+    private void Update()
     {
         Patrol();
         UpdateAnimations();
-        FaceDestination(); // Call the method to make the character face the destination
-        animator.SetFloat("WalkingSpeed", agent.velocity.magnitude);
-
+        FaceDestination();
+        animator.SetFloat("WalkingSpeed", navMeshAgent.velocity.magnitude);
     }
 
-    void Patrol()
+    private void Patrol()
     {
+        // Check if the NPC has reached the destination
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
+        {
+            // Switch direction
+            movingRight = !movingRight;
+
+            // Set the new destination
+            navMeshAgent.SetDestination(movingRight ? endPoint : startPoint);
+
+            // Set random wait time
+            //timeToWaitAtTarget = Random.Range(minWaitAtTarget, maxWaitAtTarget);
+        }
+
+        // Reduce wait time
+       // timeToWaitAtTarget -= Time.deltaTime;
+    }
+
+    private void UpdateAnimations()
+    {
+        // Agent is moving, play "Walk" animation
         animator.SetBool("isWalking", true);
-
-        if (!walkpointSet) SearchForDest();
-        if (walkpointSet) agent.SetDestination(destPoint);
-        if (Vector3.Distance(transform.position, destPoint) < 10) walkpointSet = false;
-
-        // Check if the agent is stuck
-        if (agent.velocity.magnitude < stuckThreshold)
-        {
-            timeStuck += Time.deltaTime;
-            Debug.Log("NPC STANDING IN PLACE" + timeStuck);
-            if (timeStuck >= stuckTimeThreshold)
-            {
-                walkpointSet = false;
-                animator.SetBool("isWalking", false);
-            }
-        }
-        else timeStuck = 0f;
-        animator.SetBool("isWalking", true);
-    }
-
-    void SearchForDest()
-    {
-        float z = Random.Range(-range, range);
-        float x = Random.Range(-range, range);
-
-        destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
-
-        if (Physics.Raycast(destPoint, Vector3.down))
-        {
-            walkpointSet = true;
-        }
-    }
-
-    void UpdateAnimations()
-    {
-        if (agent.velocity.magnitude > 1f)
-        {
-            // Agent is moving, play "Walk" animation
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            // Agent is not moving, play "Idle" animation
-            animator.SetBool("isWalking", false);
-        }
     }
 
     private void FaceDestination()
     {
-        if (agent.velocity.magnitude > 0.1f)
+        if (navMeshAgent.velocity.magnitude > 0.1f)
         {
-            Vector3 directionToDestination = (agent.destination - transform.position).normalized;
+            Vector3 directionToDestination = (navMeshAgent.destination - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToDestination.x, 0, directionToDestination.z), Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
         }

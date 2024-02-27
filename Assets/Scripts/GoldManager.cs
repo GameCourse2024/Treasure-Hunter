@@ -57,6 +57,10 @@ public class GoldManager : MonoBehaviour
 
         // Fade To Next Level
         LevelTransition.Instance.FadeToNextLevel();
+    }
 
+    public int GetGold()
+    {
+        return gold;
     }
 }

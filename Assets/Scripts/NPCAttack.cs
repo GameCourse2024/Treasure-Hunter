@@ -3,13 +3,18 @@ using System.Collections;
 
 public class NPCAttack : MonoBehaviour
 {
+    [Tooltip("The object NPC shoots")]
     [SerializeField] private GameObject projectilePrefab;
+    [Tooltip("Where the projectile spawns from")]
     [SerializeField] private Transform projectileSpawnPoint;
+    [Tooltip("Speed of projectile")]
     [SerializeField] private float projectileSpeed = 20f;
+    [Tooltip("Cooldown between each shot")]
     [SerializeField] private float attackCooldown = 1.5f;
+    [Tooltip("The damage the projectile provides")]
     [SerializeField] private int projectileDamage = 10;
+    [Tooltip("Time that the projectile destroyed")]
     [SerializeField] private float destroyTime = 1.5f;
-    [SerializeField] private float stoppingDistance = 10f;
     private Animator animator;  
     private DestroyOnTrigger destroyCode;
     private float timeSinceLastAttack;

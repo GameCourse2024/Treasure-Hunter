@@ -13,6 +13,7 @@ public class Chaser : MonoBehaviour
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private DestroyOnTrigger destroyCode;
+    [Tooltip("The distance NPC should keep from target")]
     [SerializeField] private float stoppingDistance = 10f;
     private Vector3 previousPosition;
 
@@ -21,7 +22,7 @@ public class Chaser : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         destroyCode = GetComponent<DestroyOnTrigger>();
-        navMeshAgent.stoppingDistance = stoppingDistance;
+        //navMeshAgent.stoppingDistance = stoppingDistance;
 
         previousPosition = transform.position;    
     }
@@ -49,9 +50,10 @@ public class Chaser : MonoBehaviour
 
     private void ChasePlayer()
     {
+
         animator.SetBool("isWalking", true);
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
+        Debug.Log(distanceToPlayer);
         if (distanceToPlayer <= stoppingDistance)
         {
             Debug.Log("NPC SHOULD STOP WALKING");

@@ -5,7 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(NPCAttack))]
 public class EnemyControllerStateMachine : StateMachine
 {
+    [Tooltip("If the target is within this NPC Radius he starts chasing.")]
     [SerializeField] float radiusToWatch = 5f;
+    [Tooltip("The distance the NPC start attacking the player.")]
     [SerializeField] public float attackRange = 15f; 
     private Chaser chaser;
     private Patroller patroller;

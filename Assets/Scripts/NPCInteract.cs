@@ -66,6 +66,10 @@ public class NPCInteract : MonoBehaviour
     [Tooltip("If the NPC sells something that leads to the next level , warn the player")]
     [SerializeField]
     private string warning;
+
+    [Tooltip("Ship Cost")]
+    [SerializeField] private int shipCost = 100;
+    
     void Start() 
     {
        // Debug.Log("This is the text: " + text);
@@ -150,7 +154,14 @@ public class NPCInteract : MonoBehaviour
             canvas.gameObject.SetActive(true);
             if(ship)
             {
-                GoldManager.Instance.ShipBought(sellPrice);
+                if(GoldManager.Instance.GetGold() >= shipCost)
+                {
+                    GoldManager.Instance.ShipBought(sellPrice);
+                }
+                else
+                {
+                    Debug.Log("Not enough gold!");
+                }
             }
         }
     }
