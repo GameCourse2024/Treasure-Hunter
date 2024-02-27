@@ -37,17 +37,17 @@ public class DestroyOnTrigger : MonoBehaviour
 
             // Increment the hit count
             count++;
-            Debug.Log(count);
 
             // Start the cooldown
             StartCooldown();
 
             // Check if the hit count reaches the hitsRequired
-            if (count >= hitsRequired)
-            {   
+            if (count == hitsRequired)
+            {
+                KillQuest.Instance.IncrementNpcKilledCount();
+
                 // Set the "isDead" parameter in the animator
                 animator.SetBool("isDead", true);
-                Debug.Log("isDead set to true");
 
                 Destroy(other.gameObject);
                 // Disable the NavMeshAgent to stop the NPC from moving
@@ -57,7 +57,6 @@ public class DestroyOnTrigger : MonoBehaviour
                         navMeshAgent.velocity = Vector3.zero;
                     }
                 isDead = true;
-
                 CancelInvoke("DestroyNPC");
 
                 // Delay the destruction of the NPC

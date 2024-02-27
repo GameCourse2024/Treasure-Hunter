@@ -53,7 +53,6 @@ public class Chaser : MonoBehaviour
 
         animator.SetBool("isWalking", true);
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log(distanceToPlayer);
         if (distanceToPlayer <= stoppingDistance)
         {
             Debug.Log("NPC SHOULD STOP WALKING");
