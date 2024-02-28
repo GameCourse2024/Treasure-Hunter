@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13244575, g: 0.09235331, b: 0.14126024, a: 1}
+  m_IndirectSpecularColor: {r: 0.13113275, g: 0.09078867, b: 0.14000049, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -971,7 +971,7 @@ MonoBehaviour:
   - 4.5
   - 4
   - 10
-  timeForScene: 19
+  timeForScene: 10
 --- !u!4 &761709290
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   - name: 2Text
     clip: {fileID: 8300000, guid: ed6a24b928a820a478126a0d581e6dc9, type: 3}
   - name: 3Text
-    clip: {fileID: 8300000, guid: 06fada736e4986d4d88d15f39bf99d61, type: 3}
+    clip: {fileID: 8300000, guid: bc1eedd51cd31bc4394af8ad78aedeae, type: 3}
   musicSource: {fileID: 1424208346}
   sfxSource: {fileID: 1339758870}
 --- !u!1 &1086034396
