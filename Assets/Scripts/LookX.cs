@@ -23,8 +23,16 @@ public class LookX : MonoBehaviour {
 
     void Update() {
         float mouseX = Mouse.current.delta.x.ReadValue();
+        
         Vector3 rotation = transform.localEulerAngles;
         rotation.y += mouseX * rotationSpeed;  // Rotation around the vertical (Y) axis
         transform.localEulerAngles = rotation;
     }
+
+    // void Update() {
+    //     float mouseX = Mouse.current.delta.x.ReadValue();
+    //     Vector3 rotation = transform.localEulerAngles;
+    //     rotation.y += mouseX * rotationSpeed;  // Rotation around the vertical (Y) axis
+    //     transform.localEulerAngles = rotation;
+    // }
 }
