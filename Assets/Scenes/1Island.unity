@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.673687, g: 0.51926935, b: 0.3470725, a: 1}
+  m_IndirectSpecularColor: {r: 0.673305, g: 0.5181906, b: 0.34589565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19564,7 +19564,7 @@ PrefabInstance:
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: text
       value: Oooh, so you want to buy my ship, interesting next time we interact
-        it'll be a done deal! so i'll sell it for 100
+        it'll be a done deal! so i'll sell it for 300
       objectReference: {fileID: 0}
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: sells
