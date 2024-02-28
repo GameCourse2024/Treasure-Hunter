@@ -30,5 +30,10 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            string deathText = "Try Again!"; // Define deathText
+            DeathManager.Instance.FadeOut(deathText);
+        }
     }
 }

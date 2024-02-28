@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (attackAction == null)
         {
             attackAction = new InputAction(type: InputActionType.Button);
-            attackAction.AddBinding("<Keyboard>/leftCtrl");
+            attackAction.AddBinding("<Mouse>/leftButton");
         }
     }
 

@@ -57,11 +57,11 @@ public class NPCInteract : MonoBehaviour
     [SerializeField]
     private string textAfterSell;
     [Tooltip("Sell Price")]
-    [SerializeField]
-    private int sellPrice;
+    [SerializeField] private int sellPrice;
     [Tooltip("Did this NPC sell the ship")]
-    [SerializeField]
-    private bool ship;
+    [SerializeField] private bool ship;
+    [Tooltip("If the player tries to buy without enough gold")]
+    [SerializeField] private string textNotEnoughGold;
 
     [Tooltip("If the NPC sells something that leads to the next level , warn the player")]
     [SerializeField]
@@ -160,6 +160,8 @@ public class NPCInteract : MonoBehaviour
                 }
                 else
                 {
+                    textMeshProText.SetText(textNotEnoughGold);
+
                     Debug.Log("Not enough gold!");
                 }
             }

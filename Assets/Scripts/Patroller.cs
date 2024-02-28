@@ -4,24 +4,20 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Patroller : MonoBehaviour
 {
-    [Tooltip("Minimum time to wait at target between running to the next target")]
-    [SerializeField] private float minWaitAtTarget = 7f;
-
-    [Tooltip("Maximum time to wait at target between running to the next target")]
-    [SerializeField] private float maxWaitAtTarget = 15f;
-
     [Tooltip("The distance the NPC moves left and right from the starting point")]
     [SerializeField] private float moveDistance = 10f;
+
+    [SerializeField] private bool initialDirectionIsRight = true;
 
     private NavMeshAgent navMeshAgent;
     private Animator animator;
     private float rotationSpeed = 5f;
 
     private Vector3 startPoint;
-    private Vector3 endPoint;
-    private bool movingRight = true;
+    private Vector3 leftEndpoint;
+    private Vector3 rightEndpoint;
 
-    private float timeToWaitAtTarget;
+    private bool hasSetInitialDestination = false;
 
     private void Start()
     {
@@ -29,18 +25,27 @@ public class Patroller : MonoBehaviour
         animator = GetComponent<Animator>();
 
         startPoint = transform.position;
-        endPoint = startPoint + new Vector3(moveDistance, 0f, 0f);
-
-        // Set the initial destination
-        navMeshAgent.SetDestination(endPoint);
+        leftEndpoint = startPoint - new Vector3(moveDistance, 0f, 0f);
+        rightEndpoint = startPoint + new Vector3(moveDistance, 0f, 0f);
     }
 
     private void Update()
     {
+        if (!hasSetInitialDestination)
+        {
+            SetInitialDestination();
+        }
+
         Patrol();
         UpdateAnimations();
         FaceDestination();
         animator.SetFloat("WalkingSpeed", navMeshAgent.velocity.magnitude);
+    }
+
+    private void SetInitialDestination()
+    {
+        navMeshAgent.SetDestination(initialDirectionIsRight ? rightEndpoint : leftEndpoint);
+        hasSetInitialDestination = true;
     }
 
     private void Patrol()
@@ -49,17 +54,11 @@ public class Patroller : MonoBehaviour
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
         {
             // Switch direction
-            movingRight = !movingRight;
+            initialDirectionIsRight = !initialDirectionIsRight;
 
             // Set the new destination
-            navMeshAgent.SetDestination(movingRight ? endPoint : startPoint);
-
-            // Set random wait time
-            //timeToWaitAtTarget = Random.Range(minWaitAtTarget, maxWaitAtTarget);
+            navMeshAgent.SetDestination(initialDirectionIsRight ? rightEndpoint : leftEndpoint);
         }
-
-        // Reduce wait time
-       // timeToWaitAtTarget -= Time.deltaTime;
     }
 
     private void UpdateAnimations()

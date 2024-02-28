@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6736895, g: 0.51926976, b: 0.34707057, a: 1}
+  m_IndirectSpecularColor: {r: 0.673687, g: 0.51926935, b: 0.3470725, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1384,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: speed
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: jumpForce
@@ -1394,6 +1394,14 @@ PrefabInstance:
       propertyPath: staminabar
       value: 
       objectReference: {fileID: 954044042}
+    - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      propertyPath: sprintSpeedMultiplier
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      propertyPath: attackAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Mouse>/leftButton
+      objectReference: {fileID: 0}
     - target: {fileID: 7719220633055560104, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2175,9 +2183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7897c9be74f24c94437f171df7a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitAtTarget: 5
-  maxWaitAtTarget: 5
-  moveDistance: 80
+  moveDistance: 40
+  initialDirectionIsRight: 0
 --- !u!114 &184395472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2190,7 +2197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60125e447b2c9cb448b3191949b8b757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusToWatch: 40
+  radiusToWatch: 60
   attackRange: 30
 --- !u!114 &184395473
 MonoBehaviour:
@@ -2503,11 +2510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -119.91687
+      value: -161.2
       objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.248013
+      value: -8.62
       objectReference: {fileID: 0}
     - target: {fileID: 6799292635335025344, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4490,6 +4497,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 206658640}
     m_Modifications:
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
+      propertyPath: gold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: hint
       value: It's somewhere near the great flower field
       objectReference: {fileID: 0}
@@ -5274,15 +5285,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -233.68698
+      value: -268.1
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.280298
+      value: -26.8
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -382.47852
+      value: -393.6
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5380,9 +5391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7897c9be74f24c94437f171df7a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitAtTarget: 5
-  maxWaitAtTarget: 5
-  moveDistance: 80
+  moveDistance: 50
+  initialDirectionIsRight: 1
 --- !u!114 &523828797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9610,15 +9620,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -221.98697
+      value: -225.9
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.860298
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -326.67847
+      value: -372.8
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9731,9 +9741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 954044043}
   maxStamina: 100
-  sprintingStaminaUsagePerSecond: 8.38
-  staminaRegenerationRate: 2.06
-  sprintCooldownTime: 5
+  sprintingStaminaUsagePerSecond: 8
+  staminaRegenerationRate: 10
+  sprintCooldownTime: 2
   movement: {fileID: 1838004636}
 --- !u!114 &954044043
 MonoBehaviour:
@@ -14521,11 +14531,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -292.287
+      value: -189.8
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.860298
+      value: -16.11
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16194,15 +16204,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -257.38696
+      value: -231.6
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.660297
+      value: -19.9
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -344.93848
+      value: -340.5
       objectReference: {fileID: 0}
     - target: {fileID: 471088, guid: 8a910dd65a3f1804f949f38915c10580, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16357,9 +16367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7897c9be74f24c94437f171df7a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitAtTarget: 5
-  maxWaitAtTarget: 5
-  moveDistance: 80
+  moveDistance: 40
+  initialDirectionIsRight: 1
 --- !u!114 &1707969129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16372,8 +16381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60125e447b2c9cb448b3191949b8b757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusToWatch: 40
-  attackRange: 30
+  radiusToWatch: 60
+  attackRange: 40
 --- !u!114 &1707969130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17774,7 +17783,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ed3900e4-2a57-4243-8447-119da90da779
-      m_Path: <Mouse>/leftButton
+      m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -18520,9 +18529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7897c9be74f24c94437f171df7a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitAtTarget: 5
-  maxWaitAtTarget: 5
-  moveDistance: 80
+  moveDistance: 40
+  initialDirectionIsRight: 0
 --- !u!114 &1897569701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18535,8 +18543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60125e447b2c9cb448b3191949b8b757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusToWatch: 40
-  attackRange: 30
+  radiusToWatch: 60
+  attackRange: 40
 --- !u!114 &1897569702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19512,8 +19520,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: shipCost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: sellPrice
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: canGiveQuest
@@ -19530,6 +19542,11 @@ PrefabInstance:
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: bannerWaitTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: textNotEnoughGold
+      value: Are you kidding me kid?! You are poor! Return to me when you have the
+        gold.....
       objectReference: {fileID: 0}
     - target: {fileID: 6129434329696352378, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: m_Name
