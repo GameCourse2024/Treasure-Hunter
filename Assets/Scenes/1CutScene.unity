@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13110486, g: 0.09076635, b: 0.13997692, a: 1}
+  m_IndirectSpecularColor: {r: 0.13244575, g: 0.09235331, b: 0.14126024, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -954,17 +954,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxName:
+  - 1Text
   - Thunder
   - AmbulanceSiren
+  - 2Text
   - T.V.
   - Drums
+  - 3Text
   soundName:
   - LightRain
   delays:
-  - 4
+  - 0
+  - 2
   - 3
-  - 26
+  - 23
+  - 4.5
   - 4
+  - 10
   timeForScene: 19
 --- !u!4 &761709290
 Transform:
@@ -1165,6 +1171,12 @@ MonoBehaviour:
   musicSounds:
   - name: LightRain
     clip: {fileID: 8300000, guid: bf0ccfbc9ca06dd4093d16e555d90139, type: 3}
+  - name: 1Text
+    clip: {fileID: 8300000, guid: 2eb0714bbbbc5f34096229e24ef80c89, type: 3}
+  - name: 2Text
+    clip: {fileID: 8300000, guid: ed6a24b928a820a478126a0d581e6dc9, type: 3}
+  - name: 3Text
+    clip: {fileID: 8300000, guid: 06fada736e4986d4d88d15f39bf99d61, type: 3}
   sfxSounds:
   - name: AmbulanceSiren
     clip: {fileID: 8300000, guid: cf02603fe3c65784291d491b2c124dde, type: 3}
@@ -1174,6 +1186,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b9dbd51c6a1314843a54a213feff22e1, type: 3}
   - name: Drums
     clip: {fileID: 8300000, guid: 767530212cb4e0e4285907b75b62eace, type: 3}
+  - name: 1Text
+    clip: {fileID: 8300000, guid: 2eb0714bbbbc5f34096229e24ef80c89, type: 3}
+  - name: 2Text
+    clip: {fileID: 8300000, guid: ed6a24b928a820a478126a0d581e6dc9, type: 3}
+  - name: 3Text
+    clip: {fileID: 8300000, guid: 06fada736e4986d4d88d15f39bf99d61, type: 3}
   musicSource: {fileID: 1424208346}
   sfxSource: {fileID: 1339758870}
 --- !u!1 &1086034396
