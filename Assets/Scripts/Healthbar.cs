@@ -48,6 +48,13 @@ public class Healthbar : MonoBehaviour
         slider.value = health;
     }
 
+    public float GetHealth()
+    {
+        Debug.Log(currentHealth);
+        return currentHealth;
+    }
+
+
     private IEnumerator RegenerateHealth()
     {
         while (true)

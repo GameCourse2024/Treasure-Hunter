@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    private Animator animator;
     private PlayerMovement playerMovement;
     public Healthbar healthbar;
     [SerializeField] private float maxHealth = 100f;
@@ -14,6 +15,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
 
@@ -32,6 +34,7 @@ public class PlayerStats : MonoBehaviour
         healthbar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
+            animator.SetBool("isDead", true);
             string deathText = "Try Again!"; // Define deathText
             DeathManager.Instance.FadeOut(deathText);
         }

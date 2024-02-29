@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumpingFromStanding = false;
     [SerializeField] private Staminabar staminabar; // Reference to Staminabar script
     public Spawner spawner;
+    [SerializeField] private Healthbar healthbar;
 
     private void OnEnable()
     {
@@ -110,6 +111,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (healthbar.GetHealth() <= 0)
+        {
+            // Player can't move, exit the method
+            return;
+        }
     // Move forward only when the forward key is pressed
     float moveInput = moveAction.ReadValue<Vector2>().y;
     Vector3 moveDirection = transform.forward * moveInput;

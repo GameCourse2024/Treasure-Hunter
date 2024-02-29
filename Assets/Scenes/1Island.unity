@@ -1387,6 +1387,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 114009511}
+    - target: {fileID: 5828143215101583875, guid: 460e34b7b3f3737479d7fbaa6e51551a, type: 3}
       propertyPath: jumpForce
       value: 0.8
       objectReference: {fileID: 0}
@@ -11357,7 +11361,7 @@ GameObject:
   - component: {fileID: 1099556321}
   - component: {fileID: 1099556320}
   - component: {fileID: 1099556319}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CanvasMark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13185,15 +13189,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17874,7 +17878,7 @@ GameObject:
   - component: {fileID: 1846525269}
   - component: {fileID: 1846525268}
   - component: {fileID: 1846525270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MinimapCam
   m_TagString: Minimap
   m_Icon: {fileID: 0}
@@ -17916,7 +17920,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 65
+  orthographic size: 80
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
