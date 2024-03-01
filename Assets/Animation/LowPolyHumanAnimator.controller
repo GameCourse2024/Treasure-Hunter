@@ -262,10 +262,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 2569941726363179482}
-    m_Position: {x: 30, y: 420, z: 0}
+    m_Position: {x: 30, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6705918301661042215}
-    m_Position: {x: 30, y: 310, z: 0}
+    m_Position: {x: 30, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -692070194648250164}
     m_Position: {x: -240, y: 360, z: 0}
@@ -274,10 +274,10 @@ AnimatorStateMachine:
     m_Position: {x: -230, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5080697261005136249}
-    m_Position: {x: 30, y: 240, z: 0}
+    m_Position: {x: 30, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9024314178366566106}
-    m_Position: {x: 340, y: 360, z: 0}
+    m_Position: {x: 280, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6306866538664805265}
     m_Position: {x: -90, y: 90, z: 0}
@@ -287,7 +287,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 40, y: 20, z: 0}
-  m_EntryPosition: {x: 40, y: 470, z: 0}
+  m_EntryPosition: {x: 40, y: 560, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 2569941726363179482}
@@ -333,31 +333,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isJumping
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isSprinting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

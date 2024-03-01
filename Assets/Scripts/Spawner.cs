@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -12,13 +10,19 @@ public class Spawner : MonoBehaviour
 
     public void SpawnFireball()
     {
+        // Get the camera's forward direction
+        Vector3 shootingDirection = Camera.main.transform.forward;
+
+        // Instantiate the fireball at the throwPoint's position
         GameObject fireballInstance = Instantiate(fireballPrefab, throwPoint.position, Quaternion.identity);
+
+        // Get the fireball's rigidbody
         Rigidbody rb = fireballInstance.GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * shootingSpeed;
 
+        // Set the velocity based on the shooting direction and speed
+        rb.velocity = shootingDirection * shootingSpeed;
+
+        // Destroy the fireball after a certain time
         Destroy(fireballInstance, destroyTime);
-
     }
 }
-
-
