@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     public float height = 3f; // Height above the player
     public float rotationSpeed = 2.0f; // Speed of camera rotation
     public float smoothSpeed = 0.125f; // Smoothness of camera movement
+    [SerializeField] private float maxFlip = 70f;
 
     private float mouseX;
     private float mouseY;
@@ -41,6 +42,6 @@ public class CameraFollow : MonoBehaviour
         mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
 
         // Clamp vertical rotation to avoid flipping
-        mouseY = Mathf.Clamp(mouseY, -90, 90);
+        mouseY = Mathf.Clamp(mouseY, -maxFlip, maxFlip);
     }
 }

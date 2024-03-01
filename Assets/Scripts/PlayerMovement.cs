@@ -126,85 +126,94 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void Update()
+   private void Update()
+{
+    if (healthbar.GetHealth() <= 0)
     {
-        if (healthbar.GetHealth() <= 0)
-        {
-            // Player can't move, exit the method
-            return;
-        }
-        // Move forward only when the forward key is pressed
-        float moveInput = moveAction.ReadValue<Vector2>().y;
-        Vector3 moveDirection = transform.forward * moveInput;
-
-        // Move backward only when the backward key is pressed
-        float moveBackwardInput = moveAction.ReadValue<Vector2>().y;
-        moveDirection += transform.forward * moveBackwardInput;
-
-        // Sprinting
-        if (sprintAction.triggered && characterController.isGrounded && staminabar.GetCurrentStamina() >= sprintCooldown)
-        {
-            isSprinting = true;
-        }
-        
-        if (moveInput == 0 && moveBackwardInput == 0)
-        {
-            isSprinting = false;
-        }
-
-        // Apply sprint speed multiplier if sprinting
-        float currentSpeed = isSprinting ? speed * sprintSpeedMultiplier : speed;
-
-        // Rotate right continuously when the right key is held down
-        if (moveAction.ReadValue<Vector2>().x > 0.1f)
-        {
-            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
-        }
-
-        // Rotate left continuously when the left key is held down
-        if (moveAction.ReadValue<Vector2>().x < -0.1f)
-        {
-            transform.Rotate(Vector3.up * -rotationSpeed * Time.deltaTime);
-        }
-
-        // Jump when the jump key is pressed and not sprinting
-        if (jumpAction.triggered && characterController.isGrounded && !isSprinting)
-        {
-            velocity.y = Mathf.Sqrt(2 * jumpForce * gravity);
-            animator.SetBool("isJumping", !characterController.isGrounded);
-
-            isJumpingFromStanding = Mathf.Abs(moveInput + moveBackwardInput) < 0.1f;
-            if (isJumpingFromStanding)
-                moveAction.Disable();
-            StartCoroutine(EnableMoveActionAfterDelay(delatToWalk));
-        }
-
-        // Attack when the attack key is pressed
-        if (attackAction.triggered && canAttack)
-        {
-            if (characterController.isGrounded) StartCoroutine(AttackAnimation());
-            //else StartCoroutine(AttackOnAir());
-
-        }
-        // Apply gravity
-        velocity.y -= gravity * Time.deltaTime;
-
-        // Move the character and set isRunning and isSprinting animation parameters
-        characterController.Move((moveDirection.normalized * currentSpeed + velocity) * Time.deltaTime);
-
-        // Set isRunning and isJumping animation parameters
-        bool isRunning = Mathf.Abs(moveInput + moveBackwardInput) > 0.1f && characterController.isGrounded;
-        animator.SetBool("isRunning", isRunning);
-        animator.SetBool("isJumping", !characterController.isGrounded);
-        animator.SetBool("isSprinting", isSprinting);
-
-        // Clamp the character to the ground
-        if (characterController.isGrounded && velocity.y < 0)
-        {
-            velocity.y = pullDownForce;
-            animator.SetBool("isJumping", false);
-        }
+        // Player can't move, exit the method
+        return;
     }
+
+    // Rotate right continuously when the right key is held down
+    if (moveAction.ReadValue<Vector2>().x > 0.1f)
+    {
+        // Smoothly rotate the player
+        float targetRotation = transform.eulerAngles.y + rotationSpeed * Time.deltaTime;
+        transform.eulerAngles = new Vector3(0, targetRotation, 0);
+    }
+
+    // Rotate left continuously when the left key is held down
+    if (moveAction.ReadValue<Vector2>().x < -0.1f)
+    {
+        // Smoothly rotate the player
+        float targetRotation = transform.eulerAngles.y - rotationSpeed * Time.deltaTime;
+        transform.eulerAngles = new Vector3(0, targetRotation, 0);
+    }
+
+    // Move forward only when the forward key is pressed
+    float moveInput = moveAction.ReadValue<Vector2>().y;
+    Vector3 moveDirection = transform.forward * moveInput;
+
+    // Move backward only when the backward key is pressed
+    float moveBackwardInput = moveAction.ReadValue<Vector2>().y;
+    moveDirection += transform.forward * moveBackwardInput;
+
+    // Move left and right when the left and right keys are pressed
+    float strafeInput = moveAction.ReadValue<Vector2>().x;
+    moveDirection += transform.right * strafeInput;
+
+    // Sprinting
+    if (sprintAction.triggered && characterController.isGrounded && staminabar.GetCurrentStamina() >= sprintCooldown)
+    {
+        isSprinting = true;
+    }
+
+    if (moveInput == 0 && moveBackwardInput == 0 && strafeInput == 0)
+    {
+        isSprinting = false;
+    }
+
+    // Apply sprint speed multiplier if sprinting
+    float currentSpeed = isSprinting ? speed * sprintSpeedMultiplier : speed;
+
+    // Jump when the jump key is pressed and not sprinting
+    if (jumpAction.triggered && characterController.isGrounded && !isSprinting)
+    {
+        velocity.y = Mathf.Sqrt(2 * jumpForce * gravity);
+        animator.SetBool("isJumping", !characterController.isGrounded);
+
+        isJumpingFromStanding = Mathf.Abs(moveInput + moveBackwardInput) < 0.1f;
+        if (isJumpingFromStanding)
+            moveAction.Disable();
+        StartCoroutine(EnableMoveActionAfterDelay(delatToWalk));
+    }
+
+    // Attack when the attack key is pressed
+    if (attackAction.triggered && canAttack)
+    {
+        if (characterController.isGrounded) StartCoroutine(AttackAnimation());
+        //else StartCoroutine(AttackOnAir());
+    }
+
+    // Apply gravity
+    velocity.y -= gravity * Time.deltaTime;
+
+    // Move the character and set isRunning and isSprinting animation parameters
+    characterController.Move((moveDirection.normalized * currentSpeed + velocity) * Time.deltaTime);
+
+    // Set isRunning and isJumping animation parameters
+    bool isRunning = Mathf.Abs(moveInput + moveBackwardInput + strafeInput) > 0.1f && characterController.isGrounded;
+    animator.SetBool("isRunning", isRunning);
+    animator.SetBool("isJumping", !characterController.isGrounded);
+    animator.SetBool("isSprinting", isSprinting);
+
+    // Clamp the character to the ground
+    if (characterController.isGrounded && velocity.y < 0)
+    {
+        velocity.y = pullDownForce;
+        animator.SetBool("isJumping", false);
+    }
+}
 
     IEnumerator AttackAnimation()
     {

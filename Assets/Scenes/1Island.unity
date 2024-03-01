@@ -24979,7 +24979,7 @@ MonoBehaviour:
   speed: 18
   sprintSpeedMultiplier: 1.8
   jumpForce: 1
-  rotationSpeed: 100
+  rotationSpeed: 180
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -26597,10 +26597,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 5178703424060157833}
-  distance: 25
-  height: 8
+  distance: 30
+  height: 9
   rotationSpeed: 3
   smoothSpeed: 1
+  maxFlip: 20
 --- !u!114 &8383495970777107866
 MonoBehaviour:
   m_ObjectHideFlags: 0
