@@ -2078,6 +2078,7 @@ MonoBehaviour:
   hitsRequired: 4
   deathTimer: 7
   navMeshAgent: {fileID: 184395476}
+  hitDuration: 0.8
 --- !u!114 &184395471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5330,6 +5331,7 @@ MonoBehaviour:
   hitsRequired: 5
   deathTimer: 7
   navMeshAgent: {fileID: 523828801}
+  hitDuration: 0.8
 --- !u!114 &523828796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16548,6 +16550,7 @@ MonoBehaviour:
   hitsRequired: 5
   deathTimer: 7
   navMeshAgent: {fileID: 1707969125}
+  hitDuration: 0.8
 --- !u!114 &1707969128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18685,6 +18688,7 @@ MonoBehaviour:
   hitsRequired: 4
   deathTimer: 7
   navMeshAgent: {fileID: 1897569705}
+  hitDuration: 0.8
 --- !u!114 &1897569700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26917,8 +26921,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.25
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_SlopeLimit: 60
+  m_StepOffset: 0.6
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.95, z: 0}

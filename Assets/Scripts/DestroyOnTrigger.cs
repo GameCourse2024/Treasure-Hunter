@@ -21,11 +21,31 @@ public class DestroyOnTrigger : MonoBehaviour
     private bool isCooldown = false;
     private float cooldownDuration = 0.5f; // Adjust this value as needed
 
+    private bool isHitActive = false;
+    [SerializeField] private float hitDuration = 0.8f;
+    private float hitTimer = 0f;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>(); // Assign NavMeshAgent component
 
+    }
+
+    private void Update()
+    {
+        // Update the hit timer if it's active
+        if (isHitActive)
+        {
+            hitTimer -= Time.deltaTime;
+
+            // If the hit timer has elapsed, deactivate isHit
+            if (hitTimer <= 0f)
+            {
+                isHitActive = false;
+                animator.SetBool("isHit", false);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,6 +57,15 @@ public class DestroyOnTrigger : MonoBehaviour
 
             // Increment the hit count
             count++;
+             // Check if isHit is not already active
+            if (!isHitActive)
+            {
+                // Activate isHit and set the hit timer
+                isHitActive = true;
+                hitTimer = hitDuration;
+
+                animator.SetBool("isHit", true);
+            }
 
             // Start the cooldown
             StartCooldown();
