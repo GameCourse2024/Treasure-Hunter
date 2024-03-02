@@ -26605,7 +26605,7 @@ MonoBehaviour:
   height: 9
   rotationSpeed: 3
   smoothSpeed: 1
-  maxFlip: 20
+  maxFlip: 12
 --- !u!114 &8383495970777107866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26921,8 +26921,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.25
-  m_SlopeLimit: 60
-  m_StepOffset: 0.6
+  m_SlopeLimit: 100
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.95, z: 0}

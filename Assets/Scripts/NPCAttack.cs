@@ -12,8 +12,6 @@ public class NPCAttack : MonoBehaviour
     [Tooltip("Cooldown between each shot")]
     [SerializeField] private float attackCooldown = 1.5f;
     [Tooltip("The damage the projectile provides")]
-    [SerializeField] private int projectileDamage = 10;
-    [Tooltip("Time that the projectile destroyed")]
     [SerializeField] private float destroyTime = 1.5f;
     private Animator animator;  
     private DestroyOnTrigger destroyCode;
@@ -52,28 +50,22 @@ public class NPCAttack : MonoBehaviour
 
         // Get the direction to the player
         directionToPlayer = (GetPlayerPosition() - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0f, directionToPlayer.z));
+        //transform.rotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0f, directionToPlayer.z));
+        
+        Quaternion verticalRotation = Quaternion.Euler(0f, 90f, 0f);
+
+        
         //if (distanceToPlayer <= stoppingDistance) animator.SetBool("isWalking", false);
     
         animator.SetBool("isAttacking", true);
 
         // Instantiate the projectile
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.LookRotation(directionToPlayer));
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, verticalRotation);
         Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
-
+    
         if (projectileRigidbody != null)
         {
-            //Vector3 directionToPlayer = (GetPlayerPosition() - projectileSpawnPoint.position).normalized;
             projectileRigidbody.velocity = directionToPlayer * projectileSpeed;
-            //projectileRigidbody.velocity = transform.forward * projectileSpeed;
-            // Set the velocity to move straight towards the player with increased speed
-            // projectileRigidbody.velocity = projectile.transform.forward * projectileSpeed;
-
-            // // Disable gravity for the projectile
-            // projectileRigidbody.useGravity = false;
-
-            // Add rotation around the Y-axis gradually as it moves
-            StartCoroutine(RotateArrow(projectile.transform));
         }
         else
         {
@@ -86,17 +78,6 @@ public class NPCAttack : MonoBehaviour
         // Set the isAttacking parameter back to false after the attack animation
         StartCoroutine(ResetIsAttacking());
         
-    }
-
-    private IEnumerator RotateArrow(Transform arrowTransform)
-    {
-        while (arrowTransform != null)
-        {
-            // Rotate around the Y-axis gradually
-            arrowTransform.Rotate(Vector3.up, 90f * Time.deltaTime);
-
-            yield return null;
-        }
     }
 
     private IEnumerator ResetIsAttacking()
