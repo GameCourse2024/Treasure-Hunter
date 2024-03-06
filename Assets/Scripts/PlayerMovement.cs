@@ -206,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isJumping", !characterController.isGrounded);
         animator.SetBool("isSprinting", isSprinting);
+        animator.SetBool("isWalkingBack", moveInput < 0);
 
         // Clamp the character to the ground
         if (characterController.isGrounded && velocity.y < 0)
