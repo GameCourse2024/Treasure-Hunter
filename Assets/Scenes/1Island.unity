@@ -2123,7 +2123,6 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 123408153}
   projectileSpeed: 29.9
   attackCooldown: 2
-  projectileDamage: 10
   destroyTime: 1.5
 --- !u!114 &184395474
 MonoBehaviour:
@@ -5376,7 +5375,6 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1686837194}
   projectileSpeed: 29.9
   attackCooldown: 2
-  projectileDamage: 10
   destroyTime: 1.5
 --- !u!114 &523828799
 MonoBehaviour:
@@ -8085,7 +8083,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &787422050
 RectTransform:
@@ -8710,7 +8708,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.y
@@ -8718,7 +8716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8850,7 +8848,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.y
@@ -8858,7 +8856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9088,7 +9086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12, y: -7.6099854}
+  m_AnchoredPosition: {x: -300.2, y: -12}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &890855140
@@ -13181,7 +13179,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.y
@@ -13189,7 +13187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13250,7 +13248,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.y
@@ -13258,7 +13256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316910552299062703, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16595,7 +16593,6 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1230615503}
   projectileSpeed: 29.9
   attackCooldown: 2
-  projectileDamage: 10
   destroyTime: 1.5
 --- !u!1001 &1709033917
 PrefabInstance:
@@ -16799,7 +16796,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 16.400024, y: -11}
-  m_SizeDelta: {x: 1467.3, y: 81.7}
+  m_SizeDelta: {x: 3000, y: 81.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1729920267
 MonoBehaviour:
@@ -18027,7 +18024,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 80
+  orthographic size: 120
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -18053,7 +18050,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 153.34915, y: -241.44815, z: 663.8893}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1099556318}
@@ -18733,7 +18730,6 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1636978435}
   projectileSpeed: 29.9
   attackCooldown: 2
-  projectileDamage: 10
   destroyTime: 1.5
 --- !u!114 &1897569703
 MonoBehaviour:
@@ -21949,6 +21945,7 @@ MonoBehaviour:
   throwPoint: {fileID: 197779629475761300}
   destroyTime: 1.5
   shootingSpeed: 20
+  maxShootingAngle: 35
 --- !u!4 &1197877941361229332
 Transform:
   m_ObjectHideFlags: 0
