@@ -58,6 +58,7 @@ public class NPCAttack : MonoBehaviour
     // Apply the rotation to the projectile prefab
     Quaternion finalRotation = rotationToPlayer * arrowRotation;
 
+    animator.SetBool("isAttacking", true);
     // Instantiate the projectile with the correct rotation
     GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, finalRotation);
 
