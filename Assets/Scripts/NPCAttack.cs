@@ -39,46 +39,51 @@ public class NPCAttack : MonoBehaviour
     }
 
     public void Attack()
+{
+    if (projectilePrefab == null || projectileSpawnPoint == null)
     {
-        if (projectilePrefab == null || projectileSpawnPoint == null)
-        {
-            Debug.LogError("Projectile prefab or spawn point is not assigned!");
-            return;
-        }
-        playerPosition = GetPlayerPosition();
-        float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
-
-        // Get the direction to the player
-        directionToPlayer = (GetPlayerPosition() - transform.position).normalized;
-        //transform.rotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0f, directionToPlayer.z));
-        
-        Quaternion verticalRotation = Quaternion.Euler(0f, 90f, 0f);
-
-        
-        //if (distanceToPlayer <= stoppingDistance) animator.SetBool("isWalking", false);
-    
-        animator.SetBool("isAttacking", true);
-
-        // Instantiate the projectile
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, verticalRotation);
-        Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
-    
-        if (projectileRigidbody != null)
-        {
-            projectileRigidbody.velocity = directionToPlayer * projectileSpeed;
-        }
-        else
-        {
-            Debug.LogError("Projectile prefab does not have a Rigidbody component!");
-            Destroy(projectile); // Destroy the instantiated object if it doesn't have Rigidbody
-        }
-
-        // Destroy the projectile after a certain time
-        Destroy(projectile, destroyTime);
-        // Set the isAttacking parameter back to false after the attack animation
-        StartCoroutine(ResetIsAttacking());
-        
+        Debug.LogError("Projectile prefab or spawn point is not assigned!");
+        return;
     }
+
+    // Get the direction to the player
+    directionToPlayer = (GetPlayerPosition() - transform.position).normalized;
+
+    // Calculate the rotation needed to face the player
+    Quaternion rotationToPlayer = Quaternion.LookRotation(directionToPlayer, Vector3.up);
+
+    // Rotate the projectile prefab 90 degrees around the Y-axis
+    Quaternion arrowRotation = Quaternion.Euler(0f, 90f, 0f);
+
+    // Apply the rotation to the projectile prefab
+    Quaternion finalRotation = rotationToPlayer * arrowRotation;
+
+    // Instantiate the projectile with the correct rotation
+    GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, finalRotation);
+
+    // Get the Rigidbody component of the projectile
+    Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
+
+    // Check if the projectile has a Rigidbody component
+    if (projectileRigidbody != null)
+    {
+        // Set the velocity of the projectile to move towards the player
+        projectileRigidbody.velocity = directionToPlayer * projectileSpeed;
+    }
+    else
+    {
+        Debug.LogError("Projectile prefab does not have a Rigidbody component!");
+        Destroy(projectile); // Destroy the instantiated object if it doesn't have Rigidbody
+    }
+
+    // Destroy the projectile after a certain time
+    Destroy(projectile, destroyTime);
+
+    // Set the isAttacking parameter back to false after the attack animation
+    StartCoroutine(ResetIsAttacking());
+}
+
+
 
     private IEnumerator ResetIsAttacking()
     {

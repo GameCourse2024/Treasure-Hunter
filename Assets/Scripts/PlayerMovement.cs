@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private const float defaultAnimationSpeed = 1.0f;
     private const float delatToWalk = 1.0f;
     private const float minStamina = 1.0f;
-    [SerializeField] float rotationSpeed = 180f; 
+    [SerializeField] float rotationSpeed = 180f;
     [SerializeField] private InputAction moveAction;
     [SerializeField] private InputAction jumpAction;
     [SerializeField] private InputAction sprintAction;
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float wait = 0.2f;
     [Tooltip("Reference to Staminabar")]
     [SerializeField] private Staminabar staminabar;
-    [Tooltip("If stamina is 0 it need to recharge to this value when he can sprint again")]
+    [Tooltip("If stamina is 0 it needs to recharge to this value when he can sprint again")]
     [SerializeField] private float sprintCooldown = 20f;
     [Tooltip("Reference to Healthbar")]
     [SerializeField] private Healthbar healthbar;
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting = false;   // indicator if sprinting
     private bool canAttack = true;      // indicator if can attack
     private bool isJumpingFromStanding = false; // indicator if jump from standing
+
     private void OnEnable()
     {
         moveAction.Enable();
@@ -96,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        //throwPoint = transform.Find("Spawner"); 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         staminabar = GetComponent<Staminabar>();
@@ -110,7 +110,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
         if (moveAction == null)
         {
             moveAction = new InputAction(type: InputActionType.Value);
@@ -120,13 +119,12 @@ public class PlayerMovement : MonoBehaviour
                 .With("Left", "<Keyboard>/a")
                 .With("Right", "<Keyboard>/d");
         }
-        
+
         // Enable the moveAction
         moveAction.Enable();
     }
 
-
-   private void Update()
+    private void Update()
     {
         if (healthbar.GetHealth() <= 0)
         {
@@ -134,33 +132,25 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // Rotate right continuously when the right key is held down
-        if (moveAction.ReadValue<Vector2>().x > 0.1f)
-        {
-            // Smoothly rotate the player
-            float targetRotation = transform.eulerAngles.y + rotationSpeed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(0, targetRotation, 0);
-        }
-
-        // Rotate left continuously when the left key is held down
-        if (moveAction.ReadValue<Vector2>().x < -0.1f)
-        {
-            // Smoothly rotate the player
-            float targetRotation = transform.eulerAngles.y - rotationSpeed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(0, targetRotation, 0);
-        }
-
         // Move forward only when the forward key is pressed
-        float moveInput = moveAction.ReadValue<Vector2>().y;
-        Vector3 moveDirection = transform.forward * moveInput;
+        float moveHorizontal = moveAction.ReadValue<Vector2>().x;
+        float moveVertical = moveAction.ReadValue<Vector2>().y;
+
+        Vector3 moveDirection = new Vector3(moveHorizontal, 0f, moveVertical).normalized;
+
+        // Rotate the player to face the camera direction
+        if (moveDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Camera.main.transform.forward, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
 
         // Move backward only when the backward key is pressed
         float moveBackwardInput = moveAction.ReadValue<Vector2>().y;
-        moveDirection += transform.forward * moveBackwardInput;
 
         // Move left and right when the left and right keys are pressed
-        float strafeInput = moveAction.ReadValue<Vector2>().x;
-        moveDirection += transform.right * strafeInput;
+        moveDirection = Camera.main.transform.TransformDirection(moveDirection);
+        moveDirection.y = 0; // Keep the player level with the ground
 
         // Sprinting
         if (sprintAction.triggered && characterController.isGrounded && staminabar.GetCurrentStamina() >= sprintCooldown)
@@ -168,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             isSprinting = true;
         }
 
-        if (moveInput == 0 && moveBackwardInput == 0 && strafeInput == 0)
+        if (moveVertical == 0 && moveBackwardInput == 0 && moveHorizontal == 0)
         {
             isSprinting = false;
         }
@@ -182,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(2 * jumpForce * gravity);
             animator.SetBool("isJumping", !characterController.isGrounded);
 
-            isJumpingFromStanding = Mathf.Abs(moveInput + moveBackwardInput) < 0.1f;
+            isJumpingFromStanding = Mathf.Abs(moveVertical + moveBackwardInput) < 0.1f;
             if (isJumpingFromStanding)
                 moveAction.Disable();
             StartCoroutine(EnableMoveActionAfterDelay(delatToWalk));
@@ -192,21 +182,24 @@ public class PlayerMovement : MonoBehaviour
         if (attackAction.triggered && canAttack)
         {
             if (characterController.isGrounded) StartCoroutine(AttackAnimation());
-            //else StartCoroutine(AttackOnAir());
         }
 
         // Apply gravity
         velocity.y -= gravity * Time.deltaTime;
 
         // Move the character and set isRunning and isSprinting animation parameters
-        characterController.Move((moveDirection.normalized * currentSpeed + velocity) * Time.deltaTime);
+        characterController.Move((moveDirection * currentSpeed + velocity) * Time.deltaTime);
 
         // Set isRunning and isJumping animation parameters
-        bool isRunning = Mathf.Abs(moveInput + moveBackwardInput + strafeInput) > 0.1f && characterController.isGrounded;
+        bool isRunning = Mathf.Abs(moveVertical + moveBackwardInput + moveHorizontal) > 0.1f;
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isJumping", !characterController.isGrounded);
         animator.SetBool("isSprinting", isSprinting);
-        animator.SetBool("isWalkingBack", moveInput < 0);
+        animator.SetBool("isWalkingBack", moveVertical < 0);
+        bool isWalkingRight = moveHorizontal > 0 && moveVertical == 0;
+        bool isWalkingLeft = moveHorizontal < 0 && moveVertical == 0;
+        animator.SetBool("isMovingRight", isWalkingRight);
+        animator.SetBool("isMovingLeft", isWalkingLeft);
 
         // Clamp the character to the ground
         if (characterController.isGrounded && velocity.y < 0)
@@ -224,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isAttacking", true);
             moveAction.Disable();
             animator.speed = defaultAnimationSpeed / speedAnim;
-            
+
             spawner.SpawnFireball();
 
             yield return new WaitForSeconds(spawnTimer);
@@ -247,14 +240,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void LateUpdate()
+    {
+        // Check if stamina is below a certain threshold and stop sprinting
+        if (staminabar.GetCurrentStamina() < minStamina)
         {
-
-            // Check if stamina is below a certain threshold and stop sprinting
-            if (staminabar.GetCurrentStamina() < minStamina)
-            {
-                StopSprinting();
-            }
+            StopSprinting();
         }
+    }
 
     // Method to handle the "canceled" event for sprint action
     private void OnSprintCanceled(InputAction.CallbackContext context)
@@ -264,13 +256,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsSprinting()
     {
-    return isSprinting;
+        return isSprinting;
     }
-    
+
     private void StopSprinting()
     {
         // Stop sprinting logic goes here
         isSprinting = false;
     }
-
 }

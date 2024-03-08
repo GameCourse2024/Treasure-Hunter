@@ -20,6 +20,7 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
+
         // Rotate the camera based on mouse input
         RotateWithMouse();
 
