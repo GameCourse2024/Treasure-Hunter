@@ -416,44 +416,44 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 2569941726363179482}
-    m_Position: {x: 40, y: 560, z: 0}
+    m_Position: {x: 50, y: 750, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6705918301661042215}
-    m_Position: {x: 40, y: 490, z: 0}
+    m_Position: {x: -220, y: 610, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -692070194648250164}
-    m_Position: {x: -240, y: 360, z: 0}
+    m_Position: {x: -470, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5135944156634253254}
-    m_Position: {x: -230, y: 240, z: 0}
+    m_Position: {x: -480, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5080697261005136249}
-    m_Position: {x: 30, y: 260, z: 0}
+    m_Position: {x: 50, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9024314178366566106}
-    m_Position: {x: 290, y: 400, z: 0}
+    m_Position: {x: 550, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6306866538664805265}
-    m_Position: {x: -140, y: 70, z: 0}
+    m_Position: {x: -150, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1541059186501327562}
-    m_Position: {x: 280, y: 180, z: 0}
+    m_Position: {x: 130, y: 400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4937534507978378624}
-    m_Position: {x: 450, y: 530, z: 0}
+    m_Position: {x: 30, y: 530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 193922486543748527}
-    m_Position: {x: 560, y: 450, z: 0}
+    m_Position: {x: 450, y: 590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5832189753399730437}
-    m_Position: {x: -330, y: 440, z: 0}
+    m_Position: {x: -580, y: 600, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 40, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 610, z: 0}
+  m_EntryPosition: {x: 70, y: 820, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 2569941726363179482}
@@ -524,55 +524,55 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isJumping
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isSprinting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isHit
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isWalkingBack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isMovingRight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isMovingLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
