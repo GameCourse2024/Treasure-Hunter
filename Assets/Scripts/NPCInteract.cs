@@ -74,9 +74,7 @@ public class NPCInteract : MonoBehaviour
     {
        // Debug.Log("This is the text: " + text);
         nPCBehaviour = GetComponent<NPCBehaviour>();
-        typeWriterEffect.setText(text);  
-        typeWriterEffect.setDelay(typewriterDelay);
-  
+        typeWriterEffect.setText(text);    
     }
     private void Update() 
     {
