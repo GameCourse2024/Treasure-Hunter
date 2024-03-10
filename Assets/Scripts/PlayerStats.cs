@@ -16,11 +16,17 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
 
         currentStamina = maxStamina;
         staminabar.SetMaxStamina(currentStamina);
+    }
+    
+    private void Update()
+    {
+        currentHealth = healthbar.GetHealth();
     }
 
     public void HandleProjectileHit(int damage)

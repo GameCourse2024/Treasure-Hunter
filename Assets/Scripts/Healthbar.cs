@@ -17,7 +17,7 @@ public class Healthbar : MonoBehaviour
         currentHealth = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = maxHealth;
-        StartCoroutine(RegenerateHealth());
+        //StartCoroutine(RegenerateHealth());
 
     }
 
@@ -31,6 +31,7 @@ public class Healthbar : MonoBehaviour
 
             // Ensure health does not exceed the maximum value
             currentHealth = Mathf.Min(currentHealth, maxHealth);
+            //StartCoroutine(RegenerateHealth());
         }
     }
 
@@ -38,18 +39,19 @@ public class Healthbar : MonoBehaviour
     {
         maxHealth = Mathf.Max(0f, health);
         slider.maxValue = maxHealth;
-        //SetHealth(maxHealth);
-        slider.value = maxHealth;
+        SetHealth(maxHealth);
+        //slider.value = maxHealth;
     }
 
     public void SetHealth(float health)
     {
-        currentHealth = health;
-        slider.value = health;
+        currentHealth = Mathf.Clamp(health, 0f, maxHealth);
+        slider.value = currentHealth;
     }
 
     public float GetHealth()
     {
+        Debug.Log(currentHealth);
         return currentHealth;
     }
 
