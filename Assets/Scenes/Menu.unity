@@ -257,6 +257,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141844085}
   m_CullTransparentMesh: 1
+--- !u!1 &154176321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 154176324}
+  - component: {fileID: 154176323}
+  - component: {fileID: 154176322}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &154176322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154176321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ab712c52f29ed1b4e8933d0d6f34a022, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &154176323
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154176321}
+  m_CullTransparentMesh: 1
+--- !u!224 &154176324
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154176321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.29, y: 3, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1096786022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -27}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &169472865
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,13 +700,36 @@ MonoBehaviour:
   tutorialButton: {fileID: 169472867}
   nextButton: {fileID: 954005405}
   tmproText: {fileID: 1121071732}
-  explanationText: {fileID: 0}
+  explanationText: {fileID: 1900994590}
+  explanationImage: {fileID: 154176322}
   explanations:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - You need money to pay your moms hospital bills.
+  - 'The only way to do that is to go on an adventure. '
+  - 'This is your character. '
+  - You can walk with WASD.
+  - press Shift while walking to run.
+  - You can interact with items and NPCs using E.
+  - NPC's with gold above their head will give you a quest.
+  - Pressing I will open a map where you can see the missions and locations.
+  - These are agressive NPC's.
+  - They will attack if you get close enough.
+  - Left mouse button click to shoot fireballs.
+  - Fireballs are shot in the direction of where you view, not the character.
+  - Good luck.
+  images:
+  - {fileID: 21300000, guid: ab712c52f29ed1b4e8933d0d6f34a022, type: 3}
+  - {fileID: 21300000, guid: ab712c52f29ed1b4e8933d0d6f34a022, type: 3}
+  - {fileID: 21300000, guid: b1533384f9a5b904e85a37f1f78be214, type: 3}
+  - {fileID: 21300000, guid: eb283439e5395db4ebb7a3375f56815c, type: 3}
+  - {fileID: 21300000, guid: eb283439e5395db4ebb7a3375f56815c, type: 3}
+  - {fileID: 21300000, guid: 434efcc48efed1047940a923daaf99af, type: 3}
+  - {fileID: 21300000, guid: e745afff5409a3c448518c899ec6d8d9, type: 3}
+  - {fileID: 21300000, guid: 2e0f60c7f142a0644bf66dadd4337892, type: 3}
+  - {fileID: 21300000, guid: 92a4803d0212a9b4a9d1735d6bcbaff9, type: 3}
+  - {fileID: 21300000, guid: 0e1971b230b270d43b928bab9d847e70, type: 3}
+  - {fileID: 21300000, guid: 28c1752d252268d448c704260ef48344, type: 3}
+  - {fileID: 21300000, guid: c1516b94d10c9cd41888b4e2c436cada, type: 3}
+  - {fileID: 21300000, guid: 47cf63594f99e2546a694762bdce7f93, type: 3}
 --- !u!4 &404054923
 Transform:
   m_ObjectHideFlags: 0
@@ -872,7 +970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -132}
+  m_AnchoredPosition: {x: -10, y: -239}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954005405
@@ -918,7 +1016,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 954005406}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 404054922}
+        m_TargetAssemblyTypeName: TutorialScript, Assembly-CSharp
+        m_MethodName: NextClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &954005406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,6 +1167,7 @@ RectTransform:
   - {fileID: 954005404}
   - {fileID: 1121071734}
   - {fileID: 1900994589}
+  - {fileID: 154176324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1651,7 +1762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1900994589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1668,7 +1779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27, y: 179}
+  m_AnchoredPosition: {x: -27, y: 204}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1900994590
@@ -1691,7 +1802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is your character
+  m_text: You need money to pay your moms hospital bills.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
