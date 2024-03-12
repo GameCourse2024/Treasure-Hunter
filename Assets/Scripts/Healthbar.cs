@@ -51,7 +51,6 @@ public class Healthbar : MonoBehaviour
 
     public float GetHealth()
     {
-        Debug.Log(currentHealth);
         return currentHealth;
     }
 

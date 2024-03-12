@@ -12,6 +12,7 @@ public class SkipCutScene : MonoBehaviour
     [SerializeField] private string animationTriggerName = "SkipAnimation";
 
     private bool canSkip = false;
+    private bool isGlowing = false;
 
     private void Start()
     {
@@ -21,23 +22,23 @@ public class SkipCutScene : MonoBehaviour
 
     private void Update()
     {
+        if(!canSkip && !isGlowing)
+        {
+            StartCoroutine(GlowText());
+
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (canSkip)
-            {
-                Debug.Log("Triggering: " + animationTriggerName);
-                animator.SetTrigger(animationTriggerName);
-            }
-            else
-            {
-                StartCoroutine(GlowText());
-            }
+            canSkip = true;
+            Debug.Log("Triggering: " + animationTriggerName);
+            animator.SetTrigger(animationTriggerName);
         }
     }
 
     private IEnumerator GlowText()
     {
-        canSkip = true; // Allow skipping 
+        isGlowing = true;
         float timeElapsed = 0f;
         while (timeElapsed < glowDuration)
         {
@@ -50,7 +51,7 @@ public class SkipCutScene : MonoBehaviour
 
         // Ensure the text is back to its original color and invisible
         skipText.color = new Color(skipText.color.r, skipText.color.g, skipText.color.b, 0f);
-        canSkip = false;
+        isGlowing = false;
     }
 
     // This method is called by the animation event at the end of the skip animation
