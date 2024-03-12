@@ -8,9 +8,10 @@ public class TypeWriterEffect : MonoBehaviour
     private string fullText = "Default text";
     private TMP_Text textComponent;
 
-    void Start()
+    void Awake()
     {
         textComponent = GetComponent<TMP_Text>();
+        Debug.Log("I'm Here " + textComponent);
         textComponent.text = fullText;
     }
 

@@ -74,7 +74,6 @@ public class NPCInteract : MonoBehaviour
     {
        // Debug.Log("This is the text: " + text);
         nPCBehaviour = GetComponent<NPCBehaviour>();
-        typeWriterEffect.setText(text);    
     }
     private void Update() 
     {
@@ -133,12 +132,15 @@ public class NPCInteract : MonoBehaviour
         if(!sells)
         {
             canvas.gameObject.SetActive(true);
+            typeWriterEffect.setText(text);    
+
             return;
         }
         if(sells && !spoken)
         {
             spoken = true;
             canvas.gameObject.SetActive(true);
+            typeWriterEffect.setText(text);    
 
             if(ship)
             {
@@ -149,6 +151,7 @@ public class NPCInteract : MonoBehaviour
         else
         {
             textMeshProText.SetText(textAfterSell);
+            
             canvas.gameObject.SetActive(true);
             if(ship)
             {
