@@ -18,6 +18,13 @@ public class TutorialScript : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI tmproText;
 
+    [SerializeField]
+    private TextMeshProUGUI explanationText;
+    private int timesClicked = 0;
+
+    [SerializeField]
+    private string[] explanations = new string[5];
+
     public void PlayClicked()
     {
         Debug.Log("Play Button Clicked");
@@ -31,5 +38,13 @@ public class TutorialScript : MonoBehaviour
     {
         Debug.Log("Tutorial Button Clicked");
         nextButton.gameObject.SetActive(true);
+        playButton.gameObject.SetActive(false);
+        tutorialButton.gameObject.SetActive(false);
+    }
+
+    public void NextClicked()
+    {
+        explanationText.gameObject.SetActive(true);
+        timesClicked++;
     }
 }
