@@ -711,7 +711,11 @@ MonoBehaviour:
   - You can interact with items and NPCs using E.
   - NPC's with gold above their head will give you a quest.
   - Pressing I will open a map where you can see the missions and locations.
-  - These are agressive NPC's.
+  - Ingame top left corner you can see your health and gold.
+  - Health and stamina will refill by itself slowly.
+  - The Gold can be seen next to the health and stamina.
+  - Gold will be given by completing NPCs quests.
+  - These are agressive NPCs.
   - They will attack if you get close enough.
   - Left mouse button click to shoot fireballs.
   - Fireballs are shot in the direction of where you view, not the character.
@@ -725,6 +729,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 434efcc48efed1047940a923daaf99af, type: 3}
   - {fileID: 21300000, guid: e745afff5409a3c448518c899ec6d8d9, type: 3}
   - {fileID: 21300000, guid: 2e0f60c7f142a0644bf66dadd4337892, type: 3}
+  - {fileID: 21300000, guid: 8c8871418dfe566429c2168316b7fd5e, type: 3}
+  - {fileID: 21300000, guid: 8c8871418dfe566429c2168316b7fd5e, type: 3}
+  - {fileID: 21300000, guid: 6b2326560922e7748835e922b6cbc68e, type: 3}
+  - {fileID: 21300000, guid: 6b2326560922e7748835e922b6cbc68e, type: 3}
   - {fileID: 21300000, guid: 92a4803d0212a9b4a9d1735d6bcbaff9, type: 3}
   - {fileID: 21300000, guid: 0e1971b230b270d43b928bab9d847e70, type: 3}
   - {fileID: 21300000, guid: 28c1752d252268d448c704260ef48344, type: 3}

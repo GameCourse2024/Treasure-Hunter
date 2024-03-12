@@ -62,7 +62,7 @@ public class TutorialScript : MonoBehaviour
             nextButton.gameObject.SetActive(false);
             playButton.gameObject.SetActive(true);
             tutorialButton.gameObject.SetActive(true);
-            timesClicked = 0;
+            timesClicked = 1;
             return;
         }
         Debug.Log("Next Clicked");
