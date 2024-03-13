@@ -12,8 +12,8 @@ public class TutorialScript : MonoBehaviour
     [SerializeField]
     private Button tutorialButton;
 
-    [SerializeField]
-    private Button nextButton;
+    [SerializeField]private Button nextButton;
+    [SerializeField]private Button backButton;
 
     [SerializeField]
     private TextMeshProUGUI tmproText;
@@ -25,11 +25,15 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] 
     private Image explanationImage;
 
-
     [SerializeField]
     private string[] explanations = new string[5];
     [SerializeField]
     private Sprite[] images = new Sprite[5];
+
+    private void Update()
+    {
+        Debug.Log("Current times Clicked" + timesClicked);
+    }
 
     public void PlayClicked()
     {
@@ -60,16 +64,27 @@ public class TutorialScript : MonoBehaviour
             explanationText.gameObject.SetActive(false);
             explanationImage.gameObject.SetActive(false);
             nextButton.gameObject.SetActive(false);
+            backButton.gameObject.SetActive(false);
             playButton.gameObject.SetActive(true);
             tutorialButton.gameObject.SetActive(true);
             timesClicked = 1;
             return;
         }
-        Debug.Log("Next Clicked");
+        Debug.Log("Next Clicked " + timesClicked);
+        backButton.gameObject.SetActive(true);
         explanationText.gameObject.SetActive(true);
         explanationImage.gameObject.SetActive(true);
         explanationText.text = explanations[timesClicked];
         explanationImage.sprite = images[timesClicked];
         timesClicked++;
+    }
+
+    public void BackClicked()
+    {   
+        timesClicked = Mathf.Clamp(timesClicked - 1, 1, explanations.Length - 1);
+        Debug.Log("Back Clicked " + timesClicked);
+        explanationText.text = explanations[timesClicked - 1];
+        explanationImage.sprite = images[timesClicked - 1];       
+        backButton.gameObject.SetActive(timesClicked > 1);
     }
 }
