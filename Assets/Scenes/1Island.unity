@@ -3209,31 +3209,31 @@ MonoBehaviour:
   sounds:
   - name: NPCMad
     clip: {fileID: 8300000, guid: d830335eee434034e987b0f476a8d3b3, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: NPCVoice1
     clip: {fileID: 8300000, guid: 6a9b5bf688e7f514f95c9c6c4762946c, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: NPCVoice2
     clip: {fileID: 8300000, guid: 74ac0e42c6e20bd499c5d292deb075a2, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: QuestSound
     clip: {fileID: 8300000, guid: a25cdb251024c0a4691869786c9c45c2, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: ThemeSong
     clip: {fileID: 8300000, guid: f2d0c521b0b29434a801890c93a1eb7f, type: 3}
-    volume: 0.7
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 1
