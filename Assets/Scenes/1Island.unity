@@ -3650,6 +3650,7 @@ GameObject:
   - component: {fileID: 314413675}
   - component: {fileID: 314413677}
   - component: {fileID: 314413676}
+  - component: {fileID: 314413678}
   m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
@@ -3664,13 +3665,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314413674}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 113893626}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.832}
@@ -3810,6 +3811,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &314413678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314413674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &321202869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7417,6 +7430,7 @@ GameObject:
   - component: {fileID: 605109201}
   - component: {fileID: 605109203}
   - component: {fileID: 605109202}
+  - component: {fileID: 605109204}
   m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
@@ -7431,13 +7445,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605109200}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 603075528}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.822}
@@ -7577,6 +7591,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &605109204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605109200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &614350390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14017,9 +14043,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4d46b2cd632724ea6d33542dbe81bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  welcomeMessageDelayTime: 3.5
-  welcomeMessage: Welcome to Treasure Hunters, please press E to interact with NPCs
-    move using WASD.  Current city is Havenport
+  welcomeMessageDelayTime: 3
+  welcomeMessage: Welcome to Treasure Hunters, press E to interact with NPCs. Your
+    main goal is to buy the ship. Current city is Havenport
   audioManager: {fileID: 270721216}
 --- !u!4 &1122093236
 Transform:
@@ -18085,6 +18111,7 @@ GameObject:
   - component: {fileID: 1662388004}
   - component: {fileID: 1662388006}
   - component: {fileID: 1662388005}
+  - component: {fileID: 1662388007}
   m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
@@ -18099,13 +18126,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662388003}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 175229699}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.833}
@@ -18245,6 +18272,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1662388007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662388003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1670112763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 104598, guid: 2394d7d557201f048b00c84246231eb0, type: 3}
@@ -29053,7 +29092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5810918414997525489
 Transform:
   m_ObjectHideFlags: 0
