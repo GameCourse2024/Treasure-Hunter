@@ -30,9 +30,7 @@ public class SkipCutScene : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            canSkip = true;
-            Debug.Log("Triggering: " + animationTriggerName);
-            animator.SetTrigger(animationTriggerName);
+            SkipLevel();
         }
     }
 

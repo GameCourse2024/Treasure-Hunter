@@ -31,23 +31,12 @@ public class RetreiveQuest : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log(name + " , has collided with player");
-        }
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Triggered with player");
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Interaction pressed");
-                Debug.Log("Searching For Quest: " + questName);
                 if (!QuestManager.Instance.CheckQuestStarted(questName))
                 {
                     return;
@@ -56,13 +45,11 @@ public class RetreiveQuest : MonoBehaviour
                 if (!hasVisited)
                 {
                     hasVisited = true;
-                    Debug.Log("Calling quest manager for: " + questName);
                     QuestManager questManager = QuestManager.Instance; // Assuming Instance is your singleton instance property
                     if (questManager != null)
                     {
                         questManager.CompleteQuest(questName);
                         // Rolling out the banner
-                        Debug.Log("Calling Display Banner Function");
                         ScrollController.DisplayBanner("Quest Updated: " + questName + "\nHint: Return to who sent you here", bannerWaitTime);
                         Destroy(gameObject);
                     }

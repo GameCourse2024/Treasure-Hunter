@@ -5266,7 +5266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: hint
-      value: It's somewhere near the great flower field
+      value: Search the great flower field (It's a point of interest)
       objectReference: {fileID: 0}
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: text
@@ -5302,11 +5302,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281705681327764988, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6158151308171754993, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -247.77472
+      value: -239.5
       objectReference: {fileID: 0}
     - target: {fileID: 6158151308171754993, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5314,7 +5314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6158151308171754993, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -65.80994
+      value: -66.52
       objectReference: {fileID: 0}
     - target: {fileID: 6158151308171754993, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10080,7 +10080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &805801355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10142,7 +10142,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &805801358
 RectTransform:
@@ -10951,7 +10951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: hint
-      value: Search the Magical Forest
+      value: Search the Magical Forest (It's a point of interest)
       objectReference: {fileID: 0}
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: text
@@ -28582,7 +28582,7 @@ Transform:
   m_GameObject: {fileID: 7719220633158310069}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 564.3, y: 24.29, z: 1035.6}
+  m_LocalPosition: {x: 471.16, y: 32.2, z: 1086.11}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:

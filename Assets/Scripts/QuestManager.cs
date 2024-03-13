@@ -29,7 +29,6 @@ public class QuestManager : MonoBehaviour
     // Add a quest to the list
     public void AddQuest(NPCQuest npcQuest)
     {
-        Debug.Log("Started quest: " + npcQuest.questData.name);
         npcQuests.Add(npcQuest);
         npcQuest.questData.hasStarted = true;
     }
@@ -43,21 +42,16 @@ public class QuestManager : MonoBehaviour
    // Mark a quest as completed based on its name
     public void CompleteQuest(string questName)
     {
-        Debug.Log("Searching for completed quest: " + questName);
         foreach (NPCQuest npcQuest in npcQuests)
         {
-            Debug.Log("QuestName found: " + npcQuest.questData.questName);
-  
+
             if (npcQuest.questData.questName == questName)
             {
-                Debug.Log("Quest found");
                 if(npcQuest.CheckQuestCompletion())
                 {
-                    Debug.Log("Quest has been completed.");
                     return;
                 }
                 npcQuest.MarkQuestCompleted();
-                Debug.Log("Quest completed: " + questName);
                 return;
             }
         }
@@ -78,7 +72,6 @@ public class QuestManager : MonoBehaviour
                 return npcQuest.questData.hasStarted;
             }
         }
-        Debug.Log("No quest like that found");
         return false;
     }
 }

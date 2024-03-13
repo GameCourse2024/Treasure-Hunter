@@ -40,6 +40,7 @@ public class NPCInteract : MonoBehaviour
     [Tooltip("Hint for the player to complete the Quest")]
     [SerializeField]
     private string hint;
+    [SerializeField]
     private bool questCompleted = false;
     [Tooltip("Time for banner display")]
     [SerializeField]
@@ -129,11 +130,15 @@ public class NPCInteract : MonoBehaviour
     }
     private void ShowText()
     {
+        Debug.Log("Showing Text");
         if(!sells)
         {
             canvas.gameObject.SetActive(true);
             typeWriterEffect.setText(text);    
-
+            if(canGiveQuest && npcQuest.questData.isCompleted == true && questCompleted)
+            {
+                typeWriterEffect.setText(afterQuestText);
+            }
             return;
         }
         if(sells && !spoken)
@@ -202,7 +207,6 @@ public class NPCInteract : MonoBehaviour
             // REWARD PLAYER
             GoldManager.Instance.AddGold(gold);
 
-            textMeshProText.SetText(afterQuestText);
              // Rolling out the banner
             //Debug.Log("Calling Display Banner Function");
             ScrollController.DisplayBanner("Finished Quest: " + npcQuest.questData.name + "\nReward: " + gold.ToString() + " Gold", bannerWaitTime);

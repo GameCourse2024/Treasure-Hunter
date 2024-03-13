@@ -49,8 +49,6 @@ public class Wind : MonoBehaviour
         // Smoothly lerp the current angle towards the target angle
         currentAngle = Mathf.Lerp(currentAngle, targetAngle, Time.deltaTime);
 
-        Debug.Log("Current Angle: " + currentAngle);
-
         // Calculate the wind force vector only with x and z components
         Vector3 tempWindForce = Quaternion.Euler(0f, currentAngle, 0f) * Vector3.forward * windForce;
         tempWindForce.y = 0f; // Set y component to 0 to cancel force along the y-axis
