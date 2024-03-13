@@ -21308,7 +21308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggeringTag: Arrow
-  damageAmount: 8
+  damageAmount: 6
 --- !u!114 &1838004642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21338,19 +21338,6 @@ MonoBehaviour:
       m_Action: Toggle Cursor
       m_Flags: 0
     m_Flags: 0
---- !u!114 &1838004643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7719220633158310069}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028913408d7b70d4ca9aef664c15f79d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 0.1
 --- !u!1 &1846525267
 GameObject:
   m_ObjectHideFlags: 0
@@ -29242,12 +29229,12 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   spawnTimer: 0.5
-  wait: 0.2
+  wait: 0.5
   staminabar: {fileID: 954044042}
   sprintCooldown: 20
   healthbar: {fileID: 114009511}
   spawner: {fileID: 1159926995876251159}
-  speedAnim: 0.2
+  speedAnim: 0.5
 --- !u!1 &5854860407147786498
 GameObject:
   m_ObjectHideFlags: 0
@@ -30432,7 +30419,6 @@ GameObject:
   - component: {fileID: 4708521768462826445}
   - component: {fileID: 5039856942456502693}
   - component: {fileID: 1838004637}
-  - component: {fileID: 1838004643}
   - component: {fileID: 1838004642}
   - component: {fileID: 8651883090806217034}
   m_Layer: 0

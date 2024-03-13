@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Reference to Spawner where the ball instantiates")]
     [SerializeField] private Spawner spawner;
     [Tooltip("How fast the animation displays")]
-    [SerializeField] private float speedAnim = 0.2f;
+    [SerializeField] private float speedAnim = 0.3f;
 
     private CharacterController characterController; // cc reference
     private Animator animator;  // animation manager
