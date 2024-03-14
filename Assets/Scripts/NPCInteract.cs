@@ -70,6 +70,9 @@ public class NPCInteract : MonoBehaviour
 
     [Tooltip("Ship Cost")]
     [SerializeField] private int shipCost = 100;
+
+    [SerializeField]
+    private TextMeshProUGUI missionBarText;
     
     void Start() 
     {
@@ -196,7 +199,10 @@ public class NPCInteract : MonoBehaviour
             // Rolling out the banner
            // Debug.Log("Calling Display Banner Function");
             ScrollController.DisplayBanner("Starting Quest: " + npcQuest.questData.name + "\nHint: " + hint, bannerWaitTime);
-            
+            // Updating the quests scroll
+            string originalText = missionBarText.text;
+            string modifiedText = "<color=yellow>" + originalText + "</color>";
+            missionBarText.text = modifiedText;
             return;
         }
         if(npcQuest.questData.isCompleted == true && !questCompleted)
@@ -210,6 +216,19 @@ public class NPCInteract : MonoBehaviour
              // Rolling out the banner
             //Debug.Log("Calling Display Banner Function");
             ScrollController.DisplayBanner("Finished Quest: " + npcQuest.questData.name + "\nReward: " + gold.ToString() + " Gold", bannerWaitTime);
+
+            // Crossing out on the sidebar
+            if (missionBarText == null)
+            {
+                return;
+            }
+            else
+            {
+                string originalText = missionBarText.text;
+                string modifiedText = "<color=yellow><s>" + originalText + "</s></color>";
+                missionBarText.text = modifiedText;
+            }
+
         }
      
     }

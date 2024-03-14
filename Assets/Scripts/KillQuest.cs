@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class KillQuest : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class KillQuest : MonoBehaviour
     private string questName = "3D Cube destination";
     [SerializeField]
     private int killsForQuest;
+    [SerializeField]
+    private TextMeshProUGUI text;
 
     private void Awake()
     {

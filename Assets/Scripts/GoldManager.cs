@@ -7,10 +7,16 @@ public class GoldManager : MonoBehaviour
 
     [SerializeField] 
     private TextMeshProUGUI goldText;
+    [SerializeField]
+    private TextMeshProUGUI questText;
 
     [Tooltip("Starting Amount")]
     [SerializeField]
     private int gold = 0;
+    [SerializeField]
+    private string enoughGoldForShip;
+    [SerializeField]
+    private float waitTime;
 
     private void Awake()
     {
@@ -33,6 +39,13 @@ public class GoldManager : MonoBehaviour
     {
         gold += amount;
         UpdateGoldText();
+        if (gold >= 300)
+        {
+            ScrollController.DisplayBanner(enoughGoldForShip, waitTime);
+            string originalText = questText.text;
+            string modifiedText = "<color=yellow><s>" + originalText + "</s></color>";
+            questText.text = modifiedText;
+        }
     }
 
     public void RemoveGold(int amount)
