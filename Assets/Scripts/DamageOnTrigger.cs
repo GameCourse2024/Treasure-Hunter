@@ -17,7 +17,7 @@ public class DamageOnTrigger : MonoBehaviour
     private float hitTimer = 0f;
 
     [Tooltip("Name of sound effect for this character to play in interaction. NOTE list of sounds for npc can be found in the npc folder inside sounds")]
-    [SerializeField] private string soundName;
+    [SerializeField] private string soundHit;
 
     private void Start()
     {
@@ -63,13 +63,12 @@ public class DamageOnTrigger : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        PlaySound();
-        // Reduce player's health and update the health bar
+        if(!stats.hasPlayedDeathSound) PlaySound();        // Reduce player's health and update the health bar
         stats.HandleProjectileHit(damage);
     }
     private void PlaySound()
     {
         //Debug.Log("Playing sound for NPC: " + soundName);
-        AudioManagerGamePlay.Instance.Play(soundName);
+        AudioManagerGamePlay.Instance.Play(soundHit);
     }
 }

@@ -12,6 +12,9 @@ public class PlayerStats : MonoBehaviour
     public Staminabar staminabar;
     [SerializeField] private float maxStamina = 100f;
     private float currentStamina;
+    [SerializeField] private string soundDeath;
+    public bool hasPlayedDeathSound = false;
+
 
     private void Start()
     {
@@ -38,11 +41,18 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !hasPlayedDeathSound)
         {
             animator.SetBool("isDead", true);
+            PlaySound();
             string deathText = "Try Again!"; // Define deathText
             DeathManager.Instance.FadeOut(deathText);
         }
+    }
+
+    private void PlaySound()
+    {
+        AudioManagerGamePlay.Instance.Play(soundDeath);        // Reduce player's health and update the health bar
+        hasPlayedDeathSound = true;
     }
 }

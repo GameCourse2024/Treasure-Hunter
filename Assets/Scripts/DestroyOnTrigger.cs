@@ -24,6 +24,9 @@ public class DestroyOnTrigger : MonoBehaviour
     private bool isHitActive = false;
     [SerializeField] private float hitDuration = 0.8f;
     private float hitTimer = 0f;
+    [SerializeField] private string soundHit;
+    [SerializeField] private string soundDeath;
+
 
     private void Start()
     {
@@ -63,7 +66,7 @@ public class DestroyOnTrigger : MonoBehaviour
                 // Activate isHit and set the hit timer
                 isHitActive = true;
                 hitTimer = hitDuration;
-
+                AudioManagerGamePlay.Instance.Play(soundHit);
                 animator.SetBool("isHit", true);
             }
 
@@ -74,6 +77,7 @@ public class DestroyOnTrigger : MonoBehaviour
             if (count == hitsRequired)
             {
                 KillQuest.Instance.IncrementNpcKilledCount();
+                AudioManagerGamePlay.Instance.Play(soundDeath);
 
                 // Set the "isDead" parameter in the animator
                 animator.SetBool("isDead", true);

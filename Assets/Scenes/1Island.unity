@@ -1854,7 +1854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.890015, y: -22.840027}
+  m_AnchoredPosition: {x: -12.889893, y: -22.840088}
   m_SizeDelta: {x: 300, y: 500}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &127664273
@@ -2289,6 +2289,8 @@ MonoBehaviour:
   deathTimer: 7
   navMeshAgent: {fileID: 184395476}
   hitDuration: 0.8
+  soundHit: ArcherHurt
+  soundDeath: ArcherDeath
 --- !u!114 &184395471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3356,6 +3358,12 @@ MonoBehaviour:
     loop: 0
   - name: ShootingFireball
     clip: {fileID: 8300000, guid: ddf2e239192c1a340abce763135949c5, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 6d5db02910cb6b34c8cb94c379237788, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
@@ -6334,6 +6342,8 @@ MonoBehaviour:
   deathTimer: 7
   navMeshAgent: {fileID: 523828801}
   hitDuration: 0.8
+  soundHit: ArcherHurt
+  soundDeath: ArcherDeath
 --- !u!114 &523828796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20756,6 +20766,8 @@ MonoBehaviour:
   deathTimer: 7
   navMeshAgent: {fileID: 1707969125}
   hitDuration: 0.8
+  soundHit: ArcherHurt
+  soundDeath: ArcherDeath
 --- !u!114 &1707969128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22897,7 +22909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggeringTag: Arrow
   damageAmount: 6
-  soundName: PlayerHurt
+  soundHit: PlayerHurt
 --- !u!114 &1838004642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23645,6 +23657,8 @@ MonoBehaviour:
   deathTimer: 7
   navMeshAgent: {fileID: 1897569705}
   hitDuration: 0.8
+  soundHit: ArcherHurt
+  soundDeath: ArcherDeath
 --- !u!114 &1897569700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30161,6 +30175,8 @@ MonoBehaviour:
   maxHealth: 100
   staminabar: {fileID: 954044042}
   maxStamina: 100
+  soundDeath: PlayerDeath
+  hasPlayedDeathSound: 0
 --- !u!4 &5043638868275478438
 Transform:
   m_ObjectHideFlags: 0
@@ -32010,7 +32026,6 @@ GameObject:
   - component: {fileID: 5039856942456502693}
   - component: {fileID: 1838004637}
   - component: {fileID: 1838004642}
-  - component: {fileID: 8651883090806217034}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -32647,18 +32662,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.95, z: 0}
---- !u!114 &8651883090806217034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7719220633158310069}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c060a38bd2f24c9409203085f8eab421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8721063970714956194
 Transform:
   m_ObjectHideFlags: 0
