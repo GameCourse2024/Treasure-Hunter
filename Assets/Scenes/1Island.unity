@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.673305, g: 0.5181906, b: 0.34589565, a: 1}
+  m_IndirectSpecularColor: {r: 0.6736895, g: 0.51926976, b: 0.34707057, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5096,7 +5096,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allQuests:
-  - {fileID: 11400000, guid: 00f3ce6fea4a2da478726f2c8fadf070, type: 2}
   - {fileID: 11400000, guid: fc7beff403aa4a14f95660c7324d1811, type: 2}
   - {fileID: 11400000, guid: 2e9d51b8cd432ae439cf75fd219c2949, type: 2}
   - {fileID: 11400000, guid: 6d30e492e84240041bbe026085cd7762, type: 2}
@@ -31069,7 +31068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c060a38bd2f24c9409203085f8eab421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.1
 --- !u!4 &8721063970714956194
 Transform:
   m_ObjectHideFlags: 0
