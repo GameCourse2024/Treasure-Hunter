@@ -34,4 +34,51 @@ public class QuestController : MonoBehaviour
         }
     }
 
+    public List<QuestData> GetFinishedQuests()
+    {
+        return allQuests.FindAll(q => q.isCompleted);
+    }
+
+    public List<QuestData> GetStartedQuests()
+    {
+        return allQuests.FindAll(q => q.hasStarted && !q.isCompleted);
+    }
+
+    public List<QuestData> GetNotStartedQuests()
+    {
+        return allQuests.FindAll(q => !q.hasStarted);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            List<QuestData> startedQuests = GetStartedQuests();
+            Debug.Log("Started Quests:");
+            foreach (QuestData quest in startedQuests)
+            {
+                Debug.Log("- " + quest.questName);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            List<QuestData> finishedQuests = GetFinishedQuests();
+            Debug.Log("Finished Quests:");
+            foreach (QuestData quest in finishedQuests)
+            {
+                Debug.Log("- " + quest.questName);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            List<QuestData> notStartedQuests = GetNotStartedQuests();
+            Debug.Log("Not Started Quests:");
+            foreach (QuestData quest in notStartedQuests)
+            {
+                Debug.Log("- " + quest.questName);
+            }
+        }
+    }
 }
