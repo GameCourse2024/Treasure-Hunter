@@ -5,14 +5,16 @@ using UnityEngine;
 public class BoatScene : MonoBehaviour
 {
     [SerializeField] private AudioManagerGamePlay audioManager;
-    //[SerializeField] private string themeSound;
+    [SerializeField] private string themeSound;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Playing themesong");
-        audioManager.Play("BoatSound");
+        //audioManager.Play("BoatSound");
+        AudioManagerGamePlay.Instance.Play(themeSound);        // Reduce player's health and update the health bar
+
         //AudioManagerGamePlay.Instance.Play(themeSound);
 
     }
