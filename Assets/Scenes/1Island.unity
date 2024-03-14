@@ -3330,6 +3330,36 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - name: ArcherHurt
+    clip: {fileID: 8300000, guid: 8765e248dcea0384e967224473bc85d6, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ArcherDeath
+    clip: {fileID: 8300000, guid: 037e1834c62dce241bedfa6c2e5d16df, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: cd71f0ed77ab4db499b48d1dfbd4f8b9, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ShootingArrow
+    clip: {fileID: 8300000, guid: 899af6b2407edb0449bb188c72391c30, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ShootingFireball
+    clip: {fileID: 8300000, guid: ddf2e239192c1a340abce763135949c5, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!1001 &276600929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22867,6 +22897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggeringTag: Arrow
   damageAmount: 6
+  soundName: PlayerHurt
 --- !u!114 &1838004642
 MonoBehaviour:
   m_ObjectHideFlags: 0

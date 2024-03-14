@@ -19,8 +19,7 @@ public class NPCInteract : MonoBehaviour
     [SerializeField]
     private string text;
     [Tooltip("Name of sound effect for this character to play in interaction. NOTE list of sounds for npc can be found in the npc folder inside sounds")]
-    [SerializeField]
-    private string soundName;
+    [SerializeField] private string soundName;
     [Tooltip("How long for the co-routine to wait")]
     [SerializeField]
     private float waitTime = 10;
