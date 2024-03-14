@@ -18,6 +18,7 @@ public class ScrollController : MonoBehaviour
 
     private float targetScale = 1f;
     private float currentScale = 0f;
+    private Coroutine activeCoroutine; // Track the active coroutine
 
     private static ScrollController instance;
 
@@ -35,7 +36,13 @@ public class ScrollController : MonoBehaviour
     {
         if (instance != null)
         {
-            instance.StartCoroutine(instance.DelayedScrollRoutine(text, delay));
+            // Stop the active coroutine if it exists
+            if (instance.activeCoroutine != null)
+            {
+                instance.StopCoroutine(instance.activeCoroutine);
+            }
+            // Start the new coroutine
+            instance.activeCoroutine = instance.StartCoroutine(instance.DelayedScrollRoutine(text, delay));
         }
     }
 
@@ -48,6 +55,8 @@ public class ScrollController : MonoBehaviour
         yield return new WaitForSeconds(rollbackDelay);
 
         yield return StartCoroutine(RollbackScroll());
+
+        activeCoroutine = null; // Reset the active coroutine
     }
 
     private IEnumerator ScrollRoutine(string text)
@@ -59,7 +68,6 @@ public class ScrollController : MonoBehaviour
 
     private IEnumerator LerpScroll()
     {
-
         AudioManagerGamePlay.Instance.PlayQuestSound();
         float timeElapsed = 0f;
         while (timeElapsed < lerpDuration)
@@ -94,6 +102,5 @@ public class ScrollController : MonoBehaviour
 
         scrollImage.transform.localScale = new Vector3(0f, 1f, 1f);
         displayTextComponent.text = "";
-
     }
 }

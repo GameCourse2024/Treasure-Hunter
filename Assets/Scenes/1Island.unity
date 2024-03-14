@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6736895, g: 0.51926976, b: 0.34707057, a: 1}
+  m_IndirectSpecularColor: {r: 0.673305, g: 0.5181906, b: 0.34589565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1854,7 +1854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.890015, y: -22.84}
+  m_AnchoredPosition: {x: -12.890015, y: -22.840027}
   m_SizeDelta: {x: 300, y: 500}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &127664273
@@ -7208,7 +7208,7 @@ MonoBehaviour:
   scrollImage: {fileID: 1193816947}
   displayTextComponent: {fileID: 19289433}
   lerpDuration: 1
-  rollbackDelay: 10
+  rollbackDelay: 5
 --- !u!4 &584890820
 Transform:
   m_ObjectHideFlags: 0
@@ -9653,7 +9653,7 @@ GameObject:
   - component: {fileID: 779276553}
   - component: {fileID: 779276552}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Main Quest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12258,7 +12258,7 @@ GameObject:
   - component: {fileID: 960756450}
   - component: {fileID: 960756449}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Gather Cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13363,7 +13363,7 @@ GameObject:
   - component: {fileID: 1026904702}
   - component: {fileID: 1026904701}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: Find Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14254,7 +14254,7 @@ GameObject:
   - component: {fileID: 1088234311}
   - component: {fileID: 1088234310}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Find Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14817,7 +14817,7 @@ GameObject:
   - component: {fileID: 1149167718}
   - component: {fileID: 1149167717}
   m_Layer: 0
-  m_Name: Text (TMP) (4)
+  m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15060,7 +15060,7 @@ GameObject:
   - component: {fileID: 1170659538}
   - component: {fileID: 1170659537}
   m_Layer: 0
-  m_Name: Text (TMP) (2)
+  m_Name: Defend Island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15105,7 +15105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Defend the town.
+  m_text: Defend the island.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16043,7 +16043,7 @@ GameObject:
   - component: {fileID: 1244681209}
   - component: {fileID: 1244681208}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Side Quest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16472,12 +16472,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -16492,7 +16492,7 @@ Canvas:
   m_GameObject: {fileID: 1341873257}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -16530,7 +16530,7 @@ GameObject:
   - component: {fileID: 1346031547}
   - component: {fileID: 1346031546}
   m_Layer: 0
-  m_Name: Text (TMP) (5)
+  m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18943,7 +18943,7 @@ GameObject:
   - component: {fileID: 1536835497}
   - component: {fileID: 1536835496}
   m_Layer: 0
-  m_Name: Text (TMP) (3)
+  m_Name: Instruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19536,7 +19536,7 @@ GameObject:
   - component: {fileID: 1650685956}
   - component: {fileID: 1650685955}
   m_Layer: 0
-  m_Name: Text (TMP) (6)
+  m_Name: Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
