@@ -188,6 +188,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -479,6 +483,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -681,6 +689,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -816,6 +828,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -897,6 +913,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -1079,6 +1099,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -1150,6 +1174,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -1299,6 +1327,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -1419,6 +1451,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -1459,14 +1495,14 @@ MonoBehaviour:
   sounds:
   - name: BoatSound
     clip: {fileID: 8300000, guid: a458c8966b43ddd4497d4f7df8a416fe, type: 3}
-    volume: 0.5
+    volume: 0.236
     pitch: 1
     source: {fileID: 0}
     loop: 1
   - name: ShipCrash
     clip: {fileID: 8300000, guid: c6beabad74f1c3e45a30ae4b84ca4239, type: 3}
     volume: 0.5
-    pitch: 1
+    pitch: 2
     source: {fileID: 0}
     loop: 0
 --- !u!4 &803353625
@@ -1549,6 +1585,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -1620,6 +1660,10 @@ PrefabInstance:
     - target: {fileID: 4000013213224824, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
@@ -1786,6 +1830,10 @@ PrefabInstance:
     - target: {fileID: 4000013213224824, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
@@ -1995,6 +2043,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -2066,6 +2118,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -2151,6 +2207,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -2229,6 +2289,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -2302,6 +2366,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -2373,6 +2441,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -2520,6 +2592,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -2613,6 +2689,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -2684,6 +2764,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -2762,6 +2846,10 @@ PrefabInstance:
     - target: {fileID: 4000013213224824, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
@@ -2966,6 +3054,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3501782992446146902, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501782992446146902, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -3037,6 +3129,10 @@ PrefabInstance:
     - target: {fileID: 4000013213224824, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
@@ -3112,6 +3208,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -3134,7 +3234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1005661579688840531, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -216
+      value: -257.1
       objectReference: {fileID: 0}
     - target: {fileID: 1005661579688840531, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3450,6 +3550,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -3521,6 +3625,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -3667,6 +3775,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -4002,6 +4114,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: timer
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
       propertyPath: soundHit
       value: ShipCrash
       objectReference: {fileID: 0}
@@ -4073,6 +4189,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
@@ -4182,6 +4302,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: timer
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: soundHit
