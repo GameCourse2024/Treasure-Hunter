@@ -1855,7 +1855,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -12.889893, y: -22.840088}
-  m_SizeDelta: {x: 300, y: 500}
+  m_SizeDelta: {x: 300, y: 530}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &127664273
 MonoBehaviour:
@@ -2369,8 +2369,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Size: {x: 1.1, y: 2, z: 0.89}
+  m_Center: {x: 0, y: 0.98, z: 0.31}
 --- !u!195 &184395476
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6422,8 +6422,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Size: {x: 1.1, y: 2, z: 0.89}
+  m_Center: {x: 0, y: 0.98, z: 0.31}
 --- !u!195 &523828801
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10376,7 +10376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &805801355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12320,7 +12320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -88.6}
+  m_AnchoredPosition: {x: 0.000030517578, y: -64}
   m_SizeDelta: {x: 227.9, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &960756449
@@ -13425,7 +13425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -251}
+  m_AnchoredPosition: {x: 0.000030517578, y: -229}
   m_SizeDelta: {x: 228.4, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1026904701
@@ -13448,7 +13448,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find The Lost Sword.
+  m_text: 'Find The Lost Sword.
+
+    Hint: Forest'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14316,7 +14318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -221.1}
+  m_AnchoredPosition: {x: 0.000030517578, y: -168}
   m_SizeDelta: {x: 228.4, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1088234310
@@ -14339,7 +14341,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find The Lost Ring.
+  m_text: 'Find The Lost Ring.
+
+    Hint: Flower Field'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15122,7 +15126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -281}
+  m_AnchoredPosition: {x: 0.000030517578, y: -292}
   m_SizeDelta: {x: 228.4, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1170659537
@@ -16105,7 +16109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -165.7}
+  m_AnchoredPosition: {x: 0.000030517578, y: -119}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1244681208
@@ -16592,7 +16596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -165.7}
+  m_AnchoredPosition: {x: 0.000030517578, y: -119}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1346031546
@@ -19005,7 +19009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -319.9}
+  m_AnchoredPosition: {x: 0.000030517578, y: -342}
   m_SizeDelta: {x: 228.4, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1536835496
@@ -19598,7 +19602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -432.9}
+  m_AnchoredPosition: {x: 0.000030517578, y: -465}
   m_SizeDelta: {x: 228.4, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1650685955
@@ -20719,8 +20723,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Size: {x: 1.1, y: 2, z: 0.89}
+  m_Center: {x: 0, y: 0.98, z: 0.31}
 --- !u!195 &1707969125
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -23737,8 +23741,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Size: {x: 1.1, y: 2, z: 0.89}
+  m_Center: {x: 0, y: 0.98, z: 0.31}
 --- !u!195 &1897569705
 NavMeshAgent:
   m_ObjectHideFlags: 0
