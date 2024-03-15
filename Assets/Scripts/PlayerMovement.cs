@@ -145,9 +145,6 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
 
-        // Move backward only when the backward key is pressed
-        float moveBackwardInput = moveAction.ReadValue<Vector2>().y;
-
         // Move left and right when the left and right keys are pressed
         moveDirection = Camera.main.transform.TransformDirection(moveDirection);
         moveDirection.y = 0; // Keep the player level with the ground
@@ -158,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
             isSprinting = true;
         }
 
-        if (moveVertical == 0 && moveBackwardInput == 0 && moveHorizontal == 0)
+        if (moveVertical == 0 && moveHorizontal == 0)
         {
             isSprinting = false;
         }
@@ -172,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(2 * jumpForce * gravity);
             animator.SetBool("isJumping", !characterController.isGrounded);
 
-            isJumpingFromStanding = Mathf.Abs(moveVertical + moveBackwardInput) < 0.1f;
+            isJumpingFromStanding = Mathf.Abs(moveVertical + moveHorizontal) < 0.1f;
             if (isJumpingFromStanding)
                 moveAction.Disable();
             StartCoroutine(EnableMoveActionAfterDelay(delatToWalk));
@@ -191,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move((moveDirection * currentSpeed + velocity) * Time.deltaTime);
 
         // Set isRunning and isJumping animation parameters
-        bool isRunning = Mathf.Abs(moveVertical + moveBackwardInput + moveHorizontal) > 0.1f;
+        bool isRunning = Mathf.Abs(moveVertical + moveHorizontal) > 0.1f;
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isJumping", !characterController.isGrounded);
         animator.SetBool("isSprinting", isSprinting);
