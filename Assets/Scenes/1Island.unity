@@ -2339,6 +2339,7 @@ MonoBehaviour:
   projectileSpeed: 29.9
   attackCooldown: 2
   destroyTime: 1.5
+  soundShoot: ShootingArrow
 --- !u!114 &184395474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3359,19 +3360,19 @@ MonoBehaviour:
     loop: 0
   - name: ShootingArrow
     clip: {fileID: 8300000, guid: 899af6b2407edb0449bb188c72391c30, type: 3}
-    volume: 0.5
-    pitch: 1
-    source: {fileID: 0}
-    loop: 0
-  - name: ShootingFireball
-    clip: {fileID: 8300000, guid: ddf2e239192c1a340abce763135949c5, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: PlayerDeath
     clip: {fileID: 8300000, guid: 6d5db02910cb6b34c8cb94c379237788, type: 3}
     volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ShootingFire
+    clip: {fileID: 8300000, guid: 1bb22a9cffafde341b15ef52781e9000, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
@@ -6400,6 +6401,7 @@ MonoBehaviour:
   projectileSpeed: 29.9
   attackCooldown: 2
   destroyTime: 1.5
+  soundShoot: ShootingArrow
 --- !u!114 &523828799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20828,6 +20830,7 @@ MonoBehaviour:
   projectileSpeed: 29.9
   attackCooldown: 2
   destroyTime: 1.5
+  soundShoot: ShootingArrow
 --- !u!1001 &1709033917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23854,6 +23857,7 @@ MonoBehaviour:
   projectileSpeed: 29.9
   attackCooldown: 2
   destroyTime: 1.5
+  soundShoot: ShootingArrow
 --- !u!114 &1897569703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28109,9 +28113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 7335389834344377185, guid: a4928146a763ff6449edc07507cc1a53, type: 3}
   throwPoint: {fileID: 197779629475761300}
-  destroyTime: 1.5
-  shootingSpeed: 20
-  maxShootingAngle: 35
+  destroyTime: 2
+  shootingSpeed: 24
+  maxShootingAngle: 45
+  soundShoot: ShootingFire
 --- !u!4 &1197877941361229332
 Transform:
   m_ObjectHideFlags: 0
@@ -30442,8 +30447,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.73, y: 6.19, z: 4.98}
-  m_Center: {x: 0, y: 1.42, z: 1.56}
+  m_Size: {x: 1.38, y: 3.8, z: 1.91}
+  m_Center: {x: 0, y: 1.8, z: -0.04}
 --- !u!4 &4720381028315646503
 Transform:
   m_ObjectHideFlags: 0
@@ -33073,13 +33078,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.25
+  m_Height: 4
+  m_Radius: 0.56
   m_SlopeLimit: 100
   m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.95, z: 0}
+  m_Center: {x: 0, y: 1.8, z: 0}
 --- !u!4 &8721063970714956194
 Transform:
   m_ObjectHideFlags: 0

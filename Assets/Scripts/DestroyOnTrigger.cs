@@ -61,7 +61,7 @@ public class DestroyOnTrigger : MonoBehaviour
             // Increment the hit count
             count++;
              // Check if isHit is not already active
-            if (!isHitActive)
+            if (!isHitActive && !isDead)
             {
                 // Activate isHit and set the hit timer
                 isHitActive = true;
@@ -78,7 +78,6 @@ public class DestroyOnTrigger : MonoBehaviour
             {
                 KillQuest.Instance.IncrementNpcKilledCount();
                 AudioManagerGamePlay.Instance.Play(soundDeath);
-
                 // Set the "isDead" parameter in the animator
                 animator.SetBool("isDead", true);
 

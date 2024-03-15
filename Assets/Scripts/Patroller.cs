@@ -59,6 +59,14 @@ public class Patroller : MonoBehaviour
             // Set the new destination
             navMeshAgent.SetDestination(initialDirectionIsRight ? rightEndpoint : leftEndpoint);
         }
+        
+        // Check if the NPC has exceeded the move distance from the starting point
+        float distanceFromStartPoint = Vector3.Distance(transform.position, startPoint);
+        if (distanceFromStartPoint > moveDistance)
+        {
+            // Reset the destination to the starting point
+            navMeshAgent.SetDestination(startPoint);
+        }
     }
 
     private void UpdateAnimations()

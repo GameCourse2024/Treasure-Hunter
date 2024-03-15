@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float destroyTime = 1.5f;
     [SerializeField] private float shootingSpeed = 20f;
     [SerializeField] private float maxShootingAngle = 35f;
+    [SerializeField] private string soundShoot;
 
     public void SpawnFireball()
     {
@@ -26,6 +27,7 @@ public class Spawner : MonoBehaviour
         // Calculate the clamped shooting direction
         Vector3 clampedShootingDirection = Quaternion.AngleAxis(clampedAngle, Vector3.Cross(playerForward, shootingDirection)) * playerForward;
 
+        PlaySound();
         // Instantiate the fireball at the throwPoint's position
         GameObject fireballInstance = Instantiate(fireballPrefab, throwPoint.position, Quaternion.identity);
 
@@ -37,5 +39,11 @@ public class Spawner : MonoBehaviour
 
         // Destroy the fireball after a certain time
         Destroy(fireballInstance, destroyTime);
+    }
+
+    private void PlaySound()
+    {
+        AudioManagerGamePlay.Instance.Play(soundShoot);
+
     }
 }

@@ -18,6 +18,7 @@ public class NPCAttack : MonoBehaviour
     private float timeSinceLastAttack;
     private Vector3 playerPosition;
     private Vector3 directionToPlayer;
+    [SerializeField] private string soundShoot;
 
     private void Start()
     {
@@ -71,6 +72,8 @@ public class NPCAttack : MonoBehaviour
         Quaternion finalRotation = rotationToPlayer * arrowRotation;
 
         animator.SetBool("isAttacking", true);
+        
+        PlaySound();
         // Instantiate the projectile with the correct rotation
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, finalRotation);
 
@@ -119,5 +122,10 @@ public class NPCAttack : MonoBehaviour
             Debug.LogError("Player not found!");
             return Vector3.zero;
         }
+    }
+
+    private void PlaySound()
+    {
+        AudioManagerGamePlay.Instance.Play(soundShoot);
     }
 }
