@@ -21,8 +21,6 @@ public class AudioManagerGamePlay : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
-
         foreach (SoundForGame s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();

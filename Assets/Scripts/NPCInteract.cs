@@ -72,6 +72,8 @@ public class NPCInteract : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI missionBarText;
+    [SerializeField]
+    private TextMeshProUGUI missionBarTextHint;
     
     void Start() 
     {
@@ -140,6 +142,7 @@ public class NPCInteract : MonoBehaviour
             if(canGiveQuest && npcQuest.questData.isCompleted == true && questCompleted)
             {
                 typeWriterEffect.setText(afterQuestText);
+                missionBarTextHint.alpha = 0f;
             }
             return;
         }
@@ -202,6 +205,7 @@ public class NPCInteract : MonoBehaviour
             string originalText = missionBarText.text;
             string modifiedText = "<color=yellow>" + originalText + "</color>";
             missionBarText.text = modifiedText;
+            missionBarTextHint.alpha = 1f;
             return;
         }
         if(npcQuest.questData.isCompleted == true && !questCompleted)
