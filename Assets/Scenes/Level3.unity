@@ -1428,21 +1428,15 @@ MonoBehaviour:
   - name: BoatSound
     clip: {fileID: 8300000, guid: a458c8966b43ddd4497d4f7df8a416fe, type: 3}
     volume: 0.5
-    pitch: 0
-    source: {fileID: 0}
-    loop: 1
-  - name: SeaSound
-    clip: {fileID: 8300000, guid: b56545564db275748b7a4b34b6d4cb98, type: 3}
-    volume: 0.5
-    pitch: 0
+    pitch: 1
     source: {fileID: 0}
     loop: 1
   - name: ShipCrash
     clip: {fileID: 8300000, guid: c6beabad74f1c3e45a30ae4b84ca4239, type: 3}
     volume: 0.5
-    pitch: 0
+    pitch: 1
     source: {fileID: 0}
-    loop: 1
+    loop: 0
 --- !u!4 &803353625
 Transform:
   m_ObjectHideFlags: 0
@@ -1521,6 +1515,10 @@ PrefabInstance:
     - target: {fileID: 4000011339693244, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: soundHit
+      value: ShipCrash
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2619,6 +2617,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: soundHit
+      value: ShipCrash
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2960,6 +2962,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8052064709250271004, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+      propertyPath: soundHit
+      value: ShipCrash
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3029,6 +3035,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1100180808894436285, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+      propertyPath: soundHit
+      value: ShipCrash
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3048,7 +3058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1005661579688840531, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -304
+      value: -492
       objectReference: {fileID: 0}
     - target: {fileID: 1005661579688840531, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3278,7 +3288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 803353624}
-  themeSound: SeaSound
+  themeSound: BoatSound
 --- !u!4 &1797738092
 Transform:
   m_ObjectHideFlags: 0

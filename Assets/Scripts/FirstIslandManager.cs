@@ -10,10 +10,8 @@ public class FirstIslandManager : MonoBehaviour
     [Tooltip("Welcome message")]
     [SerializeField]
     private string welcomeMessage;
-    [SerializeField]
-    private AudioManagerGamePlay audioManager;
-    [SerializeField]
-    private Canvas missionCanvas;
+    [SerializeField] private AudioManagerGamePlay audioManager;
+    [SerializeField] private Canvas missionCanvas;
     private bool canvasVisible = true;
     void Start()
     {

@@ -41,6 +41,7 @@ public class AudioManagerGamePlay : MonoBehaviour
         SoundForGame s = Array.Find(sounds, sound => sound.name == name);
         if (s != null)
         {
+            Debug.Log("Playing Sound! " + name);
             s.source.Play();
         }
         else
