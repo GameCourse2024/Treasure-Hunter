@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class GoldManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GoldManager : MonoBehaviour
     private string enoughGoldForShip;
     [SerializeField]
     private float waitTime;
+    [SerializeField]
+    private float delay;
 
     private void Awake()
     {
@@ -41,7 +44,8 @@ public class GoldManager : MonoBehaviour
         UpdateGoldText();
         if (gold >= 300)
         {
-            ScrollController.DisplayBanner(enoughGoldForShip, waitTime);
+            Debug.Log("Displaying banner with enough gold");
+            StartCoroutine(DisplayBannerAfterDelay(delay));
             string originalText = questText.text;
             string modifiedText = "<color=yellow><s>" + originalText + "</s></color>";
             questText.text = modifiedText;
@@ -76,4 +80,10 @@ public class GoldManager : MonoBehaviour
     {
         return gold;
     }
+    private IEnumerator DisplayBannerAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ScrollController.DisplayBanner(enoughGoldForShip,waitTime);
+    }
+
 }

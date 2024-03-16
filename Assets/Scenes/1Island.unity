@@ -17849,6 +17849,7 @@ MonoBehaviour:
   gold: 100
   enoughGoldForShip: You have enough gold to buy a ship!
   waitTime: 15
+  delay: 5
 --- !u!1001 &1444669296
 PrefabInstance:
   m_ObjectHideFlags: 0
