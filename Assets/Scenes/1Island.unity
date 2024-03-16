@@ -2322,6 +2322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusToWatch: 60
   attackRange: 30
+  stoppingDistance: 20
 --- !u!114 &184395473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2337,7 +2338,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5014621495667378518, guid: cccd44153b11283489827e65b3d51c5c, type: 3}
   projectileSpawnPoint: {fileID: 123408153}
   projectileSpeed: 29.9
-  attackCooldown: 2
+  attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
 --- !u!114 &184395474
@@ -2353,7 +2354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
-  stoppingDistance: 20
+  stoppingDistance: 28
 --- !u!65 &184395475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6384,6 +6385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusToWatch: 40
   attackRange: 30
+  stoppingDistance: 20
 --- !u!114 &523828798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6399,7 +6401,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5014621495667378518, guid: cccd44153b11283489827e65b3d51c5c, type: 3}
   projectileSpawnPoint: {fileID: 1686837194}
   projectileSpeed: 29.9
-  attackCooldown: 2
+  attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
 --- !u!114 &523828799
@@ -6415,7 +6417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
-  stoppingDistance: 20
+  stoppingDistance: 28
 --- !u!65 &523828800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20716,7 +20718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
-  stoppingDistance: 20
+  stoppingDistance: 28
 --- !u!65 &1707969124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20813,6 +20815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusToWatch: 60
   attackRange: 40
+  stoppingDistance: 20
 --- !u!114 &1707969130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20828,7 +20831,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5014621495667378518, guid: cccd44153b11283489827e65b3d51c5c, type: 3}
   projectileSpawnPoint: {fileID: 1230615503}
   projectileSpeed: 29.9
-  attackCooldown: 2
+  attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
 --- !u!1001 &1709033917
@@ -22926,7 +22929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggeringTag: Arrow
-  damageAmount: 6
+  damageAmount: 5
   soundHit: PlayerHurt
 --- !u!114 &1838004642
 MonoBehaviour:
@@ -23840,6 +23843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusToWatch: 60
   attackRange: 40
+  stoppingDistance: 20
 --- !u!114 &1897569702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23855,7 +23859,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5014621495667378518, guid: cccd44153b11283489827e65b3d51c5c, type: 3}
   projectileSpawnPoint: {fileID: 1636978435}
   projectileSpeed: 29.9
-  attackCooldown: 2
+  attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
 --- !u!114 &1897569703
@@ -23871,7 +23875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
-  stoppingDistance: 20
+  stoppingDistance: 28
 --- !u!65 &1897569704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30641,7 +30645,7 @@ Transform:
   m_GameObject: {fileID: 7719220633158310069}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 471.16, y: 32.2, z: 1086.11}
+  m_LocalPosition: {x: 476, y: 32.2, z: 1082}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31263,7 +31267,7 @@ MonoBehaviour:
   sprintCooldown: 20
   healthbar: {fileID: 114009511}
   spawner: {fileID: 1159926995876251159}
-  speedAnim: 0.5
+  speedAnim: 0.3
 --- !u!1 &5854860407147786498
 GameObject:
   m_ObjectHideFlags: 0
@@ -32775,7 +32779,7 @@ MonoBehaviour:
   playerTransform: {fileID: 5178703424060157833}
   distance: 30
   height: 9
-  rotationSpeed: 1.5
+  rotationSpeed: 1.2
   smoothSpeed: 1
   maxFlip: 12
 --- !u!137 &8389649198537896804

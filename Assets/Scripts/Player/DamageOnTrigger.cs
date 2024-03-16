@@ -13,7 +13,7 @@ public class DamageOnTrigger : MonoBehaviour
     private PlayerStats stats;
 
     private bool isHitActive = false;
-    private float hitDuration = 0.8f; // Adjust this value as needed
+    private float hitDuration = 0.25f; // Adjust this value as needed
     private float hitTimer = 0f;
 
     [Tooltip("Name of sound effect for this character to play in interaction. NOTE list of sounds for npc can be found in the npc folder inside sounds")]
@@ -43,10 +43,8 @@ public class DamageOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(triggeringTag) && !isHitActive)
-        {
-            Debug.Log(triggeringTag);
-            
+        if (other.CompareTag(triggeringTag)) // && !isHitActive)
+        { 
             // Inflict damage on the player
             TakeDamage(damageAmount);
 

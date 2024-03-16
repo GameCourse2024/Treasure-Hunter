@@ -17,21 +17,17 @@ public class Healthbar : MonoBehaviour
         currentHealth = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = maxHealth;
-        //StartCoroutine(RegenerateHealth());
-
     }
 
     private void Update()
     {
-        // Check if health is less than 80 and initiate regeneration
-        if (currentHealth < maxHealth)
+        if (currentHealth < maxHealth && currentHealth > 0)
         {
             currentHealth += regenerationRate * Time.deltaTime;
             slider.value = currentHealth;
 
             // Ensure health does not exceed the maximum value
             currentHealth = Mathf.Min(currentHealth, maxHealth);
-            //StartCoroutine(RegenerateHealth());
         }
     }
 
@@ -40,7 +36,6 @@ public class Healthbar : MonoBehaviour
         maxHealth = Mathf.Max(0f, health);
         slider.maxValue = maxHealth;
         SetHealth(maxHealth);
-        //slider.value = maxHealth;
     }
 
     public void SetHealth(float health)
@@ -53,23 +48,4 @@ public class Healthbar : MonoBehaviour
     {
         return currentHealth;
     }
-
-
-    private IEnumerator RegenerateHealth()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(regenerationInterval);
-
-            // Check if health is less than max health and initiate regeneration
-            if (currentHealth < maxHealth)
-            {
-                currentHealth += regenerationRate;
-                slider.value = currentHealth;
-
-                currentHealth = Mathf.Min(currentHealth, maxHealth);
-            }
-        }
-    }
-
 }
