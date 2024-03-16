@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.673305, g: 0.5181906, b: 0.34589565, a: 1}
+  m_IndirectSpecularColor: {r: 0.6736895, g: 0.51926976, b: 0.34707057, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -295,6 +295,10 @@ PrefabInstance:
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: hint
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
+      propertyPath: text
+      value: I wonder how much treasure there is at ember island!
       objectReference: {fileID: 0}
     - target: {fileID: -1532640751255260177, guid: d596df587a80dc34d812954a664f2951, type: 3}
       propertyPath: npcQuest
@@ -2341,6 +2345,7 @@ MonoBehaviour:
   attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
+  timerAnim: 1
 --- !u!114 &184395474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,6 +2360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
   stoppingDistance: 28
+  RotateSpeed: 5
 --- !u!65 &184395475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2966,6 +2972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &230340543
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &257344458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 113d36f51d55c2c4a807a09ac76c1d69, type: 3}
@@ -3959,6 +3967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &321202869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4272,6 +4281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &335340938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6404,6 +6414,7 @@ MonoBehaviour:
   attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
+  timerAnim: 1
 --- !u!114 &523828799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6418,6 +6429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
   stoppingDistance: 28
+  RotateSpeed: 5
 --- !u!65 &523828800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6748,6 +6760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &542982470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fe7ec1d555ab494d836addf3c4b2c0f, type: 3}
@@ -6922,8 +6935,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: text
-      value: I like to go strolling... but apparently there is a man who strolls
-        around the whole island!
+      value: Ember island is the closest island to us, I wonder if I should try going
+        there!
       objectReference: {fileID: 0}
     - target: {fileID: 25831354416353588, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: player
@@ -7463,6 +7476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &595338844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7750,6 +7764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &614350390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8368,6 +8383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!4 &647849553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6158151308171754993, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
@@ -8533,7 +8549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: text
-      value: I stroll everywhere! good job finding me!
+      value: This? this is havenport the somehwat peaceful city.
       objectReference: {fileID: 0}
     - target: {fileID: 25831354416353588, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: player
@@ -9057,6 +9073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &715293230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11162,6 +11179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &890855138
 GameObject:
   m_ObjectHideFlags: 0
@@ -11591,6 +11609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &927009101
 GameObject:
   m_ObjectHideFlags: 0
@@ -12196,6 +12215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &954044040
 GameObject:
   m_ObjectHideFlags: 0
@@ -14138,6 +14158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!114 &1071641691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14150,6 +14171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &1079818318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14705,6 +14727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &1122093234
 GameObject:
   m_ObjectHideFlags: 0
@@ -17159,7 +17182,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: text
-      value: So relaxing..
+      value: Ember island is supposed to be a volcanic island filled with people
+        who worship a volcano, lucky we live here in havenport.
       objectReference: {fileID: 0}
     - target: {fileID: 25831354416353588, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: player
@@ -19901,6 +19925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &1670112763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 104598, guid: 2394d7d557201f048b00c84246231eb0, type: 3}
@@ -20719,6 +20744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
   stoppingDistance: 28
+  RotateSpeed: 5
 --- !u!65 &1707969124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20834,6 +20860,7 @@ MonoBehaviour:
   attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
+  timerAnim: 1
 --- !u!1001 &1709033917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21840,6 +21867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!114 &1770020830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21852,6 +21880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!114 &1770020831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21864,6 +21893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &1771807322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1824894333012844, guid: cd6ef13c75034bc4d820dfaf562e4a46, type: 3}
@@ -22074,6 +22104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &1789798485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22387,6 +22418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1001 &1804506436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23634,7 +23666,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -370397061826874770, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: text
-      value: I enjoy the simple things.. no need for riches
+      value: I enjoy the simple things.. no need for riches here in havenport.
       objectReference: {fileID: 0}
     - target: {fileID: 25831354416353588, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
       propertyPath: player
@@ -23862,6 +23894,7 @@ MonoBehaviour:
   attackCooldown: 2.3
   destroyTime: 1.5
   soundShoot: ShootingArrow
+  timerAnim: 1
 --- !u!114 &1897569703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23876,6 +23909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7719220633158310069}
   stoppingDistance: 28
+  RotateSpeed: 5
 --- !u!65 &1897569704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24619,6 +24653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1 &1947876823
 GameObject:
   m_ObjectHideFlags: 0
@@ -25421,6 +25456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!114 &2032694278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25433,6 +25469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!4 &2050122551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6158151308171754993, guid: 89c98c9f421402149a2c15a2f767456b, type: 3}
@@ -25889,6 +25926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!1818360609 &2086590533
 RotationConstraint:
   m_ObjectHideFlags: 0
@@ -26919,6 +26957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f196fa9d908684f8874489f21dfc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 180
 --- !u!4 &2135721959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4460530275303074, guid: 56c82061e6c4de742a208837848be55a, type: 3}
