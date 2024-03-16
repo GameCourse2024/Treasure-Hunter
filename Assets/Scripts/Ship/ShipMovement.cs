@@ -28,10 +28,7 @@ public class ShipMovement : MonoBehaviour
     [SerializeField]
     private KeyCode rightKey = KeyCode.D;
    
-   
     private Rigidbody rb;
-
-
 
     private void Start() 
     {
@@ -43,9 +40,9 @@ public class ShipMovement : MonoBehaviour
         HandleMovementInput();    
     }
 
-void HandleMovementInput()
-{
-    float rotationInput = 0f;
+    void HandleMovementInput()
+    {
+        float rotationInput = 0f;
 
         if (Input.GetKey(leftKey))
         {

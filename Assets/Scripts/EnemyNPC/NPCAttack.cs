@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class NPCAttack : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class NPCAttack : MonoBehaviour
     private Animator animator;  
     private DestroyOnTrigger destroyCode;
     private float timeSinceLastAttack;
-    private Vector3 playerPosition;
     private Vector3 directionToPlayer;
     [SerializeField] private string soundShoot;
+
+    [Tooltip("adjust this value based on your animation")]
+    [SerializeField] private float timerAnim = 1f;
 
     private void Start()
     {
@@ -29,7 +32,6 @@ public class NPCAttack : MonoBehaviour
 
     private void Update()
     {
-        //transform.rotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0f, directionToPlayer.z));
         timeSinceLastAttack += Time.deltaTime;
     
         if (!destroyCode.IsDead() && timeSinceLastAttack >= attackCooldown)
@@ -74,6 +76,7 @@ public class NPCAttack : MonoBehaviour
         animator.SetBool("isAttacking", true);
         
         PlaySound();
+        
         // Instantiate the projectile with the correct rotation
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, finalRotation);
 
@@ -101,8 +104,8 @@ public class NPCAttack : MonoBehaviour
 
     private IEnumerator ResetIsAttacking()
     {
-        // Wait for the attack animation duration (adjust this value based on your animation)
-        yield return new WaitForSeconds(1f);
+        // Wait for the attack animation duration 
+        yield return new WaitForSeconds(timerAnim);
 
         // Reset the isAttacking parameter
         animator.SetBool("isAttacking", false);

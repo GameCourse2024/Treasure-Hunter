@@ -7,23 +7,27 @@ public class DestroyOnTrigger : MonoBehaviour
 {
     public bool isDead = false;
     private Animator animator;
+    
     [Tooltip("Tag of the triggering object that will destroy this object")]
     [SerializeField] private string triggeringTag;
 
     [Tooltip("Number of hits required to destroy the NPC")]
     [SerializeField] private int hitsRequired = 5;
+    
     [Tooltip("Timer to display death animation")]
+    
     [SerializeField] private float deathTimer = 7f;
+    
     [Tooltip("Referrence to the animator prefab")]
     [SerializeField] private NavMeshAgent navMeshAgent; 
 
-    private int count = 0;
-    private bool isCooldown = false;
-    private float cooldownDuration = 0.5f; // Adjust this value as needed
+    private int count = 0; // counts the number of hits NPC recieved
+    private bool isCooldown = false; // cooldown for seperating
+    private float cooldownDuration = 0.5f; // duration of cooldown
 
-    private bool isHitActive = false;
-    [SerializeField] private float hitDuration = 0.8f;
-    private float hitTimer = 0f;
+    private bool isHitActive = false; // is getting hit
+    [SerializeField] private float hitDuration = 0.8f; // timer for the hit 
+    private float hitTimer = 0f; // checking the timer
     [SerializeField] private string soundHit;
     [SerializeField] private string soundDeath;
 
@@ -31,8 +35,7 @@ public class DestroyOnTrigger : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        navMeshAgent = GetComponent<NavMeshAgent>(); // Assign NavMeshAgent component
-
+        navMeshAgent = GetComponent<NavMeshAgent>(); 
     }
 
     private void Update()
@@ -60,7 +63,8 @@ public class DestroyOnTrigger : MonoBehaviour
 
             // Increment the hit count
             count++;
-             // Check if isHit is not already active
+            
+            // Check if isHit is not already active
             if (!isHitActive && !isDead)
             {
                 // Activate isHit and set the hit timer

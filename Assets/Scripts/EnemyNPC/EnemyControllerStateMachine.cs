@@ -36,7 +36,7 @@ public class EnemyControllerStateMachine : StateMachine
             .AddTransition(chaser, () => DistanceToTarget() <= attackRange, attacking)
             .AddTransition(attacking, () => DistanceToTarget() > attackRange, chaser)
             .AddTransition(patroller, () => DistanceToTarget() <= stoppingDistance, attacking)
-            .AddTransition(chaser, () => DistanceToTarget() <= stoppingDistance, attacking); // Transition from both patroller and chaser to attacking if within stopping distance
+            .AddTransition(chaser, () => DistanceToTarget() <= stoppingDistance, attacking); 
     }
 
     private void OnDrawGizmosSelected()

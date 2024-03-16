@@ -7,32 +7,44 @@ public class PlayerMovement : MonoBehaviour
 {
     [Tooltip("Speed of player movement, in meters/second")]
     [SerializeField] private float speed = 3.5f;
+    
     [Tooltip("Speed of player when sprint, in meters/second")]
     [SerializeField] private float sprintSpeedMultiplier = 2f;
+    
     [Tooltip("Force of player jump")]
     [SerializeField] private float jumpForce = 1.0f;
+    
     private const float gravity = 9.81f;
     private const float pullDownForce = -2f;
     private const float defaultAnimationSpeed = 1.0f;
     private const float delatToWalk = 1.0f;
     private const float minStamina = 1.0f;
+    
     [SerializeField] float rotationSpeed = 180f;
+    
     [SerializeField] private InputAction moveAction;
     [SerializeField] private InputAction jumpAction;
     [SerializeField] private InputAction sprintAction;
     [SerializeField] private InputAction attackAction;
+    
     [Tooltip("Attacking animation timer")]
     [SerializeField] private float spawnTimer = 0.5f;
+    
     [Tooltip("Time to wait to finish animation")]
     [SerializeField] private float wait = 0.2f;
+    
     [Tooltip("Reference to Staminabar")]
     [SerializeField] private Staminabar staminabar;
+    
     [Tooltip("If stamina is 0 it needs to recharge to this value when he can sprint again")]
     [SerializeField] private float sprintCooldown = 20f;
+   
     [Tooltip("Reference to Healthbar")]
     [SerializeField] private Healthbar healthbar;
+    
     [Tooltip("Reference to Spawner where the ball instantiates")]
     [SerializeField] private Spawner spawner;
+    
     [Tooltip("How fast the animation displays")]
     [SerializeField] private float speedAnim = 0.3f;
 

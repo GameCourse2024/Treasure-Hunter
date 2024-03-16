@@ -11,15 +11,16 @@ public class Wind : MonoBehaviour
     [SerializeField]
     private float maxInterval = 5f;
 
-    [SerializeField]
-    private float maxAngleChangePerSecond = 5f; // The maximum angle change per second
+    [Tooltip("Angle Range")]
+    [SerializeField] private float angleRange = 90f;
+
+    [SerializeField] private float maxAngleChangePerSecond = 5f; // The maximum angle change per second
     private float targetAngle; // The target wind angle
     private float currentAngle; // The current wind angle
 
    private Rigidbody rb;
 
     public Vector3 windForceVector { get; private set; }
-
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class Wind : MonoBehaviour
         {
             Debug.Log("Error, no rigidbody on ship found");
         }
-        targetAngle = Random.Range(-90f, 90f);
+        targetAngle = Random.Range(-angleRange, angleRange);
         currentAngle = targetAngle;
     }
 
@@ -44,7 +45,7 @@ public class Wind : MonoBehaviour
         targetAngle += Random.Range(-maxAngleChangePerSecond, maxAngleChangePerSecond) * Time.deltaTime;
 
         // Clamp the target angle to the range of -90 to 90 degrees
-        targetAngle = Mathf.Clamp(targetAngle, -90f, 90f);
+        targetAngle = Mathf.Clamp(targetAngle, -angleRange, angleRange);
 
         // Smoothly lerp the current angle towards the target angle
         currentAngle = Mathf.Lerp(currentAngle, targetAngle, Time.deltaTime);
@@ -56,7 +57,6 @@ public class Wind : MonoBehaviour
         // Assign the modified vector back to the property
         windForceVector = tempWindForce;
     }
-
 
     void ApplyWind()
     {

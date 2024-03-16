@@ -14,8 +14,6 @@ public class BoatScene : MonoBehaviour
             return;
         }
 
-        //audioManager.Play("BoatSound");
-        //audioManager.Play(themeSound);
         AudioManagerGamePlay.Instance.Play(themeSound);
 
     }

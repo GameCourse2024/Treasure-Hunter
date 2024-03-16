@@ -28,6 +28,7 @@ public class Spawner : MonoBehaviour
         Vector3 clampedShootingDirection = Quaternion.AngleAxis(clampedAngle, Vector3.Cross(playerForward, shootingDirection)) * playerForward;
 
         PlaySound();
+        
         // Instantiate the fireball at the throwPoint's position
         GameObject fireballInstance = Instantiate(fireballPrefab, throwPoint.position, Quaternion.identity);
 
