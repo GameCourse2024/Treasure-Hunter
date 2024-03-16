@@ -10703,7 +10703,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -412427624456551380, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
+    - {fileID: 5539313643405716286, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10846,7 +10848,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5539313643405716286, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
+    - {fileID: -412427624456551380, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17024,7 +17028,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -412427624456551380, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
+    - {fileID: 5539313643405716286, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17093,7 +17099,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5539313643405716286, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
+    - {fileID: -412427624456551380, guid: 1b45513ca1922494d9f8df31117ab997, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
