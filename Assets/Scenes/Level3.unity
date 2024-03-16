@@ -3278,12 +3278,16 @@ PrefabInstance:
       value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1572595259406617107, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
+      propertyPath: stopForce
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572595259406617107, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
       propertyPath: acceleration
       value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 1572595259406617107, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
       propertyPath: rotationSpeed
-      value: 0.12
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1579745558340340873, guid: 3736c06cd48293c46bb5ba51744d424d, type: 3}
       propertyPath: m_Name
