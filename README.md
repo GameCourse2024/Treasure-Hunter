@@ -1,3 +1,3 @@
-# Assignment6
-Play [HERE]
-(https://games2024.itch.io/treasurehunters)
+# Treasure Hunters!
+Play [HERE](https://games2024.itch.io/treasurehunters)
+
